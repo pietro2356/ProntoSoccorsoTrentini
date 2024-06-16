@@ -1,0 +1,7 @@
+{
+  "name": "ProntoSoccorsoTrentini",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
