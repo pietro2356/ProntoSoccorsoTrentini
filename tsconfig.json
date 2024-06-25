@@ -25,7 +25,8 @@
       "@ui/*": ["./src/app/ui/*"],
       "@layout/*": ["./src/app/layout/*"],
       "@model/*": ["./src/app/model/*"],
-      "@pattern/*": ["./src/app/pattern/*"]
+      "@pattern/*": ["./src/app/pattern/*"],
+      "@env/*": ["./src/environments/*"],
     }
   },
   "angularCompilerOptions": {
