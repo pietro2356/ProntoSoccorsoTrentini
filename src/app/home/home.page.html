@@ -1,34 +1,12 @@
-<!--<ion-header [translucent]="true">-->
-<!--  <ion-toolbar>-->
-<!--    <ion-title>-->
-<!--      Blank-->
-<!--    </ion-title>-->
-<!--  </ion-toolbar>-->
-<!--</ion-header>-->
-
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>⚕️Pronto Soccorso</ion-title>
+    <ion-title>⚕️Pronto Soccorso Trentini</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
     @for(ps of statoPS().prontoSoccorso; track ps.codPsOd){
-      <!-- <sps-card-stato-pronto-soccorso [statoPS]="ps" />-->
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>{{ps.ps}}</ion-card-title>
-          <ion-card-subtitle>{{ps.codOspOd}}</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          <h4>Stato attesa: </h4>
-          <p>Bianco: {{ps.attesa.bianco}}</p>
-          <p>Verde: {{ps.attesa.verde}}</p>
-          <p>Azzurro: {{ps.attesa.azzurro}}</p>
-          <p>Arancio: {{ps.attesa.arancio}}</p>
-          <p>Rosso: {{ps.attesa.rosso}}</p>
-        </ion-card-content>
-      </ion-card>
+      <pst-card-ps [prontoSoccorso]="ps" />
     } @empty {
       <p>nessun dato</p>
     }
