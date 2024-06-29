@@ -118,7 +118,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "app",
+            "prefix": "pst",
             "style": "kebab-case"
           }
         ],
@@ -126,7 +126,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "app",
+            "prefix": "pst",
             "style": "camelCase"
           }
         ],
