@@ -7,9 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ExtractPSPipe implements PipeTransform {
 
   transform(value: string): unknown {
-    const prontoSoccorso = value.split('-')[1];
-    console.log({ prontoSoccorso });
-    return prontoSoccorso;
+    return value.split('-')[1];
   }
 
 }
