@@ -10,7 +10,7 @@ import { IonContent, IonFooter, IonHeader, IonTitle, IonToolbar } from '@ionic/a
   templateUrl: 'home-statops-page.component.html',
   styleUrls: ['home-statops-page.component.scss'],
   standalone: true,
-  imports: [CardPSComponent, IonHeader, IonToolbar, IonTitle, IonContent, IonFooter],
+  imports: [CardPSComponent, IonContent, IonHeader, IonTitle, IonToolbar, IonFooter],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeStatoPSPage {

@@ -4,12 +4,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-    @for(ps of statoPS().prontoSoccorso; track ps.codPsOd){
-      <pst-card-ps [prontoSoccorso]="ps" />
-    } @empty {
-      <p>nessun dato</p>
-    }
+<ion-content class="ion-padding">
+  @for(ps of statoPS().prontoSoccorso; track ps.codPsOd){
+    <pst-card-ps [prontoSoccorso]="ps" />
+  } @empty {
+    <p>nessun dato</p>
+  }
 </ion-content>
 
 <ion-footer>
@@ -23,3 +23,4 @@
     </p>
   </ion-toolbar>
 </ion-footer>
+
