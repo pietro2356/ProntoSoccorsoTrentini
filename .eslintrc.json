@@ -1,6 +1,6 @@
 {
   "root": true,
-  "ignorePatterns": ["projects/**/*"],
+  "ignorePatterns": ["*"],
   "overrides": [
     {
       "files": ["*.ts"],
@@ -28,44 +28,44 @@
             "type": "main",
             "mode": "file",
             "pattern": "main.ts",
-            "basePattern": "projects/**/src",
+            "basePattern": "src",
             "baseCapture": ["app"]
           },
           {
             "type": "app",
             "mode": "file",
             "pattern": "app(-|.)*.ts",
-            "basePattern": "projects/**/src/app",
+            "basePattern": "src/app",
             "baseCapture": ["app"]
           },
           {
             "type": "core",
             "pattern": "core",
-            "basePattern": "projects/**/src/app",
+            "basePattern": "src/app",
             "baseCapture": ["app"]
           },
           {
             "type": "ui",
             "pattern": "ui",
-            "basePattern": "projects/**/src/app",
+            "basePattern": "src/app",
             "baseCapture": ["app"]
           },
           {
             "type": "layout",
             "pattern": "layout",
-            "basePattern": "projects/**/src/app",
+            "basePattern": "src/app",
             "baseCapture": ["app"]
           },
           {
             "type": "model",
             "pattern": "model",
-            "basePattern": "projects/**/src/app",
+            "basePattern": "src/app",
             "baseCapture": ["app"]
           },
           {
             "type": "pattern",
             "pattern": "pattern",
-            "basePattern": "projects/**/src/app",
+            "basePattern": "src/app",
             "baseCapture": ["app"]
           },
           {
@@ -73,31 +73,31 @@
             "mode": "file",
             "pattern": "feature/*/*.routes.ts",
             "capture": ["feature"],
-            "basePattern": "projects/**/src/app",
+            "basePattern": "src/app",
             "baseCapture": ["app"]
           },
           {
             "type": "feature",
             "pattern": "feature/*",
             "capture": ["feature"],
-            "basePattern": "projects/**/src/app",
+            "basePattern": "src/app",
             "baseCapture": ["app"]
           },
           {
             "type": "lib-api",
             "mode": "file",
-            "pattern": "projects/**/src/public-api.ts",
+            "pattern": "src/public-api.ts",
             "capture": ["lib"]
           },
           {
             "type": "lib",
-            "pattern": "projects/**/src/lib",
+            "pattern": "src/lib",
             "capture": ["lib"]
           },
           {
             "type": "env",
             "pattern": "environments",
-            "basePattern": "projects/**/src",
+            "basePattern": "src",
             "baseCapture": ["app"]
           }
 
