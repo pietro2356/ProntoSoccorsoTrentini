@@ -10,4 +10,9 @@ export const routes: Routes = [
     redirectTo: 'homeStatoPS',
     pathMatch: 'full',
   },
+  {
+    path: '**',
+    loadComponent: () => import('./feature/not-found/not-found-page.component').then((m) => m.NotFoundPage),
+    pathMatch: 'full',
+  }
 ];
