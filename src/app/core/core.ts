@@ -7,7 +7,8 @@ import {
   withRouterConfig
 } from "@angular/router";
 import {provideIonicAngular} from "@ionic/angular/standalone";
-import {provideHttpClient, withFetch} from "@angular/common/http";
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { loadingInterceptor } from '@core/services/interceptor/loading-interceptor.interceptor';
 
 export interface CoreOptions {
   routes: Routes;
@@ -17,7 +18,8 @@ export function provideCore({ routes }: CoreOptions) {
   return [
     provideIonicAngular(),
     provideHttpClient(
-      withFetch()
+      withFetch(),
+      withInterceptors([loadingInterceptor])
     ),
     provideRouter(
       routes,
