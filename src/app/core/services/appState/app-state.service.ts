@@ -25,6 +25,10 @@ export class AppStateService {
     return this.#appState().state;
   }
 
+  public get error(): string | null {
+    return this.#appState().error;
+  }
+
   public setReady(): void {
     this.#appState.update(() => ({ state: 'READY', error: null }));
   }
