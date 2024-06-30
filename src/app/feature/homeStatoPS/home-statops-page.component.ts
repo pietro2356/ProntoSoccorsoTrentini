@@ -6,14 +6,14 @@ import { IonContent, IonFooter, IonHeader, IonTitle, IonToolbar } from '@ionic/a
 
 
 @Component({
-  selector: 'pst-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'pst-homeStatoPS-statops',
+  templateUrl: 'home-statops-page.component.html',
+  styleUrls: ['home-statops-page.component.scss'],
   standalone: true,
   imports: [CardPSComponent, IonHeader, IonToolbar, IonTitle, IonContent, IonFooter],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomePage {
+export class HomeStatoPSPage {
   #statoPSService = inject(StatoPSService);
   statoPS = signal<StatoProntoSoccorso>({} as StatoProntoSoccorso);
 
