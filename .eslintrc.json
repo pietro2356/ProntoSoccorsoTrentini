@@ -108,10 +108,14 @@
 
       },
       "rules": {
+        "no-console": "warn",
+        "no-debugger": "warn",
+        "no-alert": "error",
+        "no-undefined": "warn",
         "@angular-eslint/component-class-suffix": [
           "error",
           {
-            "suffixes": ["Page", "Component"]
+            "suffixes": ["Page", "Component", "Directive", "Pipe", "Service"]
           }
         ],
         "@angular-eslint/component-selector": [

@@ -7,9 +7,10 @@
       "projectType": "application",
       "schematics": {
         "@ionic/angular-toolkit:page": {
-          "styleext": "scss",
+          "style": "scss",
           "standalone": true,
-          "changeDetection": "OnPush"
+          "changeDetection": "OnPush",
+          "displayBlock": true
         }
       },
       "root": "",
