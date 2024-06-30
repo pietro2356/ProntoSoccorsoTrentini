@@ -4,6 +4,10 @@
   </ion-toolbar>
 </ion-header>
 
+@if(appStateService.isStatusLoading()){
+  <ion-progress-bar type="indeterminate"></ion-progress-bar>
+}
+
 <ion-content class="ion-padding">
   @for(ps of statoPS().prontoSoccorso; track ps.codPsOd){
     <pst-card-ps [prontoSoccorso]="ps" />
