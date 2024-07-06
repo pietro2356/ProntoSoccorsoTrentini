@@ -34,6 +34,8 @@ import { SkeletonModule } from 'primeng/skeleton';
     IonCardHeader,
     IonCardContent,
     IonCardTitle,
+    IonRefresher,
+    IonRefresherContent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -49,6 +51,7 @@ export class HomeStatoPSPage {
   }
 
   refreshData(event: CustomEvent) {
+    this.statoPS().prontoSoccorso = [];
     this.#statoPSService.getStatoPS().subscribe((statoPS: StatoProntoSoccorso) => {
       let oraAgg = this.statoPS().dataAggiornamento;
       this.statoPS.set(statoPS as StatoProntoSoccorso);
