@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpInterceptorFn } from '@angular/common/http';
+import { HttpInterceptorFn, provideHttpClient } from '@angular/common/http';
 
 import { loadingInterceptor } from './loading-interceptor.interceptor';
 
@@ -8,7 +8,9 @@ describe('loadingInterceptorInterceptor', () => {
     TestBed.runInInjectionContext(() => loadingInterceptor(req, next));
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient()]
+    });
   });
 
   it('should be created', () => {
