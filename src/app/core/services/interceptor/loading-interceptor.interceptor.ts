@@ -13,12 +13,10 @@ export const loadingInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>,
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
       stateService.setError(error.message);
-      // requestCounter--; FIX: DEVO METTERLO???????????????
       return throwError(() => error);
     }),
     finalize(() => {
       requestCounter--;
-      // TODO: DEvo mettere il decremento anche sopra????
       if (requestCounter === 0 && !stateService.isStatusError()) stateService.setReady();
     })
   );

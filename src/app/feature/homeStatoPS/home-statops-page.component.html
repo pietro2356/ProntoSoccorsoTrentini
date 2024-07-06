@@ -4,27 +4,47 @@
   </ion-toolbar>
 </ion-header>
 
-@if(appStateService.isStatusLoading()){
-  <ion-progress-bar type="indeterminate"></ion-progress-bar>
-}
-
 <ion-content [fullscreen]="true" class="ion-padding">
+  @if(appStateService.isStatusLoading()){
+    <ion-progress-bar type="indeterminate"></ion-progress-bar>
+  }
   @for(ps of statoPS().prontoSoccorso; track ps.codPsOd){
     <pst-card-ps [prontoSoccorso]="ps" />
   } @empty {
-    <p>nessun dato</p>
+    @if(appStateService.isStatusLoading()){
+      <!-- TODO: Refactor in loading component -->
+      <ion-card>
+        <p-skeleton height="9rem" borderRadius="4px"/>
+      </ion-card>
+      <ion-card>
+        <p-skeleton height="9rem" borderRadius="4px"/>
+      </ion-card>
+      <ion-card>
+        <p-skeleton height="9rem" borderRadius="4px"/>
+      </ion-card>
+    } @else {
+      <!-- TODO: Refactor in error component -->
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Pronto Soccorso non disponibile</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Il servizio di Pronto Soccorso non è disponibile al momento. Riprovare più tardi.</p>
+        </ion-card-content>
+      </ion-card>
+    }
   }
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
-    <p class="ion-text-center">
+    <div class="ion-text-center">
       @if(statoPS().dataAggiornamento){
         <p>Ultimo aggiornamento: {{statoPS().dataAggiornamento}}</p>
       } @else {
         <p>Ultimo aggiornamento: non disponibile</p>
       }
-    </p>
+    </div>
   </ion-toolbar>
 </ion-footer>
 
