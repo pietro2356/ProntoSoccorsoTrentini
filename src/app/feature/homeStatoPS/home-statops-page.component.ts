@@ -13,6 +13,7 @@ import {
 } from '@ionic/angular/standalone';
 import { AppStateService } from '@core/services/appState/app-state.service';
 import { SkeletonModule } from 'primeng/skeleton';
+import { catchError } from 'rxjs';
 
 
 @Component({
@@ -52,7 +53,14 @@ export class HomeStatoPSPage {
 
   refreshData(event: CustomEvent) {
     this.statoPS().prontoSoccorso = [];
-    this.#statoPSService.getStatoPS().subscribe((statoPS: StatoProntoSoccorso) => {
+    this.#statoPSService.getStatoPS()
+      .pipe(
+        catchError((err) => {
+          event.detail.complete();
+          throw err;
+        })
+      )
+      .subscribe((statoPS: StatoProntoSoccorso) => {
       let oraAgg = this.statoPS().dataAggiornamento;
       this.statoPS.set(statoPS as StatoProntoSoccorso);
 
