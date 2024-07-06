@@ -7,7 +7,7 @@ import {
   IonContent,
   IonFooter,
   IonHeader,
-  IonProgressBar,
+  IonProgressBar, IonRefresher, IonRefresherContent,
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
@@ -19,7 +19,18 @@ import { AppStateService } from '@core/services/appState/app-state.service';
   templateUrl: 'home-statops-page.component.html',
   styleUrls: ['home-statops-page.component.scss'],
   standalone: true,
-  imports: [CardPSComponent, IonContent, IonHeader, IonTitle, IonToolbar, IonFooter, IonProgressBar, IonAlert],
+  imports: [
+    CardPSComponent,
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    IonFooter,
+    IonProgressBar,
+    IonAlert,
+    IonRefresher,
+    IonRefresherContent,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeStatoPSPage {
@@ -30,6 +41,19 @@ export class HomeStatoPSPage {
   constructor() {
     this.#statoPSService.getStatoPS().subscribe(statoPS => {
       this.statoPS.set(statoPS as StatoProntoSoccorso);
+    });
+  }
+
+  refreshData(event: CustomEvent) {
+    this.#statoPSService.getStatoPS().subscribe((statoPS: StatoProntoSoccorso) => {
+      let oraAgg = this.statoPS().dataAggiornamento;
+      this.statoPS.set(statoPS as StatoProntoSoccorso);
+
+      if (oraAgg === this.statoPS().dataAggiornamento) {
+        // TODO: show alert
+      }
+
+      event.detail.complete();
     });
   }
 }

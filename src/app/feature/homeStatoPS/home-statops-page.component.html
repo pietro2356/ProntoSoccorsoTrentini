@@ -9,11 +9,16 @@
 }
 
 <ion-content [fullscreen]="true" class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="refreshData($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   @for(ps of statoPS().prontoSoccorso; track ps.codPsOd){
     <pst-card-ps [prontoSoccorso]="ps" />
   } @empty {
     <p>nessun dato</p>
   }
+
 </ion-content>
 
 <ion-footer>
