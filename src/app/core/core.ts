@@ -9,6 +9,7 @@ import {
 import {provideIonicAngular} from "@ionic/angular/standalone";
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { loadingInterceptor } from '@core/services/interceptor/loading-interceptor.interceptor';
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 
 export interface CoreOptions {
   routes: Routes;
@@ -16,6 +17,7 @@ export interface CoreOptions {
 
 export function provideCore({ routes }: CoreOptions) {
   return [
+    provideExperimentalZonelessChangeDetection(),
     provideIonicAngular(),
     provideHttpClient(
       withFetch(),
