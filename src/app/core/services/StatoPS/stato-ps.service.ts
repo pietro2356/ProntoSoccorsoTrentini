@@ -1,10 +1,10 @@
 import { computed, inject, Injectable, Signal, signal } from '@angular/core';
 import { HttpCoreService } from '@core/services/http/http-core.service';
-import { catchError, Observable, retry } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { environment } from '@env/environment';
 import { StatoProntoSoccorso } from '@core/models/statoProntoSoccorso';
 import { AppStateService } from '@core/services/appState/app-state.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
 
 @Injectable({
   providedIn: 'root'

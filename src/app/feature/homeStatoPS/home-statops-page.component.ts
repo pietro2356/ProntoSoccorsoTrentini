@@ -13,7 +13,6 @@ import {
 import { AppStateService } from '@core/services/appState/app-state.service';
 import { SkeletonModule } from 'primeng/skeleton';
 import { HttpCoreService } from '@core/services/http/http-core.service';
-import { retry } from 'rxjs';
 
 
 @Component({
@@ -48,16 +47,6 @@ export class HomeStatoPSPage implements OnInit {
 
   ngOnInit() {
     this.#statoPSService.getStatPS();
-    console.log(this.statoPS);
-
-    let tt = 0;
-    var cc= 0;
-
-    this.#httpServ.get('https://api.trentinoaa.it/').pipe(
-      retry(2)
-    ).subscribe((data) =>{
-      console.log(data);
-    });
   }
 
   refreshData(event: CustomEvent) {
