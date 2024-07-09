@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { StatoProntoSoccorso } from '@core/models/statoProntoSoccorso';
+import { ChangeDetectionStrategy, Component, inject, OnInit,} from '@angular/core';
 import { StatoPSService } from '@core/services/StatoPS/stato-ps.service';
 import { CardPSComponent } from '@ui/card-ps/card-ps.component';
 import {
@@ -13,7 +12,8 @@ import {
 } from '@ionic/angular/standalone';
 import { AppStateService } from '@core/services/appState/app-state.service';
 import { SkeletonModule } from 'primeng/skeleton';
-import { catchError } from 'rxjs';
+import { HttpCoreService } from '@core/services/http/http-core.service';
+import { retry } from 'rxjs';
 
 
 @Component({
@@ -40,35 +40,30 @@ import { catchError } from 'rxjs';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeStatoPSPage {
+export class HomeStatoPSPage implements OnInit {
+  #httpServ = inject(HttpCoreService);
   #statoPSService = inject(StatoPSService);
   appStateService = inject(AppStateService);
-  statoPS = signal<StatoProntoSoccorso>({} as StatoProntoSoccorso);
+  statoPS = this.#statoPSService.statoPS;
 
-  constructor() {
-    this.#statoPSService.getStatoPS().subscribe(statoPS => {
-      this.statoPS.set(statoPS as StatoProntoSoccorso);
+  ngOnInit() {
+    this.#statoPSService.getStatPS();
+    console.log(this.statoPS);
+
+    let tt = 0;
+    var cc= 0;
+
+    this.#httpServ.get('https://api.trentinoaa.it/').pipe(
+      retry(2)
+    ).subscribe((data) =>{
+      console.log(data);
     });
   }
 
   refreshData(event: CustomEvent) {
     this.statoPS().prontoSoccorso = [];
-    this.#statoPSService.getStatoPS()
-      .pipe(
-        catchError((err) => {
-          event.detail.complete();
-          throw err;
-        })
-      )
-      .subscribe((statoPS: StatoProntoSoccorso) => {
-      let oraAgg = this.statoPS().dataAggiornamento;
-      this.statoPS.set(statoPS as StatoProntoSoccorso);
+    this.#statoPSService.getStatPS();
 
-      if (oraAgg === this.statoPS().dataAggiornamento) {
-        // TODO: show alert
-      }
-
-      event.detail.complete();
-    });
+    event.detail.complete();
   }
 }

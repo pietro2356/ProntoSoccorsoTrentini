@@ -6,7 +6,7 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
   <ion-refresher slot="fixed" (ionRefresh)="refreshData($event)">
-    <ion-refresher-content></ion-refresher-content>
+    <ion-refresher-content/>
   </ion-refresher>
 
   @if (appStateService.isStatusLoading()){
@@ -30,6 +30,10 @@
       </ion-card-header>
       <ion-card-content>
         <p>Il servizio di Pronto Soccorso non è disponibile al momento. Riprovare più tardi.</p>
+        @if(appStateService.error){
+          <br>
+          <p>Errore: {{appStateService.error}}</p>
+        }
       </ion-card-content>
     </ion-card>
   }
