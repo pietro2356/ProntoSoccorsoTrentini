@@ -12,11 +12,18 @@ import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle }
   templateUrl: './card-ps.component.html',
   styleUrls: ['./card-ps.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [WaitingBoxComponent, FirstLetterToCapitalPipe, ExtractPSPipe, IonCard, IonCardHeader, IonCardContent, IonCardTitle, IonCardSubtitle],
+  imports: [
+    WaitingBoxComponent,
+    FirstLetterToCapitalPipe,
+    ExtractPSPipe,
+    IonCard,
+    IonCardHeader,
+    IonCardContent,
+    IonCardTitle,
+    IonCardSubtitle,
+  ],
 })
 export class CardPSComponent {
   prontoSoccorso = input.required<ProntoSoccorso>();
   protected readonly ColorName = ColorName;
-
-  constructor() {}
 }

@@ -5,7 +5,7 @@ export type Attesa = {
   rosso: number;
   azzurro: number;
   arancio: number;
-}
+};
 
 export type Ambulatorio = {
   bianco: number;
@@ -14,7 +14,7 @@ export type Ambulatorio = {
   rosso: number;
   azzurro: number;
   arancio: number;
-}
+};
 
 export type Osservazione = {
   bianco: number;
@@ -23,7 +23,7 @@ export type Osservazione = {
   rosso: number;
   azzurro: number;
   arancio: number;
-}
+};
 
 export type AttesaMedia = {
   bianco: number;
@@ -32,7 +32,7 @@ export type AttesaMedia = {
   rosso: number;
   azzurro: number;
   arancio: number;
-}
+};
 
 export type ProntoSoccorso = {
   tipo: string;
@@ -48,9 +48,9 @@ export type ProntoSoccorso = {
   attesaMedia: AttesaMedia;
   direttore: string;
   messaggio: string;
-}
+};
 
 export type StatoProntoSoccorso = {
   dataAggiornamento: string;
   prontoSoccorso: ProntoSoccorso[];
-}
+};

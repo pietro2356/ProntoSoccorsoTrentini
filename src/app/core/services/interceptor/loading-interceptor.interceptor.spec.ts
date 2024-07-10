@@ -9,7 +9,7 @@ describe('loadingInterceptorInterceptor', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient()]
+      providers: [provideHttpClient()],
     });
   });
 

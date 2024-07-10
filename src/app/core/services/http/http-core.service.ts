@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, retry } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HttpCoreService {
   #http = inject(HttpClient);

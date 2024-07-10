@@ -21,4 +21,3 @@ export const loadingInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>,
     })
   );
 };
-

@@ -16,4 +16,3 @@ describe('ExtractPSPipe', () => {
     expect(pipe.transform('Ospedale di Trento - Pronto Soccorso Pediatrico')).toBe('Pronto Soccorso Pediatrico');
   });
 });
-

@@ -9,8 +9,8 @@ describe('WaitingBoxComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ WaitingBoxComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [WaitingBoxComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(WaitingBoxComponent);

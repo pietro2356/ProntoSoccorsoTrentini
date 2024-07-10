@@ -9,4 +9,4 @@ import { IonContent, IonFooter, IonHeader, IonRouterOutlet, IonTitle, IonToolbar
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [IonRouterOutlet, IonHeader, IonToolbar, IonTitle, IonContent, IonFooter],
 })
-export class MainLayoutComponent{}
+export class MainLayoutComponent {}

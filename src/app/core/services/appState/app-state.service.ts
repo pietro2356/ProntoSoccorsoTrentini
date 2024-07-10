@@ -11,10 +11,9 @@ export interface IState {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppStateService {
-
   #appState = signal<IState>({ state: 'READY', error: null });
 
   public appState = computed<IState>(() => {
