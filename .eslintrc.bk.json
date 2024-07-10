@@ -1,0 +1,250 @@
+{
+  "root": true,
+  "ignorePatterns": ["*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "plugins": ["boundaries"],
+      "parserOptions": {
+        "project": ["tsconfig.json"],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:boundaries/strict"
+      ],
+      "settings": {
+        "import/resolver": {
+          "typescript": {
+            "alwaysTryTypes": true
+          }
+        },
+        "boundaries/dependency-node": ["import", "dynamic-import"],
+        "boundaries/elements": [
+          {
+            "type": "main",
+            "mode": "file",
+            "pattern": "main.ts",
+            "basePattern": "src",
+            "baseCapture": ["app"]
+          },
+          {
+            "type": "app",
+            "mode": "file",
+            "pattern": "app(-|.)*.ts",
+            "basePattern": "src/app",
+            "baseCapture": ["app"]
+          },
+          {
+            "type": "core",
+            "pattern": "core",
+            "basePattern": "src/app",
+            "baseCapture": ["app"]
+          },
+          {
+            "type": "ui",
+            "pattern": "ui",
+            "basePattern": "src/app",
+            "baseCapture": ["app"]
+          },
+          {
+            "type": "layout",
+            "pattern": "layout",
+            "basePattern": "src/app",
+            "baseCapture": ["app"]
+          },
+          {
+            "type": "model",
+            "pattern": "model",
+            "basePattern": "src/app",
+            "baseCapture": ["app"]
+          },
+          {
+            "type": "pattern",
+            "pattern": "pattern",
+            "basePattern": "src/app",
+            "baseCapture": ["app"]
+          },
+          {
+            "type": "feature-routes",
+            "mode": "file",
+            "pattern": "feature/*/*.routes.ts",
+            "capture": ["feature"],
+            "basePattern": "src/app",
+            "baseCapture": ["app"]
+          },
+          {
+            "type": "feature",
+            "pattern": "feature/*",
+            "capture": ["feature"],
+            "basePattern": "src/app",
+            "baseCapture": ["app"]
+          },
+          {
+            "type": "lib-api",
+            "mode": "file",
+            "pattern": "src/public-api.ts",
+            "capture": ["lib"]
+          },
+          {
+            "type": "lib",
+            "pattern": "src/lib",
+            "capture": ["lib"]
+          },
+          {
+            "type": "env",
+            "pattern": "environments",
+            "basePattern": "src",
+            "baseCapture": ["app"]
+          }
+
+        ],
+        "boundaries/ignore": [
+          "**/jest(.|-)*.ts"
+        ]
+
+      },
+      "rules": {
+        "no-console": "warn",
+        "no-debugger": "warn",
+        "no-alert": "error",
+        "no-undefined": "warn",
+        "@angular-eslint/component-class-suffix": [
+          "error",
+          {
+            "suffixes": ["Page", "Component", "Directive", "Pipe", "Service"]
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "pst",
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "pst",
+            "style": "camelCase"
+          }
+        ],
+        "boundaries/element-types": [
+          "error",
+          {
+            "default": "disallow",
+            "message": "${file.type} is not allowed to import ${dependency.type}",
+            "rules": [
+              {
+                "from": "main",
+                "allow": [["app", {"app": "${from.app}"}]]
+              },
+              {
+                "from": "core",
+                "allow": [
+                  ["lib-api"],
+                  ["core",{"app": "${from.app}"}],
+                  ["env", {"app": "${from.app}"}],
+                  ["model", {"app" : "${from.app}"}]
+                ]
+              },
+              {
+                "from": "ui",
+                "allow": [
+                  ["lib-api"],
+                  ["ui",{"app": "${from.app}"}],
+                  ["model", {"app" : "${from.app}"}]
+                ]
+              },
+              {
+                "from": "layout",
+                "allow": [
+                  ["lib-api"],
+                  ["core",{"app": "${from.app}"}],
+                  ["ui",{"app": "${from.app}"}],
+                  ["pattern",{"app": "${from.app}"}],
+                  ["model", {"app" : "${from.app}"}]
+                ]
+              },
+              {
+                "from": "app",
+                "allow": [
+                  ["lib-api"],
+                  ["app",{"app": "${from.app}"}],
+                  ["core",{"app": "${from.app}"}],
+                  ["layout",{"app": "${from.app}"}],
+                  ["feature-routes",{"app": "${from.app}"}],
+                  ["model", {"app" : "${from.app}"}]
+                ]
+              },
+              {
+                "from": "pattern",
+                "allow": [
+                  ["lib-api"],
+                  ["core",{"app": "${from.app}"}],
+                  ["ui",{"app": "${from.app}"}],
+                  ["pattern",{"app": "${from.app}"}],
+                  ["model", {"app" : "${from.app}"}]
+                ]
+              },
+              {
+                "from": "feature",
+                "allow": [
+                  ["lib-api"],
+                  ["core",{"app": "${from.app}"}],
+                  ["ui",{"app": "${from.app}"}],
+                  ["pattern",{"app": "${from.app}"}],
+                  ["model", {"app" : "${from.app}"}]
+                ]
+              },
+              {
+                "from": "feature-routes",
+                "allow": [
+                  ["lib-api"],
+                  ["core",{"app": "${from.app}"}],
+                  ["pattern",{"app": "${from.app}"}],
+                  ["feature",{"app": "${from.app}", "feature": "${from.feature}"}],
+                  ["feature-routes",{"app": "${from.app}", "feature": "!${from.feature}"}],
+                  ["model", {"app" : "${from.app}"}]
+                ]
+              },
+              {
+                "from": "lib-api",
+                "allow": [["lib", {"lib": "${from.lib}"}],["model", {"app" : "${from.app}"}]]
+
+              },
+              {
+                "from": "lib",
+                "allow": [["lib", {"lib": "${from.lib}"}],["model", {"app" : "${from.app}"}]]
+              },
+              {
+                "from": "models",
+                "allow": [
+                  ["lib-api"],
+                  ["core",{"app": "${from.app}"}],
+                  ["ui",{"app": "${from.app}"}],
+                  ["pattern",{"app": "${from.app}"}],
+                  ["model",{"app": "${from.app}"}],
+                  ["feature",{"app": "${from.app}"}],
+                  ["feature-routes",{"app": "${from.app}"}],
+                  ["layout",{"app": "${from.app}"}]
+                ]
+
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {}
+    }
+  ]
+}
