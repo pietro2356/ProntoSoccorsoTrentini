@@ -9,7 +9,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "build-android": "ionic capacitor build android"
+    "build-android": "ionic capacitor build android",
+    "prepare": "husky init"
   },
   "private": true,
   "dependencies": {
@@ -47,6 +48,8 @@
     "@angular/compiler-cli": "^18.0.0",
     "@angular/language-service": "^18.0.0",
     "@capacitor/cli": "6.1.0",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@ionic/angular-toolkit": "^11.0.1",
     "@types/jasmine": "~5.1.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -59,6 +62,7 @@
     "eslint-plugin-prefer-arrow": "1.2.2",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-rxjs-angular": "^2.0.1",
+    "husky": "^9.0.11",
     "jasmine-core": "~5.1.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.4.0",
@@ -66,6 +70,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "lint-staged": "^15.2.7",
     "typescript": "~5.4.0"
   }
 }
