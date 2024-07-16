@@ -1,0 +1,32 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    #branches: [ main ]  # Change to your branch where you want deployment on push
+    tags: ['v*']
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Angular App
+        run: npm run build --prod  # Change to your build command if different
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          build_dir: dist  # Change to your output directory if different
+          branch: gh-pages  # Change to your desired branch for deployment
+
