@@ -8,9 +8,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "cli-test": "ng test --no-watch --no-progress --browsers=ChromeHeadless --code-coverage",
     "lint": "ng lint",
     "build-android": "ionic capacitor build android",
-    "prepare": "husky init"
+    "prepare": "husky"
   },
   "private": true,
   "dependencies": {
@@ -49,6 +50,7 @@
     "@angular/language-service": "^18.0.0",
     "@capacitor/cli": "6.1.0",
     "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-angular": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@ionic/angular-toolkit": "^11.0.1",
     "@types/jasmine": "~5.1.0",
