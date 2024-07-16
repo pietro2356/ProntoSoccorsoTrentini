@@ -30,7 +30,7 @@
     "@capacitor/haptics": "6.0.0",
     "@capacitor/keyboard": "6.0.1",
     "@capacitor/status-bar": "6.0.0",
-    "@ionic/angular": "^8.0.0",
+    "@ionic/angular": "^8.2.5",
     "eslint-plugin-boundaries": "^4.2.1",
     "ionicons": "^7.4.0",
     "prettier": "^3.3.3",
