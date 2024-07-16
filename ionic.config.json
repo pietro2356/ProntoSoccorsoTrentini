@@ -1,8 +1,0 @@
-{
-  "name": "ProntoSoccorsoTrentini",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular-standalone",
-  "appId": "pr.prontosoccorso.trentini"
-}
