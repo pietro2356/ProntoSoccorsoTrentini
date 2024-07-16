@@ -33,7 +33,7 @@
     "@ionic/angular": "^8.0.0",
     "eslint-plugin-boundaries": "^4.2.1",
     "ionicons": "^7.2.1",
-    "prettier": "^3.3.2",
+    "prettier": "^3.3.3",
     "primeng": "^17.18.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
