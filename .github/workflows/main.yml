@@ -13,12 +13,10 @@ jobs:
         with:
           ref: 'master'  # Specify the branch here (change to 'main' if needed)
 
-      - name: Run modify-angular.sh script
-        uses: actions/script@v5
-        with:
-          name: Modify angular.json
-          script: |
-            sed -i 's/"outputPath": ".*"/"\outputPath": "docs"/g' angular.json
+      - name: Modify angular.json
+        run: |
+          sed -i 's/"outputPath": ".*"/"\outputPath": "docs"/g' angular.json
+          echo "angular.json updated successfully!"
 
   build-deploy:
     runs-on: ubuntu-latest
