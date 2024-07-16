@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, model } from '@angular/core';
 import { ProntoSoccorso } from '@core/models/statoProntoSoccorso';
 import { WaitingBoxComponent } from '@ui/waiting-box/waiting-box.component';
 import { ColorName } from '@core/models/colorCode';
@@ -24,6 +24,6 @@ import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle }
   ],
 })
 export class CardPSComponent {
-  prontoSoccorso = input.required<ProntoSoccorso>();
-  protected readonly ColorName = ColorName;
+  prontoSoccorso = model.required<ProntoSoccorso>();
+  ColorName = ColorName;
 }
