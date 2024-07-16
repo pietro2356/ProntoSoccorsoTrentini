@@ -39,4 +39,4 @@ jobs:
         uses: actions/deploy-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          build_dir: ./www
+          build_dir: ./docs
