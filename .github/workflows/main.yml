@@ -4,6 +4,9 @@ on:
   push:
     tags: [ 'v*' ]  # Triggers on any tag starting with 'v'
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -32,4 +35,4 @@ jobs:
         with:
           branch: gh-pages # The branch the action should deploy to
           folder: docs # The folder the action should deploy
-          token: ${{ secrets.GITHUB_TOKEN }} # The GitHub token to use for deployment
+          token: ${{ secrets.ACCESS_TOKEN }}
