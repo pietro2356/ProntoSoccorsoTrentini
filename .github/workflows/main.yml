@@ -28,7 +28,7 @@ jobs:
         run: npm install
 
       - name: Build Angular App
-        run: npm run build -- --base-href /pronto-soccorso-trentini/
+        run: npm run build -- --base-href /ProntoSoccorsoTrentini/
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
