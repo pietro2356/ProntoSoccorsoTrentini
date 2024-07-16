@@ -1,6 +1,6 @@
 {
   "name": "pronto-soccorso-trentini",
-  "version": "0.5.2-1",
+  "version": "0.5.2-2",
   "author": "Pietro Rocchio",
   "scripts": {
     "ng": "ng",
