@@ -1,6 +1,6 @@
 {
   "name": "pronto-soccorso-trentini",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "Pietro Rocchio",
   "scripts": {
     "ng": "ng",
@@ -11,7 +11,8 @@
     "cli-test": "ng test --no-watch --no-progress --browsers=ChromeHeadless --code-coverage",
     "lint": "ng lint",
     "build-android": "ionic capacitor build android",
-    "prepare": "husky"
+    "prepare": "husky",
+    "release": "standard-version"
   },
   "private": true,
   "dependencies": {
@@ -73,6 +74,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "lint-staged": "^15.2.7",
+    "standard-version": "^9.5.0",
     "typescript": "~5.4.0"
   }
 }
