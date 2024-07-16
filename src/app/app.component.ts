@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
+import { Component, inject, OnInit } from '@angular/core';
+import { IonApp, IonRouterOutlet, Platform } from '@ionic/angular/standalone';
+import { App as CapacitorApp } from '@capacitor/app';
 
 @Component({
   selector: 'pst-app-root',
@@ -7,4 +8,14 @@ import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
   standalone: true,
   imports: [IonApp, IonRouterOutlet],
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  platform = inject(Platform);
+
+  ngOnInit(): void {
+    CapacitorApp.addListener('backButton', ({ canGoBack }) => {
+      if (!canGoBack) {
+        CapacitorApp.exitApp();
+      }
+    });
+  }
+}
