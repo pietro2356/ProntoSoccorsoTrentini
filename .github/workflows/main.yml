@@ -5,6 +5,7 @@ on:
     tags: [ 'v*' ]  # Triggers on any tag starting with 'v'
 
 jobs:
+
   modify-angular-json:
     runs-on: ubuntu-latest
 
@@ -18,7 +19,7 @@ jobs:
           sed -i 's/"outputPath": ".*"/"\outputPath": "docs"/g' angular.json
           echo "angular.json updated successfully!"
 
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -35,8 +36,9 @@ jobs:
       - name: Build Angular App
         run: npm run build -- --base-href /pronto-soccorso-trentini/
 
-      - name: Deploy to GitHub Pages  # You might need to adjust this step
-        uses: actions/deploy-gh-pages@v4
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          build_dir: ./docs
+          branch: master # The branch the action should deploy to
+          folder: docs # The folder the action should deploy
+          token: ${{ secrets.ACCESS_TOKEN }}
