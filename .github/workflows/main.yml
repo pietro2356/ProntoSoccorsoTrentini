@@ -5,25 +5,16 @@ on:
     tags: [ 'v*' ]  # Triggers on any tag starting with 'v'
 
 jobs:
-
-  modify-angular-json:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: 'master'  # Specify the branch here (change to 'main' if needed)
-
-      - name: Modify angular.json
-        run: |
-          sed -i 's/"outputPath": ".*"/"\outputPath": "docs"/g' angular.json
-          echo "angular.json updated successfully!"
-
   build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Modify angular.json
+        run: |
+          sed -i 's/"outputPath": ".*"/"\outputPath": "docs"/g' angular.json
+          echo "angular.json updated successfully!"
 
       - name: Use Node.js 22
         uses: actions/setup-node@v3
