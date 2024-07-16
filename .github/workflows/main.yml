@@ -1,9 +1,8 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy on Tag Push
 
 on:
   push:
-    #branches: [ main ]  # Change to your branch where you want deployment on push
-    tags: ['v*']
+    tags: [ 'v*' ]  # Triggers on any tag starting with 'v'
 
 jobs:
   build-deploy:
@@ -11,6 +10,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:  # This line fetches the code from the master branch
+          ref: 'master'  # Specify the branch here (change to 'main' if needed)
 
       - name: Use Node.js 22
         uses: actions/setup-node@v3
@@ -23,7 +24,7 @@ jobs:
       - name: Build Angular App
         run: npm run build --prod  # Change to your build command if different
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages  # You might need to adjust this step
         uses: actions/deploy-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
