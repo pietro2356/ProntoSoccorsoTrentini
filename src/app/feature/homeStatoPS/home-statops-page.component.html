@@ -10,42 +10,26 @@
   </ion-refresher>
 
   <div class="card-aligner">
-    @if (appStateService.isStatusLoading()){
-      <!-- TODO: Refactor in loading component -->
-      <ion-card>
-        <p-skeleton height="9rem" borderRadius="4px"/>
-      </ion-card>
-      <ion-card>
-        <p-skeleton height="9rem" borderRadius="4px"/>
-      </ion-card>
-      <ion-card>
-        <p-skeleton height="9rem" borderRadius="4px"/>
-      </ion-card>
+
+    @defer (on immediate){
+      @if (appStateService.isStatusLoading()){
+        <pst-cardps-loader/>
+        <pst-cardps-loader/>
+        <pst-cardps-loader/>
+        <pst-cardps-loader/>
+      }
     }
 
+
     @if(appStateService.isStatusError()){
-      <!-- TODO: Refactor in error component -->
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Pronto Soccorso non disponibile</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <p>Il servizio di Pronto Soccorso non è disponibile al momento. Riprovare più tardi.</p>
-          @if(appStateService.error){
-            <br>
-            <p>Errore: {{appStateService.error}}</p>
-          }
-        </ion-card-content>
-      </ion-card>
+      <pst-error-card error="{{appStateService.error}}}" [isError]="true" />
     }
 
     @for(ps of statoPS().prontoSoccorso; track ps.codPsOd){
       <pst-card-ps [prontoSoccorso]="ps" />
     } @empty {
       @if (appStateService.isStatusReady()){
-        <div class="ion-text-center">
-          <p>Non ci sono dati disponibili</p>
-        </div>
+        <pst-error-card error="Non ci sono dati disponibili" [isError]="false" />
       }
     }
   </div>
@@ -55,7 +39,6 @@
 <ion-footer>
   <ion-toolbar>
     <div class="ion-text-center">
-      {{appStateService.state}}
       @if(statoPS().dataAggiornamento){
         <p>Ultimo aggiornamento: {{statoPS().dataAggiornamento}}</p>
       } @else {

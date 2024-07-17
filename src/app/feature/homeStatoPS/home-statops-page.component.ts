@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { StatoPSService } from '@core/services/StatoPS/stato-ps.service';
-import { CardPSComponent } from '@ui/card-ps/card-ps.component';
+import { CardPSComponent } from '@ui/standard/card-ps/card-ps.component';
 import {
   IonAlert,
   IonCard,
@@ -18,7 +18,8 @@ import {
 } from '@ionic/angular/standalone';
 import { AppStateService } from '@core/services/appState/app-state.service';
 import { SkeletonModule } from 'primeng/skeleton';
-import { HttpCoreService } from '@core/services/http/http-core.service';
+import { CardpsLoaderComponent } from '@ui/loader/cardps-loader/cardps-loader.component';
+import { ErrorCardComponent } from '@ui/error/error-card/error-card.component';
 
 @Component({
   selector: 'pst-home-statops',
@@ -41,11 +42,12 @@ import { HttpCoreService } from '@core/services/http/http-core.service';
     IonCardTitle,
     IonRefresher,
     IonRefresherContent,
+    CardpsLoaderComponent,
+    ErrorCardComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeStatoPSPage implements OnInit {
-  #httpServ = inject(HttpCoreService);
   #statoPSService = inject(StatoPSService);
   appStateService = inject(AppStateService);
   statoPS = this.#statoPSService.statoPS;
@@ -55,7 +57,6 @@ export class HomeStatoPSPage implements OnInit {
   }
 
   refreshData(event: CustomEvent) {
-    this.statoPS().prontoSoccorso = [];
     this.#statoPSService.getStatoPS();
 
     event.detail.complete();
