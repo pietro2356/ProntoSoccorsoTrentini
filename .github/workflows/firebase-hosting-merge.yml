@@ -13,6 +13,11 @@ jobs:
 
       - uses: actions/checkout@v4
 
+      - name: Modify angular.json
+        run: |
+          sed -i 's/"outputPath": ".*"/"\outputPath": "public"/g' angular.json
+          echo "angular.json updated successfully!"
+
       - name: Use Node.js 22
         uses: actions/setup-node@v3
         with:
