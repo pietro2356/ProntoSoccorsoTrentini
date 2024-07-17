@@ -4,8 +4,8 @@
     <ion-card-subtitle>{{prontoSoccorso().ps | extractPS}}</ion-card-subtitle>
   </ion-card-header>
   <ion-card-content>
+    <h4>Attesa:</h4>
     <div class="waitbox-align">
-<!--      <h4>Stato attesa: </h4>-->
       <pst-waiting-box [waitVal]="prontoSoccorso().attesa.bianco" [color]="ColorName.bianco"/>
       <pst-waiting-box [waitVal]="prontoSoccorso().attesa.verde" [color]="ColorName.verde"/>
       <pst-waiting-box [waitVal]="prontoSoccorso().attesa.azzurro" [color]="ColorName.azzurro"/>
