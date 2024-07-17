@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, model } from '@angular/core';
 import { ProntoSoccorso } from '@core/models/statoProntoSoccorso';
-import { WaitingBoxComponent } from '@ui/waiting-box/waiting-box.component';
+import { WaitingBoxComponent } from '@ui/standard/waiting-box/waiting-box.component';
 import { ColorName } from '@core/models/colorCode';
 import { FirstLetterToCapitalPipe } from '@core/pipe/first-letter-to-capital.pipe';
 import { ExtractPSPipe } from '@core/pipe/extract-ps.pipe';
