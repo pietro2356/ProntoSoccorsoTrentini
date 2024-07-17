@@ -1,0 +1,18 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>
+      🚨Dati dei Pronto Soccorso non disponibili
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    @if (isError()){
+      <p>Il servizio di Pronto Soccorso non è disponibile al momento. Riprovare più tardi.</p>
+      @if(error()){
+        <br>
+        <p>Errore: {{error()}}</p>
+      }
+    } @else if (!isError()) {
+      <p>Non ci sono dati disponibili al momento.</p>
+    }
+  </ion-card-content>
+</ion-card>
