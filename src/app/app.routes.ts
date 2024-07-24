@@ -6,6 +6,11 @@ export const routes: Routes = [
     loadComponent: () => import('./feature/homeStatoPS/home-statops-page.component').then(m => m.HomeStatoPSPage),
   },
   {
+    path: 'info',
+    loadComponent: () => import('./feature/info/info.page').then(m => m.InfoPage),
+    pathMatch: 'full',
+  },
+  {
     path: '',
     redirectTo: 'homeStatoPS',
     pathMatch: 'full',
