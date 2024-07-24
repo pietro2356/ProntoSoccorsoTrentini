@@ -1,0 +1,26 @@
+.info-container {
+  max-width: 600px;
+  padding: 1.25rem;
+  margin: 2.5rem auto;
+}
+
+.info-header{
+  font-weight: 600;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.info-content{
+  margin: 2rem 0;
+}
+
+.info-line{
+  width: 100%;
+  height: 1px;
+  background-color: #ccc; /* Adjust color as needed */
+  border: none; /* Remove default border */
+}
+
+ul {
+  list-style-type: none;
+}
