@@ -1,36 +1,20 @@
-// TODO: controllare perché la regola eslint no-unused-vars viene attivata per l'enum ColorName
-export enum ColorName {
-  // eslint-disable-next-line no-unused-vars
-  bianco = 'bianco',
-  // eslint-disable-next-line no-unused-vars
-  verde = 'verde',
-  // eslint-disable-next-line no-unused-vars
-  giallo = 'giallo',
-  // eslint-disable-next-line no-unused-vars
-  arancio = 'arancio',
-  // eslint-disable-next-line no-unused-vars
-  azzurro = 'azzurro',
-  // eslint-disable-next-line no-unused-vars
-  rosso = 'rosso',
-  // eslint-disable-next-line no-unused-vars
-}
+export type Colors = 'bianco' | 'verde' | 'giallo' | 'arancio' | 'azzurro' | 'rosso';
 
 interface Color {
-  name: ColorName; // Nome del colore (utilizzando il tipo enum)
+  name: Colors; // Nome del colore
   hex: string; // Codice esadecimale del colore
 }
 
 export const colorCode: Color[] = [
-  { name: ColorName.bianco, hex: '#DCDFE4' },
-  { name: ColorName.verde, hex: '#A5ED72' },
-  { name: ColorName.giallo, hex: '#F8F85F' },
-  { name: ColorName.arancio, hex: '#FFB053' },
-  { name: ColorName.azzurro, hex: '#61AFEF' },
-  { name: ColorName.rosso, hex: '#FF4E4A' },
+  { name: 'bianco', hex: '#DCDFE4' },
+  { name: 'verde', hex: '#A5ED72' },
+  { name: 'giallo', hex: '#F8F85F' },
+  { name: 'arancio', hex: '#FFB053' },
+  { name: 'azzurro', hex: '#61AFEF' },
+  { name: 'rosso', hex: '#FF4E4A' },
 ];
 
-// TODO: Implementare la funzione getHexColor che restituisce il codice esadecimale del colore
-export function getHexColor(colorName: string): string | undefined {
+export function getHexColor(colorName: Colors): string {
   const color = colorCode.find(c => c.name.toLowerCase() === colorName.toLowerCase());
-  return color ? color.hex : undefined;
+  return color ? color.hex : '#DCDFE4';
 }
