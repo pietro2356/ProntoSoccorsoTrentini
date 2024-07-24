@@ -138,10 +138,16 @@
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {
-      "styleext": "scss"
+      "styleext": "scss",
+      "changeDetection": "OnPush",
+      "displayBlock": true,
+      "standalone": true
     },
     "@ionic/angular-toolkit:page": {
-      "styleext": "scss"
+      "styleext": "scss",
+      "changeDetection": "OnPush",
+      "displayBlock": true,
+      "standalone": true
     },
     "@angular-eslint/schematics:application": {
       "setParserOptionsProject": true
