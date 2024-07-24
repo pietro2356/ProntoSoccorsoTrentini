@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, effect, ElementRef, input, viewChild } from '@angular/core';
-import { ColorName, getHexColor } from '@core/models/colorCode';
+import { Colors, getHexColor } from '@core/models/colorCode';
 
 @Component({
   selector: 'pst-waiting-box',
@@ -10,16 +10,13 @@ import { ColorName, getHexColor } from '@core/models/colorCode';
 })
 export class WaitingBoxComponent {
   waitVal = input.required<number>();
-  color = input<ColorName>();
+  color = input.required<Colors>();
 
   waitBox = viewChild.required<ElementRef>('waitbox');
 
   constructor() {
     effect(() => {
-      this.waitBox().nativeElement.style.setProperty(
-        'background-color',
-        getHexColor(this.color()?.toString() as string)
-      );
+      this.waitBox().nativeElement.style.setProperty('background-color', getHexColor(this.color()));
     });
   }
 }
