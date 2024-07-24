@@ -1,13 +1,28 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>⚕️Pronto Soccorso Trentini</ion-title>
-  </ion-toolbar>
-</ion-header>
+<!--<ion-header [translucent]="true">-->
+<!--  <ion-toolbar>-->
+<!--    <ion-title>⚕️Pronto Soccorso Trentini</ion-title>-->
+<!--  </ion-toolbar>-->
+<!--</ion-header>-->
 
 <ion-content [fullscreen]="true" class="ion-padding">
   <ion-refresher slot="fixed" (ionRefresh)="refreshData($event)">
     <ion-refresher-content/>
   </ion-refresher>
+
+  <header class="statops__header">
+    <div class="statops__header-title">
+      <h1>Pronto Soccorso Trentini</h1>
+    </div>
+
+
+    <div class="statops__header-actionbox">
+      <pst-link-button
+        icon="ℹ️"
+        text="Info"
+        link="/info"
+      />
+    </div>
+  </header>
 
   <div class="card-aligner">
 
