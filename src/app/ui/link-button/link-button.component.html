@@ -1,0 +1,10 @@
+<ion-button
+  color="{{color() ? color() : 'light'}}"
+  routerLink="{{link() ? link() : '/'}}"
+  routerLinkActive="activebutton"
+>
+  @if(icon()){
+    {{icon()}}
+  }
+  {{text()}}
+</ion-button>
