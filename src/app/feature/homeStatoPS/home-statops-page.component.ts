@@ -53,12 +53,11 @@ export class HomeStatoPSPage implements OnInit {
   statoPS = this.#statoPSService.statoPS;
 
   ngOnInit() {
-    this.#statoPSService.getStatoPS();
+    this.#statoPSService.loadStatoPS();
   }
 
   refreshData(event: CustomEvent) {
-    this.#statoPSService.getStatoPS();
-
+    this.#statoPSService.loadStatoPS();
     event.detail.complete();
   }
 }
