@@ -10,6 +10,8 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule],
 })
 export class ErrorCardComponent {
-  error = input.required<string>();
+  title = input<string>();
+  message = input<string>();
+  error = input<string>();
   isError = input.required<boolean>();
 }

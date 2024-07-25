@@ -1,7 +1,12 @@
 <ion-card>
   <ion-card-header>
     <ion-card-title>
+      @if (title()){
+        {{title()}}
+      }
+      @else {
       🚨Dati dei Pronto Soccorso non disponibili
+      }
     </ion-card-title>
   </ion-card-header>
   <ion-card-content>
@@ -12,7 +17,11 @@
         <p>Errore: {{error()}}</p>
       }
     } @else if (!isError()) {
-      <p>Non ci sono dati disponibili al momento.</p>
+      @if (message()){
+        <p>{{message()}}</p>
+      } @else {
+        <p>Non ci sono dati disponibili</p>
+      }
     }
   </ion-card-content>
 </ion-card>
