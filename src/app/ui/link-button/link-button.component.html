@@ -1,10 +1,6 @@
-<ion-button
-  color="{{color() ? color() : 'light'}}"
-  routerLink="{{link() ? link() : '/'}}"
-  routerLinkActive="activebutton"
->
-  @if(icon()){
-    {{icon()}}
-  }
-  {{text()}}
-</ion-button>
+<p-button
+  severity="info"
+  label="{{icon() + ' ' + text()}}"
+  [text]="true"
+  [raised]="true"
+/>
