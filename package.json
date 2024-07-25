@@ -31,10 +31,12 @@
     "@capacitor/core": "6.1.0",
     "@capacitor/haptics": "6.0.0",
     "@capacitor/keyboard": "6.0.1",
+    "@capacitor/preferences": "^6.0.1",
     "@capacitor/status-bar": "6.0.0",
     "@ionic/angular": "^8.2.5",
     "eslint-plugin-boundaries": "^4.2.2",
     "ionicons": "^7.4.0",
+    "karma-firefox-launcher": "^2.1.3",
     "prettier": "^3.3.3",
     "primeng": "^17.18.4",
     "rxjs": "~7.8.1",
@@ -76,6 +78,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "lint-staged": "^15.2.7",
+    "puppeteer": "^22.14.0",
     "release-it": "^17.6.0",
     "typescript": "~5.5.3"
   }

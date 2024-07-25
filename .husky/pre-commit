@@ -1,1 +1,2 @@
+npm run cli-test
 npx lint-staged
