@@ -16,11 +16,6 @@ export class StatoPSService {
   #prontoSoccorsoFiltered = signal<ProntoSoccorso[]>([]);
   #dataAggiornamento = signal<string>('');
 
-  #statoPS = signal<StatoProntoSoccorso>({
-    dataAggiornamento: this.#dataAggiornamento(),
-    prontoSoccorso: this.#prontoSoccorso(),
-  });
-
   public readonly prontoSoccorso = computed<ProntoSoccorso[]>(() => {
     return this.#prontoSoccorsoFiltered();
   });
