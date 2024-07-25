@@ -2,13 +2,8 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import { HttpCoreService } from '@core/services/http/http-core.service';
 import { catchError, finalize } from 'rxjs';
 import { environment } from '@env/environment';
-import { StatoProntoSoccorso } from '@core/models/statoProntoSoccorso';
+import { ProntoSoccorso, StatoProntoSoccorso } from '@core/models/statoProntoSoccorso';
 import { AppStateService } from '@core/services/appState/app-state.service';
-
-const StatoPSDefaultType: StatoProntoSoccorso = {
-  dataAggiornamento: '',
-  prontoSoccorso: [],
-};
 
 @Injectable({
   providedIn: 'root',
@@ -17,11 +12,37 @@ export class StatoPSService {
   #httpCore = inject(HttpCoreService);
   #appStateService = inject(AppStateService);
 
-  #statoPS = signal<StatoProntoSoccorso>(StatoPSDefaultType);
+  #prontoSoccorso = signal<ProntoSoccorso[]>([]);
+  #prontoSoccorsoFiltered = signal<ProntoSoccorso[]>([]);
+  #dataAggiornamento = signal<string>('');
 
-  public readonly statoPS = computed<StatoProntoSoccorso>(() => {
-    return this.#statoPS();
+  #statoPS = signal<StatoProntoSoccorso>({
+    dataAggiornamento: this.#dataAggiornamento(),
+    prontoSoccorso: this.#prontoSoccorso(),
   });
+
+  public readonly prontoSoccorso = computed<ProntoSoccorso[]>(() => {
+    return this.#prontoSoccorsoFiltered();
+  });
+  public readonly dataAggiornamento = computed<string>(() => {
+    return this.#dataAggiornamento();
+  });
+  public readonly listaLocalita = computed<string[]>(() => {
+    return Array.from(new Set(this.#prontoSoccorso().map(ps => ps.localita)));
+  });
+
+  public filterPS(localita: string) {
+    if (localita === null) {
+      this.#prontoSoccorsoFiltered.set(this.#prontoSoccorso());
+      return;
+    }
+    if (localita.length < 3) return;
+    this.#prontoSoccorsoFiltered.set(this.#prontoSoccorso().filter(ps => ps.localita === localita));
+  }
+
+  public clearFilterPS() {
+    this.#prontoSoccorsoFiltered.set(this.#prontoSoccorso());
+  }
 
   public loadStatoPS() {
     this.#appStateService.setLoading();
@@ -37,7 +58,9 @@ export class StatoPSService {
         })
       )
       .subscribe((data: StatoProntoSoccorso) => {
-        this.#statoPS.update(() => data);
+        this.#prontoSoccorso.set(data.prontoSoccorso);
+        this.#prontoSoccorsoFiltered.set(data.prontoSoccorso);
+        this.#dataAggiornamento.set(data.dataAggiornamento);
       });
   }
 }
