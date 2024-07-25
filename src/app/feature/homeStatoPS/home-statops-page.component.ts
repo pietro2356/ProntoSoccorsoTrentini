@@ -24,12 +24,10 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { CardpsLoaderComponent } from '@ui/loader/cardps-loader/cardps-loader.component';
 import { ErrorCardComponent } from '@ui/error/error-card/error-card.component';
 import { RouterLink } from '@angular/router';
-import { LinkButtonComponent } from '@ui/link-button/link-button.component';
 import { FormsModule } from '@angular/forms';
-import { InputTextModule } from 'primeng/inputtext';
-import { FloatLabelModule } from 'primeng/floatlabel';
 import { DropdownModule } from 'primeng/dropdown';
 import { UpperCasePipe } from '@angular/common';
+import { LinkButtonComponent } from '@ui/link-button/link-button.component';
 
 @Component({
   selector: 'pst-home-statops',
@@ -55,14 +53,12 @@ import { UpperCasePipe } from '@angular/common';
     CardpsLoaderComponent,
     ErrorCardComponent,
     RouterLink,
-    LinkButtonComponent,
     FormsModule,
-    InputTextModule,
-    FloatLabelModule,
     IonItem,
     IonInput,
     DropdownModule,
     UpperCasePipe,
+    LinkButtonComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

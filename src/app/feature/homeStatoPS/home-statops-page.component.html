@@ -14,7 +14,6 @@
       <h1>Pronto Soccorso Trentini</h1>
     </div>
 
-
     <div class="statops__header-actionbox">
       <pst-link-button
         routerLink="/info"
@@ -31,12 +30,11 @@
         <p-dropdown
           [options]="listaLocalita()"
           [(ngModel)]="ricercaPS"
-          placeholder="Seleziona una città"
           [checkmark]="true"
-          [showClear]="true"
-          [editable]="true"
+          [showClear]="ricercaPS.length > 0"
           (onChange)="search()"
           (onClear)="ricercaPS = ''"
+          placeholder="Seleziona una località"
         />
       }
     </div>
@@ -50,7 +48,6 @@
       <pst-cardps-loader/>
       <pst-cardps-loader/>
     }
-
 
     @if(appStateService.isStatusError()){
       <pst-error-card error="{{appStateService.error}}}" [isError]="true" />
@@ -74,7 +71,6 @@
       }
     }
   </div>
-
 </ion-content>
 
 <ion-footer>
