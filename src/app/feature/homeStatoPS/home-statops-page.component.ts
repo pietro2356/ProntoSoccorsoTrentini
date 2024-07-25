@@ -10,6 +10,8 @@ import {
   IonContent,
   IonFooter,
   IonHeader,
+  IonInput,
+  IonItem,
   IonProgressBar,
   IonRefresher,
   IonRefresherContent,
@@ -23,6 +25,11 @@ import { CardpsLoaderComponent } from '@ui/loader/cardps-loader/cardps-loader.co
 import { ErrorCardComponent } from '@ui/error/error-card/error-card.component';
 import { RouterLink } from '@angular/router';
 import { LinkButtonComponent } from '@ui/link-button/link-button.component';
+import { FormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { DropdownModule } from 'primeng/dropdown';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'pst-home-statops',
@@ -49,13 +56,25 @@ import { LinkButtonComponent } from '@ui/link-button/link-button.component';
     ErrorCardComponent,
     RouterLink,
     LinkButtonComponent,
+    FormsModule,
+    InputTextModule,
+    FloatLabelModule,
+    IonItem,
+    IonInput,
+    DropdownModule,
+    UpperCasePipe,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeStatoPSPage implements ViewWillEnter {
   #statoPSService = inject(StatoPSService);
   appStateService = inject(AppStateService);
-  statoPS = this.#statoPSService.statoPS;
+  dataAggiornamento = this.#statoPSService.dataAggiornamento;
+  prontoSoccorso = this.#statoPSService.prontoSoccorso;
+  listaLocalita = this.#statoPSService.listaLocalita;
+
+  isSearchEnabled = false;
+  ricercaPS = ''.toUpperCase();
 
   ionViewWillEnter(): void {
     this.#statoPSService.loadStatoPS();
@@ -64,5 +83,17 @@ export class HomeStatoPSPage implements ViewWillEnter {
   refreshData(event: CustomEvent) {
     this.#statoPSService.loadStatoPS();
     event.detail.complete();
+  }
+
+  enableSearch() {
+    this.isSearchEnabled = !this.isSearchEnabled;
+    if (!this.isSearchEnabled) {
+      this.ricercaPS = '';
+      this.#statoPSService.clearFilterPS();
+    }
+  }
+
+  search() {
+    this.#statoPSService.filterPS(this.ricercaPS);
   }
 }

@@ -17,22 +17,38 @@
 
     <div class="statops__header-actionbox">
       <pst-link-button
+        routerLink="/info"
         icon="ℹ️"
         text="Info"
-        link="/info"
       />
+      <pst-link-button
+        icon="🔍"
+        text="Cerca"
+        (click)="enableSearch()"
+      />
+
+      @if(isSearchEnabled){
+        <p-dropdown
+          [options]="listaLocalita()"
+          [(ngModel)]="ricercaPS"
+          placeholder="Seleziona una città"
+          [checkmark]="true"
+          [showClear]="true"
+          [editable]="true"
+          (onChange)="search()"
+          (onClear)="ricercaPS = ''"
+        />
+      }
     </div>
   </header>
 
   <div class="card-aligner">
 
-    @defer (on immediate){
-      @if (appStateService.isStatusLoading()){
-        <pst-cardps-loader/>
-        <pst-cardps-loader/>
-        <pst-cardps-loader/>
-        <pst-cardps-loader/>
-      }
+    @if (appStateService.isStatusLoading()){
+      <pst-cardps-loader/>
+      <pst-cardps-loader/>
+      <pst-cardps-loader/>
+      <pst-cardps-loader/>
     }
 
 
@@ -40,11 +56,21 @@
       <pst-error-card error="{{appStateService.error}}}" [isError]="true" />
     }
 
-    @for(ps of statoPS().prontoSoccorso; track ps.codPsOd){
-      <pst-card-ps [prontoSoccorso]="ps" />
+    @for(ps of prontoSoccorso(); track ps.codPsOd){
+      @defer (on viewport){
+        <pst-card-ps [prontoSoccorso]="ps" />
+      } @placeholder (minimum 2){
+        <pst-cardps-loader/>
+      }
     } @empty {
-      @if (appStateService.isStatusReady()){
+      @if (appStateService.isStatusReady() && !isSearchEnabled){
         <pst-error-card error="Non ci sono dati disponibili" [isError]="false" />
+      }
+      @else{
+        <pst-error-card
+          title="Nessun Pronto Soccorso trovato"
+          message="Non è stato trovato nessun Pronto Soccorso per la località selezionata."
+          [isError]="false" />
       }
     }
   </div>
@@ -54,8 +80,8 @@
 <ion-footer>
   <ion-toolbar>
     <div class="ion-text-center">
-      @if(statoPS().dataAggiornamento){
-        <p>Ultimo aggiornamento: {{statoPS().dataAggiornamento}}</p>
+      @if(dataAggiornamento()){
+        <p>Ultimo aggiornamento: {{dataAggiornamento()}}</p>
       } @else {
         <p>Ultimo aggiornamento: non disponibile</p>
       }
