@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CardPSComponent } from './card-ps.component';
 import { ProntoSoccorso } from '@core/models/statoProntoSoccorso';
-import { ColorName } from '@core/models/colorCode';
 
 describe(CardPSComponent.name, () => {
   const mockPSData: ProntoSoccorso = {
@@ -47,19 +46,16 @@ describe(CardPSComponent.name, () => {
     direttore: 'Direttore: dott.ssa Cristina Contu',
     messaggio: "IN CASO DI NECESSITA' RIVOLGERSI ALL'INFERMIERE DI TRIAGE / IF NECESSARY CONTACT THE TRIAGE NURSE",
   };
+  let component: CardPSComponent;
+  let fixture: ComponentFixture<CardPSComponent>;
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CardPSComponent);
-    fixture.autoDetectChanges();
-
-    const component = fixture.componentInstance;
-
+    component = fixture.componentInstance;
     component.prontoSoccorso.set(mockPSData);
-    component.ColorName = ColorName;
+
+    fixture.autoDetectChanges();
   });
-
-  let fixture: ComponentFixture<CardPSComponent>;
-
   it('should create', () => {
     expect(fixture.componentInstance).toBeTruthy();
   });
