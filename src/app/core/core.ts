@@ -11,8 +11,9 @@ import {
 import { provideIonicAngular } from '@ionic/angular/standalone';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { loadingInterceptor } from '@core/services/interceptor/loading-interceptor.interceptor';
-import { provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { ErrorHandler, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { GlobalErrorHandler } from '@core/services/errors/global-error-handler.handler';
 
 export interface CoreOptions {
   routes: Routes;
@@ -35,5 +36,9 @@ export function provideCore({ routes }: CoreOptions) {
       })
     ),
     provideAnimations(),
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler,
+    },
   ];
 }
