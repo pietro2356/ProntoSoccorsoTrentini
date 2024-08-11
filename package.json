@@ -34,6 +34,7 @@
     "@capacitor/preferences": "^6.0.1",
     "@capacitor/status-bar": "6.0.0",
     "@ionic/angular": "^8.2.5",
+    "@ionic/storage-angular": "^4.0.0",
     "eslint-plugin-boundaries": "^4.2.2",
     "ionicons": "^7.4.0",
     "karma-firefox-launcher": "^2.1.3",
