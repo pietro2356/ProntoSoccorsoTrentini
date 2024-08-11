@@ -2,8 +2,9 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import { HttpCoreService } from '@core/services/http/http-core.service';
 import { catchError, finalize } from 'rxjs';
 import { environment } from '@env/environment';
-import { ProntoSoccorso, StatoProntoSoccorso } from '@core/models/statoProntoSoccorso';
+import { CodiceIdPS, ProntoSoccorso, StatoProntoSoccorso } from '@core/models/statoProntoSoccorso';
 import { AppStateService } from '@core/services/appState/app-state.service';
+import { FavoritesService } from '@core/services/favorites/favorites.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +12,12 @@ import { AppStateService } from '@core/services/appState/app-state.service';
 export class StatoPSService {
   #httpCore = inject(HttpCoreService);
   #appStateService = inject(AppStateService);
+  #favoritesService = inject(FavoritesService);
 
   #prontoSoccorso = signal<ProntoSoccorso[]>([]);
   #prontoSoccorsoFiltered = signal<ProntoSoccorso[]>([]);
   #dataAggiornamento = signal<string>('');
+  #prontoSoccorsoFav = signal<ProntoSoccorso[]>([]);
 
   public readonly prontoSoccorso = computed<ProntoSoccorso[]>(() => {
     return this.#prontoSoccorsoFiltered();
@@ -24,6 +27,10 @@ export class StatoPSService {
   });
   public readonly listaLocalita = computed<string[]>(() => {
     return Array.from(new Set(this.#prontoSoccorso().map(ps => ps.localita)));
+  });
+
+  public readonly prontoSoccorsoFav = computed<ProntoSoccorso[]>(() => {
+    return this.#prontoSoccorsoFav();
   });
 
   public filterPS(localita: string) {
@@ -56,6 +63,22 @@ export class StatoPSService {
         this.#prontoSoccorso.set(data.prontoSoccorso);
         this.#prontoSoccorsoFiltered.set(data.prontoSoccorso);
         this.#dataAggiornamento.set(data.dataAggiornamento);
+        this.loadFavPS();
       });
+  }
+
+  // prontoSoccorsoFav()
+  private findPS(codiceIdPS: CodiceIdPS): ProntoSoccorso | false {
+    return this.#prontoSoccorso().find(ps => ps.codPsOd === codiceIdPS) ?? false;
+  }
+
+  public loadFavPS() {
+    if (this.#prontoSoccorso().length === 0) this.loadStatoPS();
+    this.#prontoSoccorsoFav.set(
+      this.#favoritesService
+        .favorites()
+        .map(codiceIdPS => this.findPS(codiceIdPS))
+        .filter(ps => ps !== false) as ProntoSoccorso[]
+    );
   }
 }
