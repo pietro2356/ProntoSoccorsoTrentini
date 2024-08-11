@@ -1,0 +1,38 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="refreshData($event)">
+    <ion-refresher-content/>
+  </ion-refresher>
+
+  <header class="statops__header">
+    <div class="statops__header-title">
+      <h1>Pronto Soccorso Trentini</h1>
+    </div>
+
+    <div class="statops__header-actionbox">
+      <pst-link-button
+        routerLink="/info"
+        icon="ℹ️"
+        text="Info"
+      />
+      <pst-link-button
+        routerLink="/homeStatoPS"
+        icon="🏥"
+        text="Lista Pronto Soccorso"
+      />
+    </div>
+  </header>
+
+  <div class="card-aligner">
+    @for(ps of psFavorites(); track ps.codOspOd){
+      <pst-card-ps [prontoSoccorso]="ps" />
+    } @empty {
+      <pst-error-card
+        [isError]="false"
+        title="I tuoi Pronto Soccorso preferiti verranno mostrati qui"
+        message="Fai click o tap sulla stellina ⭐ per aggiungere un Pronto Soccorso alla lista dei tuoi Preferiti"/>
+    }
+  </div>
+<!--  <ion-button (click)="clearFavorites()" color="danger" type="secondary">Clear Favorites</ion-button>-->
+<!--  <ion-button (click)="loadFavorites()" color="warning" >Load Favorites</ion-button>-->
+
+</ion-content>

@@ -11,6 +11,11 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'favorites',
+    loadComponent: () => import('./feature/favorites/favorites.page').then(m => m.FavoritesPage),
+    pathMatch: 'full',
+  },
+  {
     path: '',
     redirectTo: 'homeStatoPS',
     pathMatch: 'full',
