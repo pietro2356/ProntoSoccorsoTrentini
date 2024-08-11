@@ -7,3 +7,25 @@
   gap: .5rem;
   padding-top: 0.3rem;
 }
+
+.cardps_title{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cardps_title__text{}
+
+.cardps_title__favorites{
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-icon {
+  font-size: 1.25rem;
+}

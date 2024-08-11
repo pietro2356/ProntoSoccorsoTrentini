@@ -1,16 +1,31 @@
+@let psData = prontoSoccorso();
+@let favSrv = favoriteService;
+
 <ion-card class="bg_shade">
   <ion-card-header>
-    <ion-card-title>{{prontoSoccorso().localita | firstLetterToCapital}}</ion-card-title>
-    <ion-card-subtitle>{{prontoSoccorso().ps | extractPS}}</ion-card-subtitle>
+    <ion-card-title class="cardps_title">
+      <div class="cardps_title__text">
+        {{psData.localita | firstLetterToCapital}}
+      </div>
+      <div class="cardps_title__favorites">
+        @if(favSrv.isFavorite(psData.codPsOd)){
+          <ion-icon name="star" color="warning" size="medium" (click)="removeFavorite(psData)"/>
+        }
+        @else {
+          <ion-icon name="star-outline" color="yellow" size="medium" (click)="favSrv.addFavorite(psData.codPsOd)"/>
+        }
+      </div>
+    </ion-card-title>
+    <ion-card-subtitle>{{psData.ps | extractPS}}</ion-card-subtitle>
   </ion-card-header>
   <ion-card-content>
     <h4>Attesa:</h4>
     <div class="waitbox-align">
-      <pst-waiting-box [waitVal]="prontoSoccorso().attesa.bianco" [color]="'bianco'"/>
-      <pst-waiting-box [waitVal]="prontoSoccorso().attesa.verde" [color]="'verde'"/>
-      <pst-waiting-box [waitVal]="prontoSoccorso().attesa.azzurro" [color]="'azzurro'"/>
-      <pst-waiting-box [waitVal]="prontoSoccorso().attesa.arancio" [color]="'arancio'"/>
-      <pst-waiting-box [waitVal]="prontoSoccorso().attesa.rosso" [color]="'rosso'"/>
+      <pst-waiting-box [waitVal]="psData.attesa.bianco" [color]="'bianco'"/>
+      <pst-waiting-box [waitVal]="psData.attesa.verde" [color]="'verde'"/>
+      <pst-waiting-box [waitVal]="psData.attesa.azzurro" [color]="'azzurro'"/>
+      <pst-waiting-box [waitVal]="psData.attesa.arancio" [color]="'arancio'"/>
+      <pst-waiting-box [waitVal]="psData.attesa.rosso" [color]="'rosso'"/>
     </div>
   </ion-card-content>
 </ion-card>

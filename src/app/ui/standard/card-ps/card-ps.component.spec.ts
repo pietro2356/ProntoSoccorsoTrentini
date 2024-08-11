@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CardPSComponent } from './card-ps.component';
 import { ProntoSoccorso } from '@core/models/statoProntoSoccorso';
+import { provideHttpClient } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
+import { routes } from '../../../app.routes';
 
 describe(CardPSComponent.name, () => {
   const mockPSData: ProntoSoccorso = {
@@ -50,12 +53,18 @@ describe(CardPSComponent.name, () => {
   let fixture: ComponentFixture<CardPSComponent>;
 
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideRouter(routes), provideHttpClient()],
+    }).compileComponents();
+  });
+
+  beforeEach(async () => {
     fixture = TestBed.createComponent(CardPSComponent);
     component = fixture.componentInstance;
     component.prontoSoccorso.set(mockPSData);
-
-    fixture.autoDetectChanges();
+    fixture.detectChanges();
   });
+
   it('should create', () => {
     expect(fixture.componentInstance).toBeTruthy();
   });
