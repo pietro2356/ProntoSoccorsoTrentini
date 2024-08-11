@@ -17,6 +17,7 @@ import {
   IonRefresherContent,
   IonTitle,
   IonToolbar,
+  ViewDidEnter,
   ViewWillEnter,
 } from '@ionic/angular/standalone';
 import { AppStateService } from '@core/services/appState/app-state.service';
@@ -28,6 +29,7 @@ import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { UpperCasePipe } from '@angular/common';
 import { LinkButtonComponent } from '@ui/link-button/link-button.component';
+import { FavoritesService } from '@core/services/favorites/favorites.service';
 
 @Component({
   selector: 'pst-home-statops',
@@ -62,9 +64,10 @@ import { LinkButtonComponent } from '@ui/link-button/link-button.component';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeStatoPSPage implements ViewWillEnter {
+export class HomeStatoPSPage implements ViewWillEnter, ViewDidEnter {
   #statoPSService = inject(StatoPSService);
   appStateService = inject(AppStateService);
+  favoitesService = inject(FavoritesService);
   dataAggiornamento = this.#statoPSService.dataAggiornamento;
   prontoSoccorso = this.#statoPSService.prontoSoccorso;
   listaLocalita = this.#statoPSService.listaLocalita;
@@ -73,7 +76,11 @@ export class HomeStatoPSPage implements ViewWillEnter {
   ricercaPS = ''.toUpperCase();
 
   ionViewWillEnter(): void {
-    this.#statoPSService.loadStatoPS();
+    this.#statoPSService.loadFavPS();
+  }
+
+  ionViewDidEnter(): void {
+    this.favoitesService.loadFavorites();
   }
 
   refreshData(event: CustomEvent) {
