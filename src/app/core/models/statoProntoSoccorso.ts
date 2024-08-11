@@ -34,11 +34,13 @@ export type AttesaMedia = {
   arancio: number;
 };
 
+export type CodiceIdPS = string;
+
 export type ProntoSoccorso = {
   tipo: string;
   dataAggiornamento: string;
   codPsOd: string;
-  codOspOd: string;
+  codOspOd: CodiceIdPS;
   ps: string;
   unitaOperativa: string;
   localita: string;
