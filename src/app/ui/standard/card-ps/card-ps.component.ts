@@ -56,7 +56,7 @@ export class CardPSComponent {
   redirectToDetails(event: Event) {
     event.preventDefault();
     this.#router.navigateByUrl(`/ps-details/${this.prontoSoccorso().codPsOd}`, {
-      // TODO: Aggiungere codice appena possibile
+      // TODO: Aggiungere codice appena possibile +  Valutare come gestire il redirect
       //browserUrl: this.#router.parseUrl(`/ps-details/${this.prontoSoccorso().codPsOd}/info`),
     });
   }
