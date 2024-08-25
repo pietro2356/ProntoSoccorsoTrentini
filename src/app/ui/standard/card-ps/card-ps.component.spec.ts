@@ -51,7 +51,7 @@ describe(CardPSComponent.name, () => {
     dettagli: {
       id: '010-PS-PS',
       contatti: {
-        telefono: '+39 0464 582622',
+        telefono: ['+39 0464 582622'],
         email: ['cristina.carnesecchi@apss.tn.it'],
         pec: 'distretto.centrosud@pec.apss.tn.it',
       },
