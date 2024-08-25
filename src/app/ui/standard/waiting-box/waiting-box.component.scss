@@ -1,13 +1,73 @@
-.waitValBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+@media (max-width: 768px) {
+  .waitbox__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    //justify-content: center;
+    //gap: .3rem;
+  }
 
-  width: 3rem; /* Dimensione quadrato */
-  height: 3rem; /* Dimensione quadrato */
-  border-radius: .35rem; /* Angoli arrotondati */
-  //background-color: #ff0000; /* Colore di sfondo (opzionale) */
-  color: #3F3F3F;
-  font-size: 2rem; /* Dimensione del testo */
+  .waitbox__container_box{
+    width: 1.7rem; /* Dimensione quadrato */
+    height: 1.7rem; /* Dimensione quadrato */
+    border-radius: .35rem; /* Angoli arrotondati */
+  }
+
+  .waitbox__container_val{
+    margin-left: .2rem;
+    margin-right: .3rem;
+    color: #3F3F3F;
+    font-size: 1.7rem; /* Dimensione del testo */
+  }
+
+  .waitbox__value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 3rem; /* Dimensione quadrato */
+    height: 3rem; /* Dimensione quadrato */
+    border-radius: .35rem; /* Angoli arrotondati */
+    //background-color: #ff0000; /* Colore di sfondo (opzionale) */
+    color: #3F3F3F;
+    font-size: 1.7rem; /* Dimensione del testo */
+  }
+}
+
+@media (min-width: 769px) {
+  .waitbox__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    //justify-content: center;
+    //gap: .3rem;
+  }
+
+  .waitbox__container_box{
+    width: 2rem; /* Dimensione quadrato */
+    height: 2rem; /* Dimensione quadrato */
+    border-radius: .35rem; /* Angoli arrotondati */
+  }
+
+  .waitbox__container_val{
+    margin-left: .2rem;
+    margin-right: .3rem;
+    color: #3F3F3F;
+    font-size: 2rem; /* Dimensione del testo */
+  }
+
+  .waitbox__value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 4rem; /* Dimensione quadrato */
+    height: 4rem; /* Dimensione quadrato */
+    border-radius: .35rem; /* Angoli arrotondati */
+    //background-color: #ff0000; /* Colore di sfondo (opzionale) */
+    color: #3F3F3F;
+    font-size: 2rem; /* Dimensione del testo */
+  }
 }

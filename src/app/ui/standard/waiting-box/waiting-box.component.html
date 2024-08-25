@@ -1,0 +1,8 @@
+@if(small()){
+  <div class="waitbox__container">
+    <div #waitbox class="waitbox__container_box"></div>
+    <div #waitbox__val class="waitbox__container_val">{{waitVal() | minutesToTime}}</div>
+  </div>
+} @else {
+  <div #waitbox class="waitbox__value">{{waitVal()}}</div>
+}
