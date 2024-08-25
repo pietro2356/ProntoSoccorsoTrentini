@@ -1,5 +1,5 @@
 export type Contatti = {
-  telefono: string;
+  telefono: string[];
   email: string[];
   pec: string;
 };
@@ -19,7 +19,7 @@ export type PSDetail = {
 const psCles: PSDetail = {
   id: '005-PS-PS',
   contatti: {
-    telefono: '+39 0463 660227',
+    telefono: ['+39 0463 660227'],
     email: ['prontosoccorsocles@apss.tn.it'],
     pec: 'distretto.ovest@pec.apss.tn.it',
   },
@@ -33,7 +33,7 @@ const psCles: PSDetail = {
 const psCavalese: PSDetail = {
   id: '014-PS-PS',
   contatti: {
-    telefono: '+39 0462 242204',
+    telefono: ['+39 0462 242204'],
     email: ['ufficioaccettazionefiemme@apss.tn.it'],
     pec: 'distretto.est@pec.apss.tn.it',
   },
@@ -47,7 +47,7 @@ const psCavalese: PSDetail = {
 const psBorgoValsugana: PSDetail = {
   id: '004-PS-PS',
   contatti: {
-    telefono: '+39 0461 755111 - 755155',
+    telefono: ['+39 0461 755111', '+39 0461 755155'],
     email: ['dimitri.peterlana@apss.tn.it', 'psborgo@apss.tn.it'],
     pec: 'distretto.est@pec.apss.tn.it',
   },
@@ -61,7 +61,7 @@ const psBorgoValsugana: PSDetail = {
 const psArco: PSDetail = {
   id: '010-PS-PS',
   contatti: {
-    telefono: '+39 0464 582622',
+    telefono: ['+39 0464 582622'],
     email: ['cristina.carnesecchi@apss.tn.it'],
     pec: 'distretto.centrosud@pec.apss.tn.it',
   },
@@ -75,7 +75,7 @@ const psArco: PSDetail = {
 const psTione: PSDetail = {
   id: '007-PS-PS',
   contatti: {
-    telefono: '+39 0465 331555 - 331334',
+    telefono: ['+39 0465 331555', '+39 0465 331334'],
     email: ['prontosoccorsotione@apss.tn.it'],
     pec: 'distretto.centrosud@pec.apss.tn.it',
   },
@@ -89,7 +89,7 @@ const psTione: PSDetail = {
 const psRovereto: PSDetail = {
   id: '006-PS-PS',
   contatti: {
-    telefono: '+39 0464 403205',
+    telefono: ['+39 0464 403205'],
     email: ['fabio.malalan@apss.tn.it', 'mara.dalbosco@apss.tn.it'],
     pec: 'ospedale.rovereto@pec.apss.tn.it',
   },
@@ -101,7 +101,7 @@ const psRovereto: PSDetail = {
 
 // -- TRENTO --
 const contattiTrento: Contatti = {
-  telefono: '+ 39 0461 902665',
+  telefono: ['+ 39 0461 902665'],
   email: ['pstrento@apss.tn.it'],
   pec: 'ospedale.trento@pec.apss.tn.it',
 } as const;
@@ -152,7 +152,7 @@ const psTrentoOculistico: PSDetail = {
 const psNoData: PSDetail = {
   id: '404-PS-PS-ND',
   contatti: {
-    telefono: '',
+    telefono: [],
     email: [],
     pec: '',
   },
