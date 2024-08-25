@@ -48,6 +48,18 @@ describe(CardPSComponent.name, () => {
     },
     direttore: 'Direttore: dott.ssa Cristina Contu',
     messaggio: "IN CASO DI NECESSITA' RIVOLGERSI ALL'INFERMIERE DI TRIAGE / IF NECESSARY CONTACT THE TRIAGE NURSE",
+    dettagli: {
+      id: '010-PS-PS',
+      contatti: {
+        telefono: '+39 0464 582622',
+        email: ['cristina.carnesecchi@apss.tn.it'],
+        pec: 'distretto.centrosud@pec.apss.tn.it',
+      },
+      sede: {
+        indirizzo: 'Viale dei Capitelli, 48 - 38062 Arco',
+      },
+      link: 'https://www.apss.tn.it/Azienda/Unita-operative-e-strutture-organizzative/Struttura-semplice-pronto-soccorso-Arco',
+    },
   };
   let component: CardPSComponent;
   let fixture: ComponentFixture<CardPSComponent>;

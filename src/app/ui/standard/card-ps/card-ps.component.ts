@@ -15,6 +15,7 @@ import { FavoritesService } from '@core/services/favorites/favorites.service';
 import { addIcons } from 'ionicons';
 import { star, starOutline } from 'ionicons/icons';
 import { StatoPSService } from '@core/services/StatoPS/stato-ps.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'pst-card-ps',
@@ -37,6 +38,7 @@ import { StatoPSService } from '@core/services/StatoPS/stato-ps.service';
 export class CardPSComponent {
   favoriteService = inject(FavoritesService);
   #statoPSService = inject(StatoPSService);
+  #router = inject(Router);
 
   prontoSoccorso = model.required<ProntoSoccorso>();
 
@@ -49,5 +51,13 @@ export class CardPSComponent {
     setTimeout(() => {
       if (!this.favoriteService.isFavorite(ps.codPsOd)) this.#statoPSService.loadFavPS();
     }, 5000);
+  }
+
+  redirectToDetails(event: Event) {
+    event.preventDefault();
+    this.#router.navigateByUrl(`/ps-details/${this.prontoSoccorso().codPsOd}`, {
+      // TODO: Aggiungere codice appena possibile
+      //browserUrl: this.#router.parseUrl(`/ps-details/${this.prontoSoccorso().codPsOd}/info`),
+    });
   }
 }

@@ -1,7 +1,7 @@
 @let psData = prontoSoccorso();
 @let favSrv = favoriteService;
 
-<ion-card class="bg_shade">
+<ion-card class="bg_shade" (click)="redirectToDetails($event)">
   <ion-card-header>
     <ion-card-title class="cardps_title">
       <div class="cardps_title__text">
