@@ -5,6 +5,7 @@ import { environment } from '@env/environment';
 import { CodiceIdPS, ProntoSoccorso, StatoProntoSoccorso } from '@core/models/statoProntoSoccorso';
 import { AppStateService } from '@core/services/appState/app-state.service';
 import { FavoritesService } from '@core/services/favorites/favorites.service';
+import { PSDetail, psDetails } from '@core/data/ps-details';
 
 @Injectable({
   providedIn: 'root',
@@ -17,15 +18,17 @@ export class StatoPSService {
 
   /* ---- SIGNAL INTERNI PER LA GESTIONE DEI PRONTO SOCCORSO ---- */
   readonly #prontoSoccorso = signal<ProntoSoccorso[]>([]);
-  readonly #localita = signal<string>('');
+  readonly #valoreDiRicercaPS = signal<string>('');
   readonly #dataAggiornamento = signal<string>('');
   readonly #prontoSoccorsoFav = signal<ProntoSoccorso[]>([]);
 
   /* ---- SIGNAL PUBBLICI READONLY PER ESPORRE I DATI ---- */
   public readonly prontoSoccorso = computed<ProntoSoccorso[]>(() => {
-    if (this.#localita() === null) return this.#prontoSoccorso();
-    if (this.#localita().length < 3) return this.#prontoSoccorso();
-    return this.#prontoSoccorso().filter(ps => ps.localita === this.#localita());
+    if (this.#valoreDiRicercaPS() === null) return this.#prontoSoccorso();
+    if (this.#valoreDiRicercaPS().length < 3) return this.#prontoSoccorso();
+    return this.#prontoSoccorso().filter(
+      ps => ps.localita === this.#valoreDiRicercaPS() || ps.codPsOd === this.#valoreDiRicercaPS()
+    );
   });
   public readonly dataAggiornamento = computed<string>(() => {
     return this.#dataAggiornamento();
@@ -44,14 +47,14 @@ export class StatoPSService {
    * @param localita
    */
   public filterPS(localita: string) {
-    this.#localita.set(localita);
+    this.#valoreDiRicercaPS.set(localita);
   }
 
   /**
    * Rimuove il filtro sulla località
    */
   public clearFilterPS() {
-    this.#localita.set('');
+    this.#valoreDiRicercaPS.set('');
   }
 
   /**
@@ -74,14 +77,25 @@ export class StatoPSService {
         this.#prontoSoccorso.set(data.prontoSoccorso);
         this.#dataAggiornamento.set(data.dataAggiornamento);
         this.loadFavPS();
+        this.updatePSInfo();
       });
+  }
+
+  private updatePSInfo() {
+    this.#prontoSoccorso().forEach(ps => {
+      ps.dettagli = this.addPsDetail(ps);
+    });
+  }
+
+  private addPsDetail(ps: ProntoSoccorso): PSDetail {
+    return psDetails.find(detail => detail.id === ps.codPsOd) ?? psDetails[psDetails.length - 1];
   }
 
   /**
    * Aggiunge un pronto soccorso ai preferiti
    * @param codiceIdPS codiceId del pronto soccorso
    */
-  private findPS(codiceIdPS: CodiceIdPS): ProntoSoccorso | false {
+  public findPS(codiceIdPS: CodiceIdPS): ProntoSoccorso | false {
     return this.#prontoSoccorso().find(ps => ps.codPsOd === codiceIdPS) ?? false;
   }
 

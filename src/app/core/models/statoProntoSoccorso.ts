@@ -1,3 +1,5 @@
+import { PSDetail } from '@core/data/ps-details';
+
 export type Attesa = {
   bianco: number;
   verde: number;
@@ -50,6 +52,7 @@ export type ProntoSoccorso = {
   attesaMedia: AttesaMedia;
   direttore: string;
   messaggio: string;
+  dettagli: PSDetail;
 };
 
 export type StatoProntoSoccorso = {
