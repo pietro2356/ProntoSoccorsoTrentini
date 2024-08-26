@@ -2,17 +2,35 @@
 
 @if(ps){
   <ion-content [fullscreen]="true" class="ion-padding">
+
     <div class="info-container">
-      <h1 class="info-header">{{ ps.codOspOd }}</h1>
+      <div class="info-back">
+<!--        <ion-icon name="arrowBack" color="primary"/>-->
+        <ion-back-button defaultHref="/homeStatoPS" text=""/>
+      </div>
+      <h1 class="info-header">
+        {{ ps.codOspOd }}
+      </h1>
       <h1 class="info-subheader">{{ ps.unitaOperativa	}}</h1>
+
       <div class="info-chips">
+        <!--    INDIRIZZO e PERCORSO   -->
         <ion-chip color="primary">
-          <ion-icon name="location" color="primary"/>
-          <ion-label>{{ ps.localita }}</ion-label>
+          @let loc = ps.ps.replaceAll(' ', '+');
+          <ion-icon name="navigate" color="primary"/>
+          <ion-label>
+            <a href="https://www.google.com/maps/dir//{{loc}}" target="_blank">
+              {{ ps.localita }}
+            </a>
+          </ion-label>
         </ion-chip>
-        <ion-chip color="warning">
-          <ion-icon name="medical" color="danger"/>
-          <ion-label>{{ ps.ps | extractPS }}</ion-label>
+
+        <!--    SITO    -->
+        <ion-chip color="warning" (click)="openTabViaLink($event, ps.dettagli.link)">
+          <ion-icon name="globe" color="danger"/>
+          <ion-label>
+            APSS: {{ ps.ps | extractPS }}
+          </ion-label>
         </ion-chip>
       </div>
 
@@ -54,20 +72,43 @@
           <pst-waiting-box [small]="true" [waitVal]="ps.attesaMedia.rosso" [color]="'rosso'"/>
         </div>
 
-        <pst-link-button
-          routerLink="/homeStatoPS"
-          icon="🏥"
-          text="Lista pronto soccorso"
-        />
-        <br>
-        <pst-link-button
-          routerLink="/favorites"
-          icon="⭐"
-          text="Preferiti"
-        />
+        <h3>Contatti</h3>
+        <div class="info-chips">
+          <!--    TELEFONI    -->
+          @for(tel of ps.dettagli.contatti.telefono; track tel){
+            <ion-chip color="success">
+              <ion-icon name="call" color="success"/>
+              <ion-label>
+                <a href="tel:{{tel}}" target="_blank">
+                  {{ tel }}
+                </a>
+              </ion-label>
+            </ion-chip>
+          }
+          <!--    EMAIL    -->
+          @for(mail of ps.dettagli.contatti.email; track mail){
+            <ion-chip color="medium">
+              <ion-icon name="mail" color="medium"/>
+              <ion-label>
+                <a href="mailto:{{mail}}" target="_blank">
+                  {{ mail }}
+                </a>
+              </ion-label>
+            </ion-chip>
+          }
+
+          <!--    PEC    -->
+          <ion-chip color="medium">
+            <ion-icon name="at" color="medium"/>
+            <ion-label>
+              <a href="mailto:{{ps.dettagli.contatti.pec}}" target="_blank">
+                {{ ps.dettagli.contatti.pec }}
+              </a>
+            </ion-label>
+          </ion-chip>
+        </div>
 
       </div>
-
     </div>
 
   </ion-content>

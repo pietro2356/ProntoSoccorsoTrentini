@@ -2,6 +2,9 @@ import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
+  IonBackButton,
+  IonButton,
+  IonButtons,
   IonCard,
   IonCardContent,
   IonCardHeader,
@@ -22,7 +25,7 @@ import { ProntoSoccorso } from '@core/models/statoProntoSoccorso';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ExtractPSPipe } from '@core/pipe/extract-ps.pipe';
 import { addIcons } from 'ionicons';
-import { location, medical } from 'ionicons/icons';
+import { arrowBack, at, call, globe, location, mail, medical, navigate } from 'ionicons/icons';
 import { WaitingBoxComponent } from '@ui/standard/waiting-box/waiting-box.component';
 
 @Component({
@@ -48,6 +51,9 @@ import { WaitingBoxComponent } from '@ui/standard/waiting-box/waiting-box.compon
     IonCardTitle,
     IonCardContent,
     WaitingBoxComponent,
+    IonBackButton,
+    IonButton,
+    IonButtons,
   ],
 })
 export class PsDetailsPage implements ViewWillEnter {
@@ -60,10 +66,23 @@ export class PsDetailsPage implements ViewWillEnter {
   });
 
   constructor() {
-    addIcons({ location, medical });
+    addIcons({ location, medical, navigate, call, globe, mail, at, arrowBack });
   }
 
   ionViewWillEnter(): void {
     if (this.#statoPsService.prontoSoccorso().length === 0) this.#statoPsService.loadFavPS();
+  }
+
+  openTabViaLink(event: Event, url: string) {
+    event.preventDefault();
+    window.open(url, '_blank');
+  }
+
+  getTelephoneLink(tel: string): string {
+    if (tel === '') return '';
+    const sp = tel.split('-');
+    console.trace(sp);
+
+    return tel;
   }
 }
