@@ -6,7 +6,13 @@
     <div class="info-container">
       <div class="info-back">
 <!--        <ion-icon name="arrowBack" color="primary"/>-->
-        <ion-back-button defaultHref="/homeStatoPS" text=""/>
+        <ion-back-button defaultHref="/homeStatoPS" icon="arrow-back-outline"/>
+        @if(favoritesService.isFavorite(ps.codPsOd)){
+          <ion-icon name="star" color="warning" size="large" (click)="favUtils.removeFavorite($event, ps)"/>
+        }
+        @else {
+          <ion-icon name="star-outline" color="warning" size="large" (click)="favUtils.addFavorite($event, ps)"/>
+        }
       </div>
       <h1 class="info-header">
         {{ ps.codOspOd }}
@@ -20,7 +26,7 @@
           <ion-icon name="navigate" color="primary"/>
           <ion-label>
             <a href="https://www.google.com/maps/dir//{{loc}}" target="_blank">
-              {{ ps.localita }}
+              Vai a {{ ps.localita | titlecase}}
             </a>
           </ion-label>
         </ion-chip>

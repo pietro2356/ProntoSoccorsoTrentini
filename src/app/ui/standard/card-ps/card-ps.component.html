@@ -9,10 +9,10 @@
       </div>
       <div class="cardps_title__favorites">
         @if(favSrv.isFavorite(psData.codPsOd)){
-          <ion-icon name="star" color="warning" size="medium" (click)="removeFavorite($event, psData)"/>
+          <ion-icon name="star" color="warning" size="medium" (click)="favUtils.removeFavorite($event, psData)"/>
         }
         @else {
-          <ion-icon name="star-outline" color="yellow" size="medium" (click)="addFavorite($event, psData)"/>
+          <ion-icon name="star-outline" color="yellow" size="medium" (click)="favUtils.addFavorite($event, psData)"/>
         }
       </div>
     </ion-card-title>

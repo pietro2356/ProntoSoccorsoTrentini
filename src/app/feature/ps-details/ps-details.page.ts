@@ -25,8 +25,22 @@ import { ProntoSoccorso } from '@core/models/statoProntoSoccorso';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ExtractPSPipe } from '@core/pipe/extract-ps.pipe';
 import { addIcons } from 'ionicons';
-import { arrowBack, at, call, globe, location, mail, medical, navigate } from 'ionicons/icons';
+import {
+  arrowBack,
+  arrowBackOutline,
+  at,
+  call,
+  globe,
+  location,
+  mail,
+  medical,
+  navigate,
+  star,
+  starOutline,
+} from 'ionicons/icons';
 import { WaitingBoxComponent } from '@ui/standard/waiting-box/waiting-box.component';
+import { FavoritesService } from '@core/services/favorites/favorites.service';
+import { FavoriteUtils } from '@core/services/favorites/favoriteUtils.class';
 
 @Component({
   selector: 'pst-ps-details',
@@ -59,14 +73,16 @@ import { WaitingBoxComponent } from '@ui/standard/waiting-box/waiting-box.compon
 export class PsDetailsPage implements ViewWillEnter {
   readonly #router = inject(ActivatedRoute);
   readonly #statoPsService = inject(StatoPSService);
+  readonly favoritesService = inject(FavoritesService);
   routeParam = toSignal(this.#router.paramMap);
+  readonly favUtils = new FavoriteUtils();
 
   prontoSoccorsoComp = computed<ProntoSoccorso | false>(() => {
     return this.#statoPsService.findPS(this.routeParam()?.get('id') || '');
   });
 
   constructor() {
-    addIcons({ location, medical, navigate, call, globe, mail, at, arrowBack });
+    addIcons({ location, medical, navigate, call, globe, mail, at, arrowBack, star, starOutline, arrowBackOutline });
   }
 
   ionViewWillEnter(): void {
@@ -76,13 +92,5 @@ export class PsDetailsPage implements ViewWillEnter {
   openTabViaLink(event: Event, url: string) {
     event.preventDefault();
     window.open(url, '_blank');
-  }
-
-  getTelephoneLink(tel: string): string {
-    if (tel === '') return '';
-    const sp = tel.split('-');
-    console.trace(sp);
-
-    return tel;
   }
 }
