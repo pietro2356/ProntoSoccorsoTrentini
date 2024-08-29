@@ -14,7 +14,6 @@ import {
 import { FavoritesService } from '@core/services/favorites/favorites.service';
 import { addIcons } from 'ionicons';
 import { star, starOutline } from 'ionicons/icons';
-import { StatoPSService } from '@core/services/StatoPS/stato-ps.service';
 import { Router } from '@angular/router';
 import { FavoriteUtils } from '@core/services/favorites/favoriteUtils.class';
 
@@ -38,7 +37,6 @@ import { FavoriteUtils } from '@core/services/favorites/favoriteUtils.class';
 })
 export class CardPSComponent {
   favoriteService = inject(FavoritesService);
-  #statoPSService = inject(StatoPSService);
   #router = inject(Router);
   readonly favUtils = new FavoriteUtils();
 
