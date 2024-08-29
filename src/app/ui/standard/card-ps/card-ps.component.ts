@@ -46,18 +46,27 @@ export class CardPSComponent {
     addIcons({ star, starOutline });
   }
 
-  removeFavorite(ps: ProntoSoccorso) {
+  removeFavorite(event: Event, ps: ProntoSoccorso) {
     this.favoriteService.removeFavorite(ps.codPsOd);
     setTimeout(() => {
       if (!this.favoriteService.isFavorite(ps.codPsOd)) this.#statoPSService.loadFavPS();
     }, 5000);
+    event.stopPropagation();
+  }
+
+  addFavorite(event: Event, ps: ProntoSoccorso) {
+    this.favoriteService.addFavorite(ps.codPsOd);
+    event.stopPropagation();
   }
 
   redirectToDetails(event: Event) {
-    event.preventDefault();
+    // event.preventDefault();
+    console.debug('EVENT TARGET REDIRECT', event.target);
     this.#router.navigateByUrl(`/ps-details/${this.prontoSoccorso().codPsOd}`, {
       // TODO: Aggiungere codice appena possibile +  Valutare come gestire il redirect
       //browserUrl: this.#router.parseUrl(`/ps-details/${this.prontoSoccorso().codPsOd}/info`),
     });
+    // event.stopPropagation();
+    event.preventDefault();
   }
 }
