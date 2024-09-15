@@ -18,6 +18,7 @@ import {
   IonTitle,
   IonToolbar,
   ViewDidEnter,
+  ViewDidLeave,
   ViewWillEnter,
 } from '@ionic/angular/standalone';
 import { AppStateService } from '@core/services/appState/app-state.service';
@@ -64,7 +65,7 @@ import { FavoritesService } from '@core/services/favorites/favorites.service';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeStatoPSPage implements ViewWillEnter, ViewDidEnter {
+export class HomeStatoPSPage implements ViewWillEnter, ViewDidEnter, ViewDidLeave {
   #statoPSService = inject(StatoPSService);
   appStateService = inject(AppStateService);
   favoitesService = inject(FavoritesService);
@@ -81,6 +82,11 @@ export class HomeStatoPSPage implements ViewWillEnter, ViewDidEnter {
 
   ionViewDidEnter(): void {
     this.favoitesService.loadFavorites();
+  }
+
+  ionViewDidLeave() {
+    this.ricercaPS = '';
+    this.#statoPSService.clearFilterPS();
   }
 
   refreshData(event: CustomEvent) {
