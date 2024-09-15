@@ -85,6 +85,7 @@ export class HomeStatoPSPage implements ViewWillEnter, ViewDidEnter, ViewDidLeav
   }
 
   ionViewDidLeave() {
+    this.isSearchEnabled = !this.isSearchEnabled;
     this.ricercaPS = '';
     this.#statoPSService.clearFilterPS();
   }

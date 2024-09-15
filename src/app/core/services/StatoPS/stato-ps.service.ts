@@ -24,22 +24,28 @@ export class StatoPSService {
 
   /* ---- SIGNAL PUBBLICI READONLY PER ESPORRE I DATI ---- */
   public readonly prontoSoccorso = computed<ProntoSoccorso[]>(() => {
-    if (this.#valoreDiRicercaPS() === null) return this.#prontoSoccorso();
-    if (this.#valoreDiRicercaPS().length < 3) return this.#prontoSoccorso();
-    return this.#prontoSoccorso().filter(
-      ps => ps.localita === this.#valoreDiRicercaPS() || ps.codPsOd === this.#valoreDiRicercaPS()
-    );
+    if (this.#valoreDiRicercaPS() === null) return this.#prontoSoccorso().sort((a, b) => this.compareLocalita(a, b));
+    if (this.#valoreDiRicercaPS().length < 3) return this.#prontoSoccorso().sort((a, b) => this.compareLocalita(a, b));
+    return this.#prontoSoccorso()
+      .filter(ps => ps.localita === this.#valoreDiRicercaPS() || ps.codPsOd === this.#valoreDiRicercaPS())
+      .sort((a, b) => this.compareLocalita(a, b));
   });
   public readonly dataAggiornamento = computed<string>(() => {
     return this.#dataAggiornamento();
   });
   public readonly listaLocalita = computed<string[]>(() => {
-    return Array.from(new Set(this.#prontoSoccorso().map(ps => ps.localita)));
+    return Array.from(new Set(this.#prontoSoccorso().map(ps => ps.localita))).sort();
   });
 
   public readonly prontoSoccorsoFav = computed<ProntoSoccorso[]>(() => {
     return this.#prontoSoccorsoFav();
   });
+
+  private compareLocalita(a: ProntoSoccorso, b: ProntoSoccorso) {
+    if (a.localita < b.localita) return -1;
+    if (a.localita > b.localita) return 1;
+    return 0;
+  }
 
   /* ---- METODI PUBBLICI ---- */
   /**
