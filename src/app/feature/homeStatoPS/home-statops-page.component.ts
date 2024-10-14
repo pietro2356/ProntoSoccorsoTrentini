@@ -31,6 +31,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { UpperCasePipe } from '@angular/common';
 import { LinkButtonComponent } from '@ui/link-button/link-button.component';
 import { FavoritesService } from '@core/services/favorites/favorites.service';
+import { TranslateDirective, TranslatePipe, TranslateService } from '@codeandweb/ngx-translate';
 
 @Component({
   selector: 'pst-home-statops',
@@ -62,10 +63,13 @@ import { FavoritesService } from '@core/services/favorites/favorites.service';
     DropdownModule,
     UpperCasePipe,
     LinkButtonComponent,
+    TranslatePipe,
+    TranslateDirective,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeStatoPSPage implements ViewWillEnter, ViewDidEnter, ViewDidLeave {
+  translate = inject(TranslateService);
   #statoPSService = inject(StatoPSService);
   appStateService = inject(AppStateService);
   favoitesService = inject(FavoritesService);

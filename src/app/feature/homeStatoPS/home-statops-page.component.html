@@ -1,9 +1,3 @@
-<!--<ion-header [translucent]="true">-->
-<!--  <ion-toolbar>-->
-<!--    <ion-title>⚕️Pronto Soccorso Trentini</ion-title>-->
-<!--  </ion-toolbar>-->
-<!--</ion-header>-->
-
 <ion-content [fullscreen]="true" class="ion-padding">
   <ion-refresher slot="fixed" (ionRefresh)="refreshData($event)">
     <ion-refresher-content/>
@@ -11,23 +5,23 @@
 
   <header class="statops__header">
     <div class="statops__header-title">
-      <h1>Pronto Soccorso Trentini</h1>
+      <h1>{{ 'homeStatoPS.title' | translate }}</h1>
     </div>
 
     <div class="statops__header-actionbox">
       <pst-link-button
         routerLink="/info"
         icon="ℹ️"
-        text="Info"
+        text="{{ 'homeStatoPS.button.info' | translate }}"
       />
       <pst-link-button
         routerLink="/favorites"
         icon="⭐"
-        text="Preferiti"
+        text="{{ 'homeStatoPS.button.favorites' | translate }}"
       />
       <pst-link-button
         icon="🔍"
-        text="Cerca"
+        text="{{ 'homeStatoPS.button.search' | translate }}"
         (click)="enableSearch()"
       />
 
