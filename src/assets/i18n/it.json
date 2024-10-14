@@ -1,0 +1,35 @@
+{
+  "homeStatoPS": {
+    "title": "Pronto Soccorso Trentini",
+    "button": {
+      "search": "Cerca",
+      "info": "Info",
+      "favorites": "Preferiti"
+    },
+    "label": {
+      "ps": "Pronto Soccorso",
+      "waiting": "In attesa",
+      "pediatric": "Pediatrico",
+      "orthopedic": "Ortopedico",
+      "ginecologic": "Ginecologico",
+      "oculistic": "Oculistico"
+    },
+    "last_update": "Ultimo aggiornamento"
+  },
+  "psDetails": {
+    "label": {
+      "waiting": "In attesa",
+      "ambulatory": "Ambulatorio",
+      "observation": "Osservazione",
+      "waiting_time_avg": "Tempo di attesa medio",
+      "contact": "Contatti",
+      "vai_a": "Vai a"
+    }
+  },
+  "info": {
+    "paragraph1": "",
+    "paragraph2": "",
+    "paragraph3": ""
+  }
+}
+

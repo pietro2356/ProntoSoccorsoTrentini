@@ -1,0 +1,35 @@
+{
+  "homeStatoPS": {
+    "title": "Trentino Emergency Room",
+    "button": {
+      "search": "Search",
+      "info": "Info",
+      "favorites": "Favorites"
+    },
+    "label": {
+      "ps": "Emergency Room",
+      "waiting": "Waiting",
+      "pediatric": "Paediatric",
+      "orthopedic": "Orthopaedic",
+      "ginecologic": "Gynaecological",
+      "oculistic": "Eye care"
+    },
+    "last_update": "Last update"
+  },
+  "psDetails": {
+    "label": {
+      "waiting": "Waiting",
+      "ambulatory": "Ambulatory",
+      "observation": "Observation",
+      "waiting_time_avg": "Average waiting time",
+      "contact": "contacts",
+      "vai_a": "Go to"
+    }
+  },
+  "info": {
+    "paragraph1": "",
+    "paragraph2": "",
+    "paragraph3": ""
+  }
+}
+

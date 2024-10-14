@@ -1,0 +1,35 @@
+{
+  "homeStatoPS": {
+    "title": "Trentino Notaufnahme",
+    "button": {
+      "search": "Suche",
+      "info": "Informationen",
+      "favorites": "Favoriten"
+    },
+    "label": {
+      "ps": "Notaufnahme",
+      "waiting": "Warten",
+      "pediatric": "Pädiatrische",
+      "orthopedic": "Orthopädische",
+      "ginecologic": "Gynäkologische",
+      "oculistic": "Ophthalmologische"
+    },
+    "last_update": "Letzte Aktualisierung"
+  },
+  "psDetails": {
+    "label": {
+      "waiting": "Warten",
+      "ambulatory": "Ambulatorium",
+      "observation": "Beobachtung",
+      "waiting_time_avg": "Durchschnittliche Wartezeit",
+      "contact": "Kontakt",
+      "vai_a": "Zum"
+    }
+  },
+  "info": {
+    "paragraph1": "",
+    "paragraph2": "",
+    "paragraph3": ""
+  }
+}
+
