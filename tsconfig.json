@@ -27,7 +27,8 @@
       "@model/*": ["./src/app/model/*"],
       "@pattern/*": ["./src/app/pattern/*"],
       "@env/*": ["./src/environments/*"],
-    }
+    },
+    "newLine": "crlf"
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
