@@ -9,17 +9,21 @@ import {
   withRouterConfig,
 } from '@angular/router';
 import { provideIonicAngular } from '@ionic/angular/standalone';
-import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { loadingInterceptor } from '@core/services/interceptor/loading-interceptor.interceptor';
 import { APP_INITIALIZER, ErrorHandler, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { GlobalErrorHandler } from '@core/services/errors/global-error-handler.handler';
 import { LocalStoreService } from '@core/services/favorites/localStore/local-store.service';
 import { FavoritesService } from '@core/services/favorites/favorites.service';
+import { provideTranslateService, TranslateLoader } from '@codeandweb/ngx-translate';
+import { TranslateHttpLoader } from '@codeandweb/http-loader';
 
 export interface CoreOptions {
   routes: Routes;
 }
+
+const Httpi18nLoaderFactory = (http: HttpClient) => new TranslateHttpLoader(http, './assets/i18n/', '.json');
 
 export function provideCore({ routes }: CoreOptions) {
   return [
@@ -38,6 +42,14 @@ export function provideCore({ routes }: CoreOptions) {
       })
     ),
     provideAnimations(),
+    provideTranslateService({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: Httpi18nLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
     {
       provide: ErrorHandler,
       useClass: GlobalErrorHandler,
