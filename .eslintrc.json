@@ -29,7 +29,6 @@
         // REGOLE GENERALI JS/TS
         "no-console": "warn",
         "prettier/prettier": "error",
-        "no-unisede-vars": "off",
         "no-debugger": "warn",
         "no-alert": "error",
         "no-undefined": "warn",

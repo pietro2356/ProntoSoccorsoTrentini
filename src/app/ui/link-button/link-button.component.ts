@@ -3,7 +3,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { ButtonModule } from 'primeng/button';
 
-// type Severity = 'success' | 'info' | 'warn' | 'error' | 'help' | 'danger' | 'contrast';
 type Severity =
   | 'success'
   | 'info'
