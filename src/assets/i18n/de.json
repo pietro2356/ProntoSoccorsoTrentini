@@ -9,10 +9,10 @@
     "label": {
       "ps": "Notaufnahme",
       "waiting": "Warten",
-      "pediatric": "Pädiatrische",
-      "orthopedic": "Orthopädische",
-      "ginecologic": "Gynäkologische",
-      "oculistic": "Ophthalmologische"
+      "ps_pediatric": "Pädiatrische Notaufnahme",
+      "ps_orthopedic": "Orthopädische Notaufnahme",
+      "ps_ginecologic": "Gynäkologische Notaufnahme",
+      "ps_oculistic": "Augenärztliche Notaufnahme"
     },
     "last_update": "Letzte Aktualisierung"
   },

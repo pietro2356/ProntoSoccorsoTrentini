@@ -9,10 +9,10 @@
     "label": {
       "ps": "Pronto Soccorso",
       "waiting": "In attesa",
-      "pediatric": "Pediatrico",
-      "orthopedic": "Ortopedico",
-      "ginecologic": "Ginecologico",
-      "oculistic": "Oculistico"
+      "ps_pediatric": "Pronto Soccorso Pediatrico",
+      "ps_orthopedic": "Pronto Soccorso Ortopedico",
+      "ps_ginecologic": "Pronto Soccorso Ginecologico",
+      "ps_oculistic": "Pronto Soccorso Oculistico"
     },
     "last_update": "Ultimo aggiornamento"
   },

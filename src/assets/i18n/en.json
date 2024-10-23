@@ -9,10 +9,10 @@
     "label": {
       "ps": "Emergency Room",
       "waiting": "Waiting",
-      "pediatric": "Paediatric",
-      "orthopedic": "Orthopaedic",
-      "ginecologic": "Gynaecological",
-      "oculistic": "Eye care"
+      "ps_pediatric": "Paediatric Emergency Room",
+      "ps_orthopedic": "Orthopaedic Emergency Room",
+      "ps_ginecologic": "Gynaecological Emergency Room",
+      "ps_oculistic": "Ophthalmology Emergency Room"
     },
     "last_update": "Last update"
   },
