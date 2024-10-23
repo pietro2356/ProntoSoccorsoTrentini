@@ -16,8 +16,9 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { GlobalErrorHandler } from '@core/services/errors/global-error-handler.handler';
 import { LocalStoreService } from '@core/services/favorites/localStore/local-store.service';
 import { FavoritesService } from '@core/services/favorites/favorites.service';
-import { provideTranslateService, TranslateLoader } from '@codeandweb/ngx-translate';
+import { provideTranslateService, TranslateLoader, TranslateService } from '@codeandweb/ngx-translate';
 import { TranslateHttpLoader } from '@codeandweb/http-loader';
+import { InternationalizationService } from '@core/services/Internationalization/internationalization.service';
 
 export interface CoreOptions {
   routes: Routes;
@@ -59,6 +60,12 @@ export function provideCore({ routes }: CoreOptions) {
       useFactory: (localStoreService: LocalStoreService, favService: FavoritesService) => () =>
         localStoreService.init().then(() => favService.loadFavorites()),
       deps: [LocalStoreService, FavoritesService],
+      multi: true,
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (i18n: InternationalizationService) => () => i18n.initCurrentLangFromDefaultLang(),
+      deps: [InternationalizationService, TranslateService],
       multi: true,
     },
   ];
