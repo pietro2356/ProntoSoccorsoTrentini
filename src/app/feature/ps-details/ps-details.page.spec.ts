@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PsDetailsPage } from './ps-details.page';
-import { provideHttpClient } from '@angular/common/http';
-import { provideRouter } from '@angular/router';
 import { routes } from '../../app.routes';
+import { provideCore } from '@core/core';
 
 describe('PsDetailsPage', () => {
   let component: PsDetailsPage;
@@ -10,7 +9,7 @@ describe('PsDetailsPage', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideRouter(routes)],
+      providers: [provideCore({ routes })],
     });
     fixture = TestBed.createComponent(PsDetailsPage);
     component = fixture.componentInstance;

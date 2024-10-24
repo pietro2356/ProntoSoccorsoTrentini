@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FavoritesPage } from './favorites.page';
-import { provideHttpClient } from '@angular/common/http';
-import { provideRouter } from '@angular/router';
 import { routes } from '../../app.routes';
+import { provideCore } from '@core/core';
 
 describe('FavoritesPage', () => {
   let component: FavoritesPage;
@@ -10,7 +9,7 @@ describe('FavoritesPage', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideRouter(routes)],
+      providers: [provideCore({ routes })],
     });
     fixture = TestBed.createComponent(FavoritesPage);
     component = fixture.componentInstance;

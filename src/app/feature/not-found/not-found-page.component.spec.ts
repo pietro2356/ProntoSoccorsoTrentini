@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NotFoundPage } from './not-found-page.component';
-import { provideRouter } from '@angular/router';
 import { routes } from '../../app.routes';
+import { provideCore } from '@core/core';
 
 describe('NotFoundComponent', () => {
   let component: NotFoundPage;
@@ -10,7 +10,7 @@ describe('NotFoundComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideRouter(routes)],
+      providers: [provideCore({ routes })],
     }).compileComponents();
   });
 

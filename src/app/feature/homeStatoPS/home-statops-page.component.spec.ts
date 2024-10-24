@@ -1,10 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeStatoPSPage } from './home-statops-page.component';
-import { provideRouter } from '@angular/router';
 import { routes } from '../../app.routes';
-import { provideHttpClient } from '@angular/common/http';
-import { provideTranslateService } from '@codeandweb/ngx-translate';
+import { provideCore } from '@core/core';
 
 describe('HomePage', () => {
   let component: HomeStatoPSPage;
@@ -12,13 +10,7 @@ describe('HomePage', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        provideRouter(routes),
-        provideHttpClient(),
-        provideTranslateService({
-          defaultLanguage: 'it',
-        }),
-      ],
+      providers: [provideCore({ routes })],
     }).compileComponents();
   });
 

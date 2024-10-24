@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { InfoPage } from './info.page';
-import { provideRouter } from '@angular/router';
 import { routes } from '../../app.routes';
+import { provideCore } from '@core/core';
 
 describe('InfoPage', () => {
   let component: InfoPage;
@@ -9,7 +9,7 @@ describe('InfoPage', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideRouter(routes)],
+      providers: [provideCore({ routes })],
     }).compileComponents();
   });
 
