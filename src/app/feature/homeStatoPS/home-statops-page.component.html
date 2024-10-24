@@ -79,13 +79,13 @@
 
 <ion-footer>
   <ion-toolbar>
-    <div class="ion-text-center">
+    <div class="ion-text-center ion-padding-bottom">
       @if(dataAggiornamento()){
-        <p>Ultimo aggiornamento: {{dataAggiornamento()}}</p>
+        <p>{{'homeStatoPS.last_update' | translate}}: {{dataAggiornamento()}}</p>
       } @else {
-        <p>Ultimo aggiornamento: non disponibile</p>
+        <p>{{'homeStatoPS.last_update_not' | translate}}</p>
       }
-
+      © 2024 Rocchio Pietro
     </div>
   </ion-toolbar>
 </ion-footer>
