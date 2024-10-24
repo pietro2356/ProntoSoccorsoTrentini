@@ -14,7 +14,8 @@
       "ps_ginecologic": "Gynäkologische Notaufnahme",
       "ps_oculistic": "Augenärztliche Notaufnahme"
     },
-    "last_update": "Letzte Aktualisierung"
+    "last_update": "Letzte Aktualisierung",
+    "last_update_not": "Letzte Aktualisierung nicht verfügbar"
   },
   "psDetails": {
     "label": {

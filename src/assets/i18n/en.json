@@ -14,7 +14,8 @@
       "ps_ginecologic": "Gynaecological Emergency Room",
       "ps_oculistic": "Ophthalmology Emergency Room"
     },
-    "last_update": "Last update"
+    "last_update": "Last update",
+    "last_update_not": "Last update not available"
   },
   "psDetails": {
     "label": {

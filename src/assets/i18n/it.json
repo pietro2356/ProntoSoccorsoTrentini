@@ -14,7 +14,8 @@
       "ps_ginecologic": "Pronto Soccorso Ginecologico",
       "ps_oculistic": "Pronto Soccorso Oculistico"
     },
-    "last_update": "Ultimo aggiornamento"
+    "last_update": "Ultimo aggiornamento",
+    "last_update_not": "Ultimo aggiornamento non disponibile"
   },
   "psDetails": {
     "label": {
