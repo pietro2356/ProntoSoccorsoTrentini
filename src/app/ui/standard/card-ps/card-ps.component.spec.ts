@@ -1,9 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CardPSComponent } from './card-ps.component';
 import { ProntoSoccorso } from '@core/models/statoProntoSoccorso';
-import { provideHttpClient } from '@angular/common/http';
-import { provideRouter } from '@angular/router';
 import { routes } from '../../../app.routes';
+import { provideCore } from '@core/core';
 
 describe(CardPSComponent.name, () => {
   const mockPSData: ProntoSoccorso = {
@@ -66,7 +65,7 @@ describe(CardPSComponent.name, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideRouter(routes), provideHttpClient()],
+      providers: [provideCore({ routes })],
     }).compileComponents();
   });
 

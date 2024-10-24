@@ -16,6 +16,7 @@ import { addIcons } from 'ionicons';
 import { star, starOutline } from 'ionicons/icons';
 import { Router } from '@angular/router';
 import { FavoriteUtils } from '@core/services/favorites/favoriteUtils.class';
+import { TranslatePipe } from '@codeandweb/ngx-translate';
 
 @Component({
   selector: 'pst-card-ps',
@@ -33,11 +34,12 @@ import { FavoriteUtils } from '@core/services/favorites/favoriteUtils.class';
     IonCardTitle,
     IonCardSubtitle,
     IonIcon,
+    TranslatePipe,
   ],
 })
 export class CardPSComponent {
-  favoriteService = inject(FavoritesService);
-  #router = inject(Router);
+  readonly favoriteService = inject(FavoritesService);
+  readonly #router = inject(Router);
   readonly favUtils = new FavoriteUtils();
 
   prontoSoccorso = model.required<ProntoSoccorso>();

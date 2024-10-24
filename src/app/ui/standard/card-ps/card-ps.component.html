@@ -16,10 +16,10 @@
         }
       </div>
     </ion-card-title>
-    <ion-card-subtitle>{{psData.ps | extractPS}}</ion-card-subtitle>
+    <ion-card-subtitle>{{psData.ps | extractPS | translate}}</ion-card-subtitle>
   </ion-card-header>
   <ion-card-content>
-    <h4>Attesa:</h4>
+    <h4>{{'homeStatoPS.label.waiting' | translate}}:</h4>
     <div class="waitbox-align">
       <pst-waiting-box [waitVal]="psData.attesa.bianco" [color]="'bianco'"/>
       <pst-waiting-box [waitVal]="psData.attesa.verde" [color]="'verde'"/>
