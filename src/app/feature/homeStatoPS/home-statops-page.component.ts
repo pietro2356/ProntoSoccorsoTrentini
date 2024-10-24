@@ -90,7 +90,7 @@ export class HomeStatoPSPage implements ViewWillEnter, ViewDidEnter, ViewDidLeav
 
   ionViewDidEnter(): void {
     this.favoitesService.loadFavorites();
-    this.selectedLang.set(this.i18nService.selectedLanguageFlag());
+    if (this.selectedLang() === undefined) this.selectedLang.set(this.i18nService.selectedLanguageFlag());
   }
 
   ionViewDidLeave() {

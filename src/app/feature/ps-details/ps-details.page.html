@@ -5,7 +5,6 @@
 
     <div class="info-container">
       <div class="info-back">
-<!--        <ion-icon name="arrowBack" color="primary"/>-->
         <ion-back-button defaultHref="/homeStatoPS" icon="arrow-back-outline"/>
         @if(favoritesService.isFavorite(ps.codPsOd)){
           <ion-icon name="star" color="warning" size="large" (click)="favUtils.removeFavorite($event, ps)"/>
@@ -26,7 +25,7 @@
           <ion-icon name="navigate" color="primary"/>
           <ion-label>
             <a href="https://www.google.com/maps/dir//{{loc}}" target="_blank">
-              Vai a {{ ps.localita | titlecase}}
+              {{'psDetails.label.vai_a' | translate}} {{ ps.localita | titlecase}}
             </a>
           </ion-label>
         </ion-chip>
@@ -35,14 +34,14 @@
         <ion-chip color="warning" (click)="openTabViaLink($event, ps.dettagli.link)">
           <ion-icon name="globe" color="danger"/>
           <ion-label>
-            APSS: {{ ps.ps | extractPS }}
+            APSS: {{ ps.localita | titlecase}}
           </ion-label>
         </ion-chip>
       </div>
 
       <div class="info-content">
 
-        <h2>Attesa</h2>
+        <h2>{{'psDetails.label.waiting' | translate}}</h2>
         <div class="info-waiting-box">
           <pst-waiting-box [waitVal]="ps.attesa.bianco" [color]="'bianco'"/>
           <pst-waiting-box [waitVal]="ps.attesa.verde" [color]="'verde'"/>
@@ -51,7 +50,7 @@
           <pst-waiting-box [waitVal]="ps.attesa.rosso" [color]="'rosso'"/>
         </div>
 
-        <h3>Ambulatorio</h3>
+        <h3>{{'psDetails.label.ambulatory' | translate}}</h3>
         <div class="info-waiting-box">
           <pst-waiting-box [waitVal]="ps.ambulatorio.bianco" [color]="'bianco'"/>
           <pst-waiting-box [waitVal]="ps.ambulatorio.verde" [color]="'verde'"/>
@@ -60,7 +59,7 @@
           <pst-waiting-box [waitVal]="ps.ambulatorio.rosso" [color]="'rosso'"/>
         </div>
 
-        <h3>Osservazione</h3>
+        <h3>{{'psDetails.label.observation' | translate}}</h3>
         <div class="info-waiting-box">
           <pst-waiting-box [waitVal]="ps.osservazione.bianco" [color]="'bianco'"/>
           <pst-waiting-box [waitVal]="ps.osservazione.verde" [color]="'verde'"/>
@@ -69,7 +68,7 @@
           <pst-waiting-box [waitVal]="ps.osservazione.rosso" [color]="'rosso'"/>
         </div>
 
-        <h3>Attesa media</h3>
+          <h3>{{'psDetails.label.waiting_time_avg' | translate}}</h3>
         <div class="info-waiting-box">
           <pst-waiting-box [small]="true" [waitVal]="ps.attesaMedia.bianco" [color]="'bianco'"/>
           <pst-waiting-box [small]="true" [waitVal]="ps.attesaMedia.verde" [color]="'verde'"/>
@@ -78,7 +77,7 @@
           <pst-waiting-box [small]="true" [waitVal]="ps.attesaMedia.rosso" [color]="'rosso'"/>
         </div>
 
-        <h3>Contatti</h3>
+        <h3>{{'psDetails.label.contact' | translate}}</h3>
         <div class="info-chips">
           <!--    TELEFONI    -->
           @for(tel of ps.dettagli.contatti.telefono; track tel){
@@ -120,6 +119,6 @@
   </ion-content>
 } @else {
   <ion-content [fullscreen]="true" class="ion-padding">
-    <h2>Caricamento...</h2>
+    <h2>{{'psDetails.label.loading' | translate}}</h2>
   </ion-content>
 }

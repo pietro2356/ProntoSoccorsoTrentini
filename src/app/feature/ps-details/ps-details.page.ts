@@ -41,6 +41,7 @@ import {
 import { WaitingBoxComponent } from '@ui/standard/waiting-box/waiting-box.component';
 import { FavoritesService } from '@core/services/favorites/favorites.service';
 import { FavoriteUtils } from '@core/services/favorites/favoriteUtils.class';
+import { TranslatePipe } from '@codeandweb/ngx-translate';
 
 @Component({
   selector: 'pst-ps-details',
@@ -68,6 +69,7 @@ import { FavoriteUtils } from '@core/services/favorites/favoriteUtils.class';
     IonBackButton,
     IonButton,
     IonButtons,
+    TranslatePipe,
   ],
 })
 export class PsDetailsPage implements ViewWillEnter {

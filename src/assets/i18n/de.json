@@ -4,7 +4,8 @@
     "button": {
       "search": "Suche",
       "info": "Informationen",
-      "favorites": "Favoriten"
+      "favorites": "Favoriten",
+      "select_loc": "Wählen Sie ein Land aus"
     },
     "label": {
       "ps": "Notaufnahme",
@@ -24,7 +25,8 @@
       "observation": "Beobachtung",
       "waiting_time_avg": "Durchschnittliche Wartezeit",
       "contact": "Kontakt",
-      "vai_a": "Zum"
+      "vai_a": "Zum",
+      "loading": "Laden..."
     }
   },
   "info": {

@@ -23,6 +23,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { LinkButtonComponent } from '@ui/link-button/link-button.component';
 import { RouterLink } from '@angular/router';
 import { ErrorCardComponent } from '@ui/error/error-card/error-card.component';
+import { TranslatePipe } from '@codeandweb/ngx-translate';
 @Component({
   selector: 'pst-favorites',
   templateUrl: './favorites.page.html',
@@ -51,6 +52,7 @@ import { ErrorCardComponent } from '@ui/error/error-card/error-card.component';
     ErrorCardComponent,
     IonRefresher,
     IonRefresherContent,
+    TranslatePipe,
   ],
 })
 export class FavoritesPage implements ViewWillEnter {

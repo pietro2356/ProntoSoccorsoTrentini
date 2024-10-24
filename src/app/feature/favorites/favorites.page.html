@@ -5,19 +5,19 @@
 
   <header class="statops__header">
     <div class="statops__header-title">
-      <h1>Pronto Soccorso Trentini</h1>
+      <h1>{{ 'homeStatoPS.title' | translate }}</h1>
     </div>
 
     <div class="statops__header-actionbox">
       <pst-link-button
         routerLink="/info"
         icon="ℹ️"
-        text="Info"
+        text="{{ 'homeStatoPS.button.info' | translate }}"
       />
       <pst-link-button
         routerLink="/homeStatoPS"
         icon="🏥"
-        text="Lista Pronto Soccorso"
+        text="{{ 'homeStatoPS.label.ps' | translate }}"
       />
     </div>
   </header>
@@ -32,7 +32,4 @@
         message="Fai click o tap sulla stellina ⭐ per aggiungere un Pronto Soccorso alla lista dei tuoi Preferiti"/>
     }
   </div>
-<!--  <ion-button (click)="clearFavorites()" color="danger" type="secondary">Clear Favorites</ion-button>-->
-<!--  <ion-button (click)="loadFavorites()" color="warning" >Load Favorites</ion-button>-->
-
 </ion-content>

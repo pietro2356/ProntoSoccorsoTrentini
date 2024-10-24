@@ -33,7 +33,7 @@
           [showClear]="ricercaPS()"
           (onChange)="search($event)"
           (onClear)="ricercaPS.set('')"
-          placeholder="Seleziona una località"
+          placeholder="{{ 'homeStatoPS.button.select_loc' | translate }}"
         />
       }
       <p-dropdown

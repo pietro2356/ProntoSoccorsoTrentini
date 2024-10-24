@@ -4,7 +4,8 @@
     "button": {
       "search": "Cerca",
       "info": "Info",
-      "favorites": "Preferiti"
+      "favorites": "Preferiti",
+      "select_loc": "Seleziona una località"
     },
     "label": {
       "ps": "Pronto Soccorso",
@@ -24,7 +25,8 @@
       "observation": "Osservazione",
       "waiting_time_avg": "Tempo di attesa medio",
       "contact": "Contatti",
-      "vai_a": "Vai a"
+      "vai_a": "Vai a",
+      "loading": "Caricamento in corso..."
     }
   },
   "info": {

@@ -4,7 +4,8 @@
     "button": {
       "search": "Search",
       "info": "Info",
-      "favorites": "Favorites"
+      "favorites": "Favorites",
+      "select_loc": "Select a location"
     },
     "label": {
       "ps": "Emergency Room",
@@ -24,7 +25,8 @@
       "observation": "Observation",
       "waiting_time_avg": "Average waiting time",
       "contact": "contacts",
-      "vai_a": "Go to"
+      "vai_a": "Go to",
+      "loading": "Loading..."
     }
   },
   "info": {
