@@ -25,17 +25,22 @@
         (click)="enableSearch()"
       />
 
-      @if(isSearchEnabled){
+      @if(isSearchEnabled()){
         <p-dropdown
           [options]="listaLocalita()"
           [(ngModel)]="ricercaPS"
           [checkmark]="true"
-          [showClear]="ricercaPS.length > 0"
-          (onChange)="search()"
-          (onClear)="ricercaPS = ''"
+          [showClear]="ricercaPS()"
+          (onChange)="search($event)"
+          (onClear)="ricercaPS.set('')"
           placeholder="Seleziona una località"
         />
       }
+      <p-dropdown
+        [options]="i18nService.availLangFlag()"
+        [(ngModel)]="selectedLang"
+        (onChange)="changeLang($event)"
+      />
     </div>
   </header>
 
@@ -59,7 +64,7 @@
         <pst-cardps-loader/>
       }
     } @empty {
-      @if (appStateService.isStatusReady() && !isSearchEnabled){
+      @if (appStateService.isStatusReady() && !isSearchEnabled()){
         <pst-error-card error="Non ci sono dati disponibili" [isError]="false" />
       }
       @else{
@@ -80,6 +85,7 @@
       } @else {
         <p>Ultimo aggiornamento: non disponibile</p>
       }
+
     </div>
   </ion-toolbar>
 </ion-footer>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, model, signal } from '@angular/core';
 import { StatoPSService } from '@core/services/StatoPS/stato-ps.service';
 import { CardPSComponent } from '@ui/standard/card-ps/card-ps.component';
 import {
@@ -27,11 +27,12 @@ import { CardpsLoaderComponent } from '@ui/loader/cardps-loader/cardps-loader.co
 import { ErrorCardComponent } from '@ui/error/error-card/error-card.component';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { DropdownModule } from 'primeng/dropdown';
+import { DropdownChangeEvent, DropdownModule } from 'primeng/dropdown';
 import { UpperCasePipe } from '@angular/common';
 import { LinkButtonComponent } from '@ui/link-button/link-button.component';
 import { FavoritesService } from '@core/services/favorites/favorites.service';
-import { TranslateDirective, TranslatePipe, TranslateService } from '@codeandweb/ngx-translate';
+import { TranslateDirective, TranslatePipe } from '@codeandweb/ngx-translate';
+import { InternationalizationService } from '@core/services/Internationalization/internationalization.service';
 
 @Component({
   selector: 'pst-home-statops',
@@ -69,16 +70,19 @@ import { TranslateDirective, TranslatePipe, TranslateService } from '@codeandweb
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeStatoPSPage implements ViewWillEnter, ViewDidEnter, ViewDidLeave {
-  translate = inject(TranslateService);
-  #statoPSService = inject(StatoPSService);
-  appStateService = inject(AppStateService);
-  favoitesService = inject(FavoritesService);
+  readonly #statoPSService = inject(StatoPSService);
+  readonly appStateService = inject(AppStateService);
+  readonly favoitesService = inject(FavoritesService);
+  readonly i18nService = inject(InternationalizationService);
+
+  selectedLang = model<string>();
+
   dataAggiornamento = this.#statoPSService.dataAggiornamento;
   prontoSoccorso = this.#statoPSService.prontoSoccorso;
   listaLocalita = this.#statoPSService.listaLocalita;
 
-  isSearchEnabled = false;
-  ricercaPS = ''.toUpperCase();
+  isSearchEnabled = signal<boolean>(false);
+  ricercaPS = model<string>();
 
   ionViewWillEnter(): void {
     this.#statoPSService.loadFavPS();
@@ -86,11 +90,12 @@ export class HomeStatoPSPage implements ViewWillEnter, ViewDidEnter, ViewDidLeav
 
   ionViewDidEnter(): void {
     this.favoitesService.loadFavorites();
+    this.selectedLang.set(this.i18nService.selectedLanguageFlag());
   }
 
   ionViewDidLeave() {
-    this.isSearchEnabled = false;
-    this.ricercaPS = '';
+    this.isSearchEnabled.set(false);
+    this.ricercaPS.set('');
     this.#statoPSService.clearFilterPS();
   }
 
@@ -100,14 +105,18 @@ export class HomeStatoPSPage implements ViewWillEnter, ViewDidEnter, ViewDidLeav
   }
 
   enableSearch() {
-    this.isSearchEnabled = !this.isSearchEnabled;
-    if (!this.isSearchEnabled) {
-      this.ricercaPS = '';
+    this.isSearchEnabled.update(prev => !prev);
+    if (!this.isSearchEnabled()) {
+      this.ricercaPS.set('');
       this.#statoPSService.clearFilterPS();
     }
   }
 
-  search() {
-    this.#statoPSService.filterPS(this.ricercaPS);
+  search(event: DropdownChangeEvent) {
+    this.#statoPSService.filterPS(event.value);
+  }
+
+  changeLang(event: DropdownChangeEvent) {
+    this.i18nService.changeLanguageWithFlag(event.value);
   }
 }
