@@ -7,6 +7,13 @@ import { AppStateService } from '@core/services/appState/app-state.service';
 import { FavoritesService } from '@core/services/favorites/favorites.service';
 import { PSDetail, psDetails } from '@core/data/ps-details';
 
+/**
+ * # StatoPS Service
+ * Servizio usato per il recupero dello stato di un PS.
+ *
+ * ## tip
+ * lorem ipsum
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -17,12 +24,34 @@ export class StatoPSService {
   readonly #favoritesService = inject(FavoritesService);
 
   /* ---- SIGNAL INTERNI PER LA GESTIONE DEI PRONTO SOCCORSO ---- */
+  /**
+   * Lista originale dei pronto soccorso
+   * @private
+   */
   readonly #prontoSoccorso = signal<ProntoSoccorso[]>([]);
+
+  /**
+   * Valore di ricerca per il pronto soccorso
+   * @private
+   */
   readonly #valoreDiRicercaPS = signal<string>('');
+
+  /**
+   * Data di aggiornamento dello stato del pronto soccorso
+   * @private
+   */
   readonly #dataAggiornamento = signal<string>('');
+
+  /**
+   * Lista originale dei pronto soccorso preferiti
+   * @private
+   */
   readonly #prontoSoccorsoFav = signal<ProntoSoccorso[]>([]);
 
   /* ---- SIGNAL PUBBLICI READONLY PER ESPORRE I DATI ---- */
+  /**
+   * Lista dei pronto soccorso
+   */
   public readonly prontoSoccorso = computed<ProntoSoccorso[]>(() => {
     if (this.#valoreDiRicercaPS() === null) return this.#prontoSoccorso().sort((a, b) => this.compareLocalita(a, b));
     if (this.#valoreDiRicercaPS().length < 3) return this.#prontoSoccorso().sort((a, b) => this.compareLocalita(a, b));
@@ -30,17 +59,34 @@ export class StatoPSService {
       .filter(ps => ps.localita === this.#valoreDiRicercaPS() || ps.codPsOd === this.#valoreDiRicercaPS())
       .sort((a, b) => this.compareLocalita(a, b));
   });
+
+  /**
+   * Data di aggiornamento dello stato del pronto soccorso
+   */
   public readonly dataAggiornamento = computed<string>(() => {
     return this.#dataAggiornamento();
   });
+
+  /**
+   * Lista delle località dei pronto soccorso
+   */
   public readonly listaLocalita = computed<string[]>(() => {
     return Array.from(new Set(this.#prontoSoccorso().map(ps => ps.localita))).sort();
   });
 
+  /**
+   * Lista dei pronto soccorso preferiti
+   */
   public readonly prontoSoccorsoFav = computed<ProntoSoccorso[]>(() => {
     return this.#prontoSoccorsoFav();
   });
 
+  /**
+   * Confronta due pronto soccorso in base alla località
+   * @param a ProntoSoccorso da cui estrarre la localtà
+   * @param b ProntoSoccorso da cui estrarre la localtà
+   * @private
+   */
   private compareLocalita(a: ProntoSoccorso, b: ProntoSoccorso) {
     if (a.localita < b.localita) return -1;
     if (a.localita > b.localita) return 1;
@@ -87,12 +133,21 @@ export class StatoPSService {
       });
   }
 
+  /**
+   * Aggiunge i dettagli di ogni pronto soccorso
+   * @private
+   */
   private updatePSInfo() {
     this.#prontoSoccorso().forEach(ps => {
       ps.dettagli = this.addPsDetail(ps);
     });
   }
 
+  /**
+   * Aggiunge i dettagli di un pronto soccorso
+   * @param ps
+   * @private
+   */
   private addPsDetail(ps: ProntoSoccorso): PSDetail {
     return psDetails.find(detail => detail.id === ps.codPsOd) ?? psDetails[psDetails.length - 1];
   }
