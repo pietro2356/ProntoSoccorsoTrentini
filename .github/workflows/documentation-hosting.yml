@@ -16,6 +16,7 @@ jobs:
 
       - name: Install and Build Doc 🔧
         run: |
+          npm i
           npm run compodoc
 
       - name: Deploy Doc 🚀
