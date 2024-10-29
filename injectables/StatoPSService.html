@@ -1,0 +1,1385 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pronto-soccorso-trentini documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">pronto-soccorso-trentini documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >StatoPSService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#readme" 
+                class="nav-link"
+                
+                role="tab" id="readme-tab" data-bs-toggle="tab" data-link="readme">README</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/core/services/StatoPS/stato-ps.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <h1>StatoPS Service</h1>
+<p>Servizio usato per il recupero dello stato di un PS.</p>
+<h2>tip</h2>
+<p>lorem ipsum</p>
+
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                    <span class="modifier">Private</span>
+                                <a href="##appStateService" >#appStateService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                    <span class="modifier">Private</span>
+                                <a href="##dataAggiornamento" >#dataAggiornamento</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                    <span class="modifier">Private</span>
+                                <a href="##favoritesService" >#favoritesService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                    <span class="modifier">Private</span>
+                                <a href="##httpCore" >#httpCore</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                    <span class="modifier">Private</span>
+                                <a href="##prontoSoccorso" >#prontoSoccorso</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                    <span class="modifier">Private</span>
+                                <a href="##prontoSoccorsoFav" >#prontoSoccorsoFav</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                    <span class="modifier">Private</span>
+                                <a href="##valoreDiRicercaPS" >#valoreDiRicercaPS</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#dataAggiornamento" >dataAggiornamento</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#listaLocalita" >listaLocalita</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#prontoSoccorso" >prontoSoccorso</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#prontoSoccorsoFav" >prontoSoccorsoFav</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#addPsDetail" >addPsDetail</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#clearFilterPS" >clearFilterPS</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#compareLocalita" >compareLocalita</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#filterPS" >filterPS</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#findPS" >findPS</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loadFavPS" >loadFavPS</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loadStatoPS" >loadStatoPS</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updatePSInfo" >updatePSInfo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addPsDetail"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>addPsDetail</b></span>
+                        <a href="#addPsDetail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addPsDetail(ps: <a href="../undefineds/ProntoSoccorso.html" target="_self">ProntoSoccorso</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Aggiunge i dettagli di un pronto soccorso</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ps</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#ProntoSoccorso" target="_self" >ProntoSoccorso</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#PSDetail" target="_self" >PSDetail</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearFilterPS"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>clearFilterPS</b></span>
+                        <a href="#clearFilterPS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clearFilterPS()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="108"
+                                    class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Rimuove il filtro sulla località</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="compareLocalita"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>compareLocalita</b></span>
+                        <a href="#compareLocalita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>compareLocalita(a: <a href="../undefineds/ProntoSoccorso.html" target="_self">ProntoSoccorso</a>, b: <a href="../undefineds/ProntoSoccorso.html" target="_self">ProntoSoccorso</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="90"
+                                    class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Confronta due pronto soccorso in base alla località</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>a</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#ProntoSoccorso" target="_self" >ProntoSoccorso</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ProntoSoccorso da cui estrarre la localtà</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>b</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#ProntoSoccorso" target="_self" >ProntoSoccorso</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ProntoSoccorso da cui estrarre la localtà</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>1 | -1 | 0</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterPS"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>filterPS</b></span>
+                        <a href="#filterPS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>filterPS(localita: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Filtra i pronto soccorso in base alla località</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>localita</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findPS"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>findPS</b></span>
+                        <a href="#findPS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findPS(codiceIdPS: <a href="../undefineds/CodiceIdPS.html" target="_self">CodiceIdPS</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="159"
+                                    class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:159</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Aggiunge un pronto soccorso ai preferiti</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>codiceIdPS</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#CodiceIdPS" target="_self" >CodiceIdPS</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>codiceId del pronto soccorso</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#ProntoSoccorso" target="_self" >ProntoSoccorso | </a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadFavPS"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>loadFavPS</b></span>
+                        <a href="#loadFavPS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadFavPS()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="166"
+                                    class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:166</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carica i pronto soccorso preferiti</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadStatoPS"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>loadStatoPS</b></span>
+                        <a href="#loadStatoPS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadStatoPS()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carica lo stato del pronto soccorso</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatePSInfo"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>updatePSInfo</b></span>
+                        <a href="#updatePSInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updatePSInfo()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:140</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Aggiunge i dettagli di ogni pronto soccorso</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="#appStateService"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                            <span class="modifier">Private</span>
+                        <span ><b>#appStateService</b></span>
+                        <a href="##appStateService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(AppStateService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="#dataAggiornamento"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                            <span class="modifier">Private</span>
+                        <span ><b>#dataAggiornamento</b></span>
+                        <a href="##dataAggiornamento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;string&gt;(&#x27;&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Data di aggiornamento dello stato del pronto soccorso</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="#favoritesService"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                            <span class="modifier">Private</span>
+                        <span ><b>#favoritesService</b></span>
+                        <a href="##favoritesService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(FavoritesService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="#httpCore"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                            <span class="modifier">Private</span>
+                        <span ><b>#httpCore</b></span>
+                        <a href="##httpCore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(HttpCoreService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="#prontoSoccorso"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                            <span class="modifier">Private</span>
+                        <span ><b>#prontoSoccorso</b></span>
+                        <a href="##prontoSoccorso"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;ProntoSoccorso[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista originale dei pronto soccorso</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="#prontoSoccorsoFav"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                            <span class="modifier">Private</span>
+                        <span ><b>#prontoSoccorsoFav</b></span>
+                        <a href="##prontoSoccorsoFav"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;ProntoSoccorso[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:49</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista originale dei pronto soccorso preferiti</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="#valoreDiRicercaPS"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                            <span class="modifier">Private</span>
+                        <span ><b>#valoreDiRicercaPS</b></span>
+                        <a href="##valoreDiRicercaPS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;string&gt;(&#x27;&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Valore di ricerca per il pronto soccorso</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataAggiornamento"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>dataAggiornamento</b></span>
+                        <a href="#dataAggiornamento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed&lt;string&gt;(() &#x3D;&gt; {
+    return this.#dataAggiornamento();
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:66</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Data di aggiornamento dello stato del pronto soccorso</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listaLocalita"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>listaLocalita</b></span>
+                        <a href="#listaLocalita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed&lt;string[]&gt;(() &#x3D;&gt; {
+    return Array.from(new Set(this.#prontoSoccorso().map(ps &#x3D;&gt; ps.localita))).sort();
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:73</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista delle località dei pronto soccorso</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prontoSoccorso"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>prontoSoccorso</b></span>
+                        <a href="#prontoSoccorso"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed&lt;ProntoSoccorso[]&gt;(() &#x3D;&gt; {
+    if (this.#valoreDiRicercaPS() &#x3D;&#x3D;&#x3D; null) return this.#prontoSoccorso().sort((a, b) &#x3D;&gt; this.compareLocalita(a, b));
+    if (this.#valoreDiRicercaPS().length &lt; 3) return this.#prontoSoccorso().sort((a, b) &#x3D;&gt; this.compareLocalita(a, b));
+    return this.#prontoSoccorso()
+      .filter(ps &#x3D;&gt; ps.localita &#x3D;&#x3D;&#x3D; this.#valoreDiRicercaPS() || ps.codPsOd &#x3D;&#x3D;&#x3D; this.#valoreDiRicercaPS())
+      .sort((a, b) &#x3D;&gt; this.compareLocalita(a, b));
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:55</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista dei pronto soccorso</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prontoSoccorsoFav"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>prontoSoccorsoFav</b></span>
+                        <a href="#prontoSoccorsoFav"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed&lt;ProntoSoccorso[]&gt;(() &#x3D;&gt; {
+    return this.#prontoSoccorsoFav();
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/core/services/StatoPS/stato-ps.service.ts:80</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista dei pronto soccorso preferiti</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+    <div class="tab-pane fade " id="readme">
+        <p><h1>StatoPS Service</h1>
+<p>Servizio usato per il recupero dello stato di un PS.</p>
+<h2>tip</h2>
+<p>lorem ipsum</p>
+</p>
+    </div>
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { computed, inject, Injectable, signal } from &#x27;@angular/core&#x27;;
+import { HttpCoreService } from &#x27;@core/services/http/http-core.service&#x27;;
+import { catchError, finalize } from &#x27;rxjs&#x27;;
+import { environment } from &#x27;@env/environment&#x27;;
+import { CodiceIdPS, ProntoSoccorso, StatoProntoSoccorso } from &#x27;@core/models/statoProntoSoccorso&#x27;;
+import { AppStateService } from &#x27;@core/services/appState/app-state.service&#x27;;
+import { FavoritesService } from &#x27;@core/services/favorites/favorites.service&#x27;;
+import { PSDetail, psDetails } from &#x27;@core/data/ps-details&#x27;;
+
+/**
+ * # StatoPS Service
+ * Servizio usato per il recupero dello stato di un PS.
+ *
+ * ## tip
+ * lorem ipsum
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+export class StatoPSService {
+  /* ---- SERVIZI ESTERNI ---- */
+  readonly #httpCore &#x3D; inject(HttpCoreService);
+  readonly #appStateService &#x3D; inject(AppStateService);
+  readonly #favoritesService &#x3D; inject(FavoritesService);
+
+  /* ---- SIGNAL INTERNI PER LA GESTIONE DEI PRONTO SOCCORSO ---- */
+  /**
+   * Lista originale dei pronto soccorso
+   * @private
+   */
+  readonly #prontoSoccorso &#x3D; signal&lt;ProntoSoccorso[]&gt;([]);
+
+  /**
+   * Valore di ricerca per il pronto soccorso
+   * @private
+   */
+  readonly #valoreDiRicercaPS &#x3D; signal&lt;string&gt;(&#x27;&#x27;);
+
+  /**
+   * Data di aggiornamento dello stato del pronto soccorso
+   * @private
+   */
+  readonly #dataAggiornamento &#x3D; signal&lt;string&gt;(&#x27;&#x27;);
+
+  /**
+   * Lista originale dei pronto soccorso preferiti
+   * @private
+   */
+  readonly #prontoSoccorsoFav &#x3D; signal&lt;ProntoSoccorso[]&gt;([]);
+
+  /* ---- SIGNAL PUBBLICI READONLY PER ESPORRE I DATI ---- */
+  /**
+   * Lista dei pronto soccorso
+   */
+  public readonly prontoSoccorso &#x3D; computed&lt;ProntoSoccorso[]&gt;(() &#x3D;&gt; {
+    if (this.#valoreDiRicercaPS() &#x3D;&#x3D;&#x3D; null) return this.#prontoSoccorso().sort((a, b) &#x3D;&gt; this.compareLocalita(a, b));
+    if (this.#valoreDiRicercaPS().length &lt; 3) return this.#prontoSoccorso().sort((a, b) &#x3D;&gt; this.compareLocalita(a, b));
+    return this.#prontoSoccorso()
+      .filter(ps &#x3D;&gt; ps.localita &#x3D;&#x3D;&#x3D; this.#valoreDiRicercaPS() || ps.codPsOd &#x3D;&#x3D;&#x3D; this.#valoreDiRicercaPS())
+      .sort((a, b) &#x3D;&gt; this.compareLocalita(a, b));
+  });
+
+  /**
+   * Data di aggiornamento dello stato del pronto soccorso
+   */
+  public readonly dataAggiornamento &#x3D; computed&lt;string&gt;(() &#x3D;&gt; {
+    return this.#dataAggiornamento();
+  });
+
+  /**
+   * Lista delle località dei pronto soccorso
+   */
+  public readonly listaLocalita &#x3D; computed&lt;string[]&gt;(() &#x3D;&gt; {
+    return Array.from(new Set(this.#prontoSoccorso().map(ps &#x3D;&gt; ps.localita))).sort();
+  });
+
+  /**
+   * Lista dei pronto soccorso preferiti
+   */
+  public readonly prontoSoccorsoFav &#x3D; computed&lt;ProntoSoccorso[]&gt;(() &#x3D;&gt; {
+    return this.#prontoSoccorsoFav();
+  });
+
+  /**
+   * Confronta due pronto soccorso in base alla località
+   * @param a ProntoSoccorso da cui estrarre la localtà
+   * @param b ProntoSoccorso da cui estrarre la localtà
+   * @private
+   */
+  private compareLocalita(a: ProntoSoccorso, b: ProntoSoccorso) {
+    if (a.localita &lt; b.localita) return -1;
+    if (a.localita &gt; b.localita) return 1;
+    return 0;
+  }
+
+  /* ---- METODI PUBBLICI ---- */
+  /**
+   * Filtra i pronto soccorso in base alla località
+   * @param localita
+   */
+  public filterPS(localita: string) {
+    this.#valoreDiRicercaPS.set(localita);
+  }
+
+  /**
+   * Rimuove il filtro sulla località
+   */
+  public clearFilterPS() {
+    this.#valoreDiRicercaPS.set(&#x27;&#x27;);
+  }
+
+  /**
+   * Carica lo stato del pronto soccorso
+   */
+  public loadStatoPS() {
+    this.#appStateService.setLoading();
+    this.#httpCore
+      .get&lt;StatoProntoSoccorso&gt;(environment.apiTrentinoAA)
+      .pipe(
+        catchError(err &#x3D;&gt; {
+          this.#appStateService.setError(err.message);
+          throw err;
+        }),
+        finalize(() &#x3D;&gt; {
+          this.#appStateService.setReady();
+        })
+      )
+      .subscribe((data: StatoProntoSoccorso) &#x3D;&gt; {
+        this.#prontoSoccorso.set(data.prontoSoccorso);
+        this.#dataAggiornamento.set(data.dataAggiornamento);
+        this.loadFavPS();
+        this.updatePSInfo();
+      });
+  }
+
+  /**
+   * Aggiunge i dettagli di ogni pronto soccorso
+   * @private
+   */
+  private updatePSInfo() {
+    this.#prontoSoccorso().forEach(ps &#x3D;&gt; {
+      ps.dettagli &#x3D; this.addPsDetail(ps);
+    });
+  }
+
+  /**
+   * Aggiunge i dettagli di un pronto soccorso
+   * @param ps
+   * @private
+   */
+  private addPsDetail(ps: ProntoSoccorso): PSDetail {
+    return psDetails.find(detail &#x3D;&gt; detail.id &#x3D;&#x3D;&#x3D; ps.codPsOd) ?? psDetails[psDetails.length - 1];
+  }
+
+  /**
+   * Aggiunge un pronto soccorso ai preferiti
+   * @param codiceIdPS codiceId del pronto soccorso
+   */
+  public findPS(codiceIdPS: CodiceIdPS): ProntoSoccorso | false {
+    return this.#prontoSoccorso().find(ps &#x3D;&gt; ps.codPsOd &#x3D;&#x3D;&#x3D; codiceIdPS) ?? false;
+  }
+
+  /**
+   * Carica i pronto soccorso preferiti
+   */
+  public loadFavPS() {
+    if (this.#prontoSoccorso().length &#x3D;&#x3D;&#x3D; 0) this.loadStatoPS();
+    this.#prontoSoccorsoFav.set(
+      this.#favoritesService
+        .favorites()
+        .map(codiceIdPS &#x3D;&gt; this.findPS(codiceIdPS))
+        .filter(ps &#x3D;&gt; ps !&#x3D;&#x3D; false) as ProntoSoccorso[]
+    );
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'StatoPSService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

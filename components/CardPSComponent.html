@@ -1,0 +1,749 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pronto-soccorso-trentini documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">pronto-soccorso-trentini documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CardPSComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/ui/standard/card-ps/card-ps.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>pst-card-ps</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/WaitingBoxComponent.html" target="_self" >WaitingBoxComponent</a></code>
+                            <code>FirstLetterToCapitalPipe</code>
+                            <code>ExtractPSPipe</code>
+                            <code>IonCard</code>
+                            <code>IonCardHeader</code>
+                            <code>IonCardContent</code>
+                            <code>IonCardTitle</code>
+                            <code>IonCardSubtitle</code>
+                            <code>IonIcon</code>
+                            <code>TranslatePipe</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./card-ps.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./card-ps.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                    <span class="modifier">Private</span>
+                                <a href="##router" >#router</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#favoriteService" >favoriteService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#favUtils" >favUtils</a>
+                            </li>
+                            <li>
+                                <a href="#prontoSoccorso" >prontoSoccorso</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#redirectToDetails" >redirectToDetails</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#prontoSoccorso" >prontoSoccorso</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/ui/standard/card-ps/card-ps.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="prontoSoccorso"></a>
+                        <b>prontoSoccorso</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Required : </i>&nbsp;<b>true</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/ui/standard/card-ps/card-ps.component.ts:45</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redirectToDetails"></a>
+                    <span class="name">
+                        <span ><b>redirectToDetails</b></span>
+                        <a href="#redirectToDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>redirectToDetails(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/ui/standard/card-ps/card-ps.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="#router"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                            <span class="modifier">Private</span>
+                        <span ><b>#router</b></span>
+                        <a href="##router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(Router)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/ui/standard/card-ps/card-ps.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="favoriteService"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>favoriteService</b></span>
+                        <a href="#favoriteService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(FavoritesService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/ui/standard/card-ps/card-ps.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="favUtils"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>favUtils</b></span>
+                        <a href="#favUtils"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FavoriteUtils()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/ui/standard/card-ps/card-ps.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prontoSoccorso"></a>
+                    <span class="name">
+                        <span ><b>prontoSoccorso</b></span>
+                        <a href="#prontoSoccorso"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/ui/standard/card-ps/card-ps.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, inject, model } from &#x27;@angular/core&#x27;;
+import { ProntoSoccorso } from &#x27;@core/models/statoProntoSoccorso&#x27;;
+import { WaitingBoxComponent } from &#x27;@ui/standard/waiting-box/waiting-box.component&#x27;;
+import { FirstLetterToCapitalPipe } from &#x27;@core/pipe/first-letter-to-capital.pipe&#x27;;
+import { ExtractPSPipe } from &#x27;@core/pipe/extract-ps.pipe&#x27;;
+import {
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonIcon,
+} from &#x27;@ionic/angular/standalone&#x27;;
+import { FavoritesService } from &#x27;@core/services/favorites/favorites.service&#x27;;
+import { addIcons } from &#x27;ionicons&#x27;;
+import { star, starOutline } from &#x27;ionicons/icons&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { FavoriteUtils } from &#x27;@core/services/favorites/favoriteUtils.class&#x27;;
+import { TranslatePipe } from &#x27;@codeandweb/ngx-translate&#x27;;
+
+@Component({
+  selector: &#x27;pst-card-ps&#x27;,
+  standalone: true,
+  templateUrl: &#x27;./card-ps.component.html&#x27;,
+  styleUrls: [&#x27;./card-ps.component.scss&#x27;],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    WaitingBoxComponent,
+    FirstLetterToCapitalPipe,
+    ExtractPSPipe,
+    IonCard,
+    IonCardHeader,
+    IonCardContent,
+    IonCardTitle,
+    IonCardSubtitle,
+    IonIcon,
+    TranslatePipe,
+  ],
+})
+export class CardPSComponent {
+  readonly favoriteService &#x3D; inject(FavoritesService);
+  readonly #router &#x3D; inject(Router);
+  readonly favUtils &#x3D; new FavoriteUtils();
+
+  prontoSoccorso &#x3D; model.required&lt;ProntoSoccorso&gt;();
+
+  constructor() {
+    addIcons({ star, starOutline });
+  }
+
+  redirectToDetails(event: Event) {
+    this.#router.navigateByUrl(&#x60;/ps-details/${this.prontoSoccorso().codPsOd}&#x60;, {
+      // TODO: Aggiungere codice appena possibile +  Valutare come gestire il redirect
+      //browserUrl: this.#router.parseUrl(&#x60;/ps-details/${this.prontoSoccorso().codPsOd}/info&#x60;),
+    });
+    event.preventDefault();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@let psData &#x3D; prontoSoccorso();
+@let favSrv &#x3D; favoriteService;
+
+&lt;ion-card class&#x3D;&quot;bg_shade&quot; (click)&#x3D;&quot;redirectToDetails($event)&quot;&gt;
+  &lt;ion-card-header&gt;
+    &lt;ion-card-title class&#x3D;&quot;cardps_title&quot;&gt;
+      &lt;div class&#x3D;&quot;cardps_title__text&quot;&gt;
+        {{psData.localita | firstLetterToCapital}}
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;cardps_title__favorites&quot;&gt;
+        @if(favSrv.isFavorite(psData.codPsOd)){
+          &lt;ion-icon name&#x3D;&quot;star&quot; color&#x3D;&quot;warning&quot; size&#x3D;&quot;medium&quot; (click)&#x3D;&quot;favUtils.removeFavorite($event, psData)&quot;/&gt;
+        }
+        @else {
+          &lt;ion-icon name&#x3D;&quot;star-outline&quot; color&#x3D;&quot;yellow&quot; size&#x3D;&quot;medium&quot; (click)&#x3D;&quot;favUtils.addFavorite($event, psData)&quot;/&gt;
+        }
+      &lt;/div&gt;
+    &lt;/ion-card-title&gt;
+    &lt;ion-card-subtitle&gt;{{psData.ps | extractPS | translate}}&lt;/ion-card-subtitle&gt;
+  &lt;/ion-card-header&gt;
+  &lt;ion-card-content&gt;
+    &lt;h4&gt;{{&#x27;homeStatoPS.label.waiting&#x27; | translate}}:&lt;/h4&gt;
+    &lt;div class&#x3D;&quot;waitbox-align&quot;&gt;
+      &lt;pst-waiting-box [waitVal]&#x3D;&quot;psData.attesa.bianco&quot; [color]&#x3D;&quot;&#x27;bianco&#x27;&quot;/&gt;
+      &lt;pst-waiting-box [waitVal]&#x3D;&quot;psData.attesa.verde&quot; [color]&#x3D;&quot;&#x27;verde&#x27;&quot;/&gt;
+      &lt;pst-waiting-box [waitVal]&#x3D;&quot;psData.attesa.azzurro&quot; [color]&#x3D;&quot;&#x27;azzurro&#x27;&quot;/&gt;
+      &lt;pst-waiting-box [waitVal]&#x3D;&quot;psData.attesa.arancio&quot; [color]&#x3D;&quot;&#x27;arancio&#x27;&quot;/&gt;
+      &lt;pst-waiting-box [waitVal]&#x3D;&quot;psData.attesa.rosso&quot; [color]&#x3D;&quot;&#x27;rosso&#x27;&quot;/&gt;
+    &lt;/div&gt;
+  &lt;/ion-card-content&gt;
+&lt;/ion-card&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./card-ps.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.waitbox-align{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  //justify-content: center;
+  //align-items: center;
+  gap: .5rem;
+  padding-top: 0.3rem;
+}
+
+.cardps_title{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cardps_title__text{}
+
+.cardps_title__favorites{
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-icon {
+  font-size: 1.25rem;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@let psData = prontoSoccorso();@let favSrv = favoriteService;<ion-card class="bg_shade" (click)="redirectToDetails($event)">  <ion-card-header>    <ion-card-title class="cardps_title">      <div class="cardps_title__text">        {{psData.localita | firstLetterToCapital}}      </div>      <div class="cardps_title__favorites">        @if(favSrv.isFavorite(psData.codPsOd)){          <ion-icon name="star" color="warning" size="medium" (click)="favUtils.removeFavorite($event, psData)"/>        }        @else {          <ion-icon name="star-outline" color="yellow" size="medium" (click)="favUtils.addFavorite($event, psData)"/>        }      </div>    </ion-card-title>    <ion-card-subtitle>{{psData.ps | extractPS | translate}}</ion-card-subtitle>  </ion-card-header>  <ion-card-content>    <h4>{{\'homeStatoPS.label.waiting\' | translate}}:</h4>    <div class="waitbox-align">      <pst-waiting-box [waitVal]="psData.attesa.bianco" [color]="\'bianco\'"/>      <pst-waiting-box [waitVal]="psData.attesa.verde" [color]="\'verde\'"/>      <pst-waiting-box [waitVal]="psData.attesa.azzurro" [color]="\'azzurro\'"/>      <pst-waiting-box [waitVal]="psData.attesa.arancio" [color]="\'arancio\'"/>      <pst-waiting-box [waitVal]="psData.attesa.rosso" [color]="\'rosso\'"/>    </div>  </ion-card-content></ion-card></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'pst-app-root'},{'name': 'CardPSComponent', 'selector': 'pst-card-ps'},{'name': 'CardpsLoaderComponent', 'selector': 'pst-cardps-loader'},{'name': 'ErrorCardComponent', 'selector': 'pst-error-card'},{'name': 'FavoritesPage', 'selector': 'pst-favorites'},{'name': 'HomeStatoPSPage', 'selector': 'pst-home-statops'},{'name': 'InfoPage', 'selector': 'pst-info'},{'name': 'LinkButtonComponent', 'selector': 'pst-link-button'},{'name': 'NotFoundPage', 'selector': 'pst-not-found'},{'name': 'PsDetailsPage', 'selector': 'pst-ps-details'},{'name': 'WaitingBoxComponent', 'selector': 'pst-waiting-box'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'CardPSComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CardPSComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

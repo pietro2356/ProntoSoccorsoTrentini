@@ -1,0 +1,1357 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pronto-soccorso-trentini documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">pronto-soccorso-trentini documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  HomeStatoPSPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/feature/homeStatoPS/home-statops-page.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>ViewWillEnter</code>
+                <code>ViewDidEnter</code>
+                <code>ViewDidLeave</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>pst-home-statops</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/CardPSComponent.html" target="_self" >CardPSComponent</a></code>
+                            <code>IonContent</code>
+                            <code>IonHeader</code>
+                            <code>IonTitle</code>
+                            <code>IonToolbar</code>
+                            <code>IonFooter</code>
+                            <code>IonProgressBar</code>
+                            <code>IonAlert</code>
+                            <code>SkeletonModule</code>
+                            <code>IonCard</code>
+                            <code>IonCardHeader</code>
+                            <code>IonCardContent</code>
+                            <code>IonCardTitle</code>
+                            <code>IonRefresher</code>
+                            <code>IonRefresherContent</code>
+                                <code><a href="../components/CardpsLoaderComponent.html" target="_self" >CardpsLoaderComponent</a></code>
+                                <code><a href="../components/ErrorCardComponent.html" target="_self" >ErrorCardComponent</a></code>
+                            <code>RouterLink</code>
+                            <code>FormsModule</code>
+                            <code>IonItem</code>
+                            <code>IonInput</code>
+                            <code>DropdownModule</code>
+                            <code>UpperCasePipe</code>
+                                <code><a href="../components/LinkButtonComponent.html" target="_self" >LinkButtonComponent</a></code>
+                            <code>TranslatePipe</code>
+                            <code>TranslateDirective</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>home-statops-page.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>home-statops-page.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                    <span class="modifier">Private</span>
+                                <a href="##statoPSService" >#statoPSService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#appStateService" >appStateService</a>
+                            </li>
+                            <li>
+                                <a href="#dataAggiornamento" >dataAggiornamento</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#favoitesService" >favoitesService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#i18nService" >i18nService</a>
+                            </li>
+                            <li>
+                                <a href="#isSearchEnabled" >isSearchEnabled</a>
+                            </li>
+                            <li>
+                                <a href="#listaLocalita" >listaLocalita</a>
+                            </li>
+                            <li>
+                                <a href="#prontoSoccorso" >prontoSoccorso</a>
+                            </li>
+                            <li>
+                                <a href="#ricercaPS" >ricercaPS</a>
+                            </li>
+                            <li>
+                                <a href="#selectedLang" >selectedLang</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changeLang" >changeLang</a>
+                            </li>
+                            <li>
+                                <a href="#enableSearch" >enableSearch</a>
+                            </li>
+                            <li>
+                                <a href="#ionViewDidEnter" >ionViewDidEnter</a>
+                            </li>
+                            <li>
+                                <a href="#ionViewDidLeave" >ionViewDidLeave</a>
+                            </li>
+                            <li>
+                                <a href="#ionViewWillEnter" >ionViewWillEnter</a>
+                            </li>
+                            <li>
+                                <a href="#refreshData" >refreshData</a>
+                            </li>
+                            <li>
+                                <a href="#search" >search</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ricercaPS" >ricercaPS</a>
+                            </li>
+                            <li>
+                                <a href="#selectedLang" >selectedLang</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ricercaPS"></a>
+                        <b>ricercaPS</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:85</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedLang"></a>
+                        <b>selectedLang</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:78</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeLang"></a>
+                    <span class="name">
+                        <span ><b>changeLang</b></span>
+                        <a href="#changeLang"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeLang(event: DropdownChangeEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:119</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>DropdownChangeEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableSearch"></a>
+                    <span class="name">
+                        <span ><b>enableSearch</b></span>
+                        <a href="#enableSearch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enableSearch()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ionViewDidEnter"></a>
+                    <span class="name">
+                        <span ><b>ionViewDidEnter</b></span>
+                        <a href="#ionViewDidEnter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ionViewDidEnter()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ionViewDidLeave"></a>
+                    <span class="name">
+                        <span ><b>ionViewDidLeave</b></span>
+                        <a href="#ionViewDidLeave"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ionViewDidLeave()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ionViewWillEnter"></a>
+                    <span class="name">
+                        <span ><b>ionViewWillEnter</b></span>
+                        <a href="#ionViewWillEnter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ionViewWillEnter()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshData"></a>
+                    <span class="name">
+                        <span ><b>refreshData</b></span>
+                        <a href="#refreshData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>refreshData(event: CustomEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="102"
+                                    class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>CustomEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="search"></a>
+                    <span class="name">
+                        <span ><b>search</b></span>
+                        <a href="#search"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>search(event: DropdownChangeEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>DropdownChangeEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="#statoPSService"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                            <span class="modifier">Private</span>
+                        <span ><b>#statoPSService</b></span>
+                        <a href="##statoPSService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(StatoPSService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appStateService"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>appStateService</b></span>
+                        <a href="#appStateService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(AppStateService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataAggiornamento"></a>
+                    <span class="name">
+                        <span ><b>dataAggiornamento</b></span>
+                        <a href="#dataAggiornamento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.#statoPSService.dataAggiornamento</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="favoitesService"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>favoitesService</b></span>
+                        <a href="#favoitesService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(FavoritesService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="i18nService"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>i18nService</b></span>
+                        <a href="#i18nService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(InternationalizationService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSearchEnabled"></a>
+                    <span class="name">
+                        <span ><b>isSearchEnabled</b></span>
+                        <a href="#isSearchEnabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listaLocalita"></a>
+                    <span class="name">
+                        <span ><b>listaLocalita</b></span>
+                        <a href="#listaLocalita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.#statoPSService.listaLocalita</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prontoSoccorso"></a>
+                    <span class="name">
+                        <span ><b>prontoSoccorso</b></span>
+                        <a href="#prontoSoccorso"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.#statoPSService.prontoSoccorso</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ricercaPS"></a>
+                    <span class="name">
+                        <span ><b>ricercaPS</b></span>
+                        <a href="#ricercaPS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedLang"></a>
+                    <span class="name">
+                        <span ><b>selectedLang</b></span>
+                        <a href="#selectedLang"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/feature/homeStatoPS/home-statops-page.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, inject, model, signal } from &#x27;@angular/core&#x27;;
+import { StatoPSService } from &#x27;@core/services/StatoPS/stato-ps.service&#x27;;
+import { CardPSComponent } from &#x27;@ui/standard/card-ps/card-ps.component&#x27;;
+import {
+  IonAlert,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
+  IonContent,
+  IonFooter,
+  IonHeader,
+  IonInput,
+  IonItem,
+  IonProgressBar,
+  IonRefresher,
+  IonRefresherContent,
+  IonTitle,
+  IonToolbar,
+  ViewDidEnter,
+  ViewDidLeave,
+  ViewWillEnter,
+} from &#x27;@ionic/angular/standalone&#x27;;
+import { AppStateService } from &#x27;@core/services/appState/app-state.service&#x27;;
+import { SkeletonModule } from &#x27;primeng/skeleton&#x27;;
+import { CardpsLoaderComponent } from &#x27;@ui/loader/cardps-loader/cardps-loader.component&#x27;;
+import { ErrorCardComponent } from &#x27;@ui/error/error-card/error-card.component&#x27;;
+import { RouterLink } from &#x27;@angular/router&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { DropdownChangeEvent, DropdownModule } from &#x27;primeng/dropdown&#x27;;
+import { UpperCasePipe } from &#x27;@angular/common&#x27;;
+import { LinkButtonComponent } from &#x27;@ui/link-button/link-button.component&#x27;;
+import { FavoritesService } from &#x27;@core/services/favorites/favorites.service&#x27;;
+import { TranslateDirective, TranslatePipe } from &#x27;@codeandweb/ngx-translate&#x27;;
+import { InternationalizationService } from &#x27;@core/services/Internationalization/internationalization.service&#x27;;
+
+@Component({
+  selector: &#x27;pst-home-statops&#x27;,
+  templateUrl: &#x27;home-statops-page.component.html&#x27;,
+  styleUrls: [&#x27;home-statops-page.component.scss&#x27;],
+  standalone: true,
+  imports: [
+    CardPSComponent,
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    IonFooter,
+    IonProgressBar,
+    IonAlert,
+    SkeletonModule,
+    IonCard,
+    IonCardHeader,
+    IonCardContent,
+    IonCardTitle,
+    IonRefresher,
+    IonRefresherContent,
+    CardpsLoaderComponent,
+    ErrorCardComponent,
+    RouterLink,
+    FormsModule,
+    IonItem,
+    IonInput,
+    DropdownModule,
+    UpperCasePipe,
+    LinkButtonComponent,
+    TranslatePipe,
+    TranslateDirective,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class HomeStatoPSPage implements ViewWillEnter, ViewDidEnter, ViewDidLeave {
+  readonly #statoPSService &#x3D; inject(StatoPSService);
+  readonly appStateService &#x3D; inject(AppStateService);
+  readonly favoitesService &#x3D; inject(FavoritesService);
+  readonly i18nService &#x3D; inject(InternationalizationService);
+
+  selectedLang &#x3D; model&lt;string&gt;();
+
+  dataAggiornamento &#x3D; this.#statoPSService.dataAggiornamento;
+  prontoSoccorso &#x3D; this.#statoPSService.prontoSoccorso;
+  listaLocalita &#x3D; this.#statoPSService.listaLocalita;
+
+  isSearchEnabled &#x3D; signal&lt;boolean&gt;(false);
+  ricercaPS &#x3D; model&lt;string&gt;();
+
+  ionViewWillEnter(): void {
+    this.#statoPSService.loadFavPS();
+  }
+
+  ionViewDidEnter(): void {
+    this.favoitesService.loadFavorites();
+    if (this.selectedLang() &#x3D;&#x3D;&#x3D; undefined) this.selectedLang.set(this.i18nService.selectedLanguageFlag());
+  }
+
+  ionViewDidLeave() {
+    this.isSearchEnabled.set(false);
+    this.ricercaPS.set(&#x27;&#x27;);
+    this.#statoPSService.clearFilterPS();
+  }
+
+  refreshData(event: CustomEvent) {
+    this.#statoPSService.loadStatoPS();
+    event.detail.complete();
+  }
+
+  enableSearch() {
+    this.isSearchEnabled.update(prev &#x3D;&gt; !prev);
+    if (!this.isSearchEnabled()) {
+      this.ricercaPS.set(&#x27;&#x27;);
+      this.#statoPSService.clearFilterPS();
+    }
+  }
+
+  search(event: DropdownChangeEvent) {
+    this.#statoPSService.filterPS(event.value);
+  }
+
+  changeLang(event: DropdownChangeEvent) {
+    this.i18nService.changeLanguageWithFlag(event.value);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content [fullscreen]&#x3D;&quot;true&quot; class&#x3D;&quot;ion-padding&quot;&gt;
+  &lt;ion-refresher slot&#x3D;&quot;fixed&quot; (ionRefresh)&#x3D;&quot;refreshData($event)&quot;&gt;
+    &lt;ion-refresher-content/&gt;
+  &lt;/ion-refresher&gt;
+
+  &lt;header class&#x3D;&quot;statops__header&quot;&gt;
+    &lt;div class&#x3D;&quot;statops__header-title&quot;&gt;
+      &lt;h1&gt;{{ &#x27;homeStatoPS.title&#x27; | translate }}&lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;statops__header-actionbox&quot;&gt;
+      &lt;pst-link-button
+        routerLink&#x3D;&quot;/info&quot;
+        icon&#x3D;&quot;ℹ️&quot;
+        text&#x3D;&quot;{{ &#x27;homeStatoPS.button.info&#x27; | translate }}&quot;
+      /&gt;
+      &lt;pst-link-button
+        routerLink&#x3D;&quot;/favorites&quot;
+        icon&#x3D;&quot;⭐&quot;
+        text&#x3D;&quot;{{ &#x27;homeStatoPS.button.favorites&#x27; | translate }}&quot;
+      /&gt;
+      &lt;pst-link-button
+        icon&#x3D;&quot;🔍&quot;
+        text&#x3D;&quot;{{ &#x27;homeStatoPS.button.search&#x27; | translate }}&quot;
+        (click)&#x3D;&quot;enableSearch()&quot;
+      /&gt;
+
+      @if(isSearchEnabled()){
+        &lt;p-dropdown
+          [options]&#x3D;&quot;listaLocalita()&quot;
+          [(ngModel)]&#x3D;&quot;ricercaPS&quot;
+          [checkmark]&#x3D;&quot;true&quot;
+          [showClear]&#x3D;&quot;ricercaPS()&quot;
+          (onChange)&#x3D;&quot;search($event)&quot;
+          (onClear)&#x3D;&quot;ricercaPS.set(&#x27;&#x27;)&quot;
+          placeholder&#x3D;&quot;{{ &#x27;homeStatoPS.button.select_loc&#x27; | translate }}&quot;
+        /&gt;
+      }
+      &lt;p-dropdown
+        [options]&#x3D;&quot;i18nService.availLangFlag()&quot;
+        [(ngModel)]&#x3D;&quot;selectedLang&quot;
+        (onChange)&#x3D;&quot;changeLang($event)&quot;
+      /&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;div class&#x3D;&quot;card-aligner&quot;&gt;
+
+    @if (appStateService.isStatusLoading()){
+      &lt;pst-cardps-loader/&gt;
+      &lt;pst-cardps-loader/&gt;
+      &lt;pst-cardps-loader/&gt;
+      &lt;pst-cardps-loader/&gt;
+    }
+
+    @if(appStateService.isStatusError()){
+      &lt;pst-error-card error&#x3D;&quot;{{appStateService.error}}}&quot; [isError]&#x3D;&quot;true&quot; /&gt;
+    }
+
+    @for(ps of prontoSoccorso(); track ps.codPsOd){
+      @defer (on viewport){
+        &lt;pst-card-ps [prontoSoccorso]&#x3D;&quot;ps&quot; /&gt;
+      } @placeholder (minimum 2){
+        &lt;pst-cardps-loader/&gt;
+      }
+    } @empty {
+      @if (appStateService.isStatusReady() &amp;&amp; !isSearchEnabled()){
+        &lt;pst-error-card error&#x3D;&quot;Non ci sono dati disponibili&quot; [isError]&#x3D;&quot;false&quot; /&gt;
+      }
+      @else{
+        &lt;pst-error-card
+          title&#x3D;&quot;Nessun Pronto Soccorso trovato&quot;
+          message&#x3D;&quot;Non è stato trovato nessun Pronto Soccorso per la località selezionata.&quot;
+          [isError]&#x3D;&quot;false&quot; /&gt;
+      }
+    }
+  &lt;/div&gt;
+&lt;/ion-content&gt;
+
+&lt;ion-footer&gt;
+  &lt;ion-toolbar&gt;
+    &lt;div class&#x3D;&quot;ion-text-center ion-padding-bottom&quot;&gt;
+      @if(dataAggiornamento()){
+        &lt;p&gt;{{&#x27;homeStatoPS.last_update&#x27; | translate}}: {{dataAggiornamento()}}&lt;/p&gt;
+      } @else {
+        &lt;p&gt;{{&#x27;homeStatoPS.last_update_not&#x27; | translate}}&lt;/p&gt;
+      }
+      © 2024 Rocchio Pietro
+    &lt;/div&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-footer&gt;
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>home-statops-page.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.card-aligner{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.statops__header{
+  padding-bottom: 1.5rem;
+}
+
+.statops__header-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.statops__header-actionbox{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content [fullscreen]="true" class="ion-padding">  <ion-refresher slot="fixed" (ionRefresh)="refreshData($event)">    <ion-refresher-content/>  </ion-refresher>  <header class="statops__header">    <div class="statops__header-title">      <h1>{{ \'homeStatoPS.title\' | translate }}</h1>    </div>    <div class="statops__header-actionbox">      <pst-link-button        routerLink="/info"        icon="ℹ️"        text="{{ \'homeStatoPS.button.info\' | translate }}"      />      <pst-link-button        routerLink="/favorites"        icon="⭐"        text="{{ \'homeStatoPS.button.favorites\' | translate }}"      />      <pst-link-button        icon="🔍"        text="{{ \'homeStatoPS.button.search\' | translate }}"        (click)="enableSearch()"      />      @if(isSearchEnabled()){        <p-dropdown          [options]="listaLocalita()"          [(ngModel)]="ricercaPS"          [checkmark]="true"          [showClear]="ricercaPS()"          (onChange)="search($event)"          (onClear)="ricercaPS.set(\'\')"          placeholder="{{ \'homeStatoPS.button.select_loc\' | translate }}"        />      }      <p-dropdown        [options]="i18nService.availLangFlag()"        [(ngModel)]="selectedLang"        (onChange)="changeLang($event)"      />    </div>  </header>  <div class="card-aligner">    @if (appStateService.isStatusLoading()){      <pst-cardps-loader/>      <pst-cardps-loader/>      <pst-cardps-loader/>      <pst-cardps-loader/>    }    @if(appStateService.isStatusError()){      <pst-error-card error="{{appStateService.error}}}" [isError]="true" />    }    @for(ps of prontoSoccorso(); track ps.codPsOd){      @defer (on viewport){        <pst-card-ps [prontoSoccorso]="ps" />      } @placeholder (minimum 2){        <pst-cardps-loader/>      }    } @empty {      @if (appStateService.isStatusReady() && !isSearchEnabled()){        <pst-error-card error="Non ci sono dati disponibili" [isError]="false" />      }      @else{        <pst-error-card          title="Nessun Pronto Soccorso trovato"          message="Non è stato trovato nessun Pronto Soccorso per la località selezionata."          [isError]="false" />      }    }  </div></ion-content><ion-footer>  <ion-toolbar>    <div class="ion-text-center ion-padding-bottom">      @if(dataAggiornamento()){        <p>{{\'homeStatoPS.last_update\' | translate}}: {{dataAggiornamento()}}</p>      } @else {        <p>{{\'homeStatoPS.last_update_not\' | translate}}</p>      }      © 2024 Rocchio Pietro    </div>  </ion-toolbar></ion-footer></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'pst-app-root'},{'name': 'CardPSComponent', 'selector': 'pst-card-ps'},{'name': 'CardpsLoaderComponent', 'selector': 'pst-cardps-loader'},{'name': 'ErrorCardComponent', 'selector': 'pst-error-card'},{'name': 'FavoritesPage', 'selector': 'pst-favorites'},{'name': 'HomeStatoPSPage', 'selector': 'pst-home-statops'},{'name': 'InfoPage', 'selector': 'pst-info'},{'name': 'LinkButtonComponent', 'selector': 'pst-link-button'},{'name': 'NotFoundPage', 'selector': 'pst-not-found'},{'name': 'PsDetailsPage', 'selector': 'pst-ps-details'},{'name': 'WaitingBoxComponent', 'selector': 'pst-waiting-box'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'HomeStatoPSPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HomeStatoPSPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

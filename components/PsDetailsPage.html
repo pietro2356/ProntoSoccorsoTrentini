@@ -1,0 +1,1007 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pronto-soccorso-trentini documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">pronto-soccorso-trentini documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  PsDetailsPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/feature/ps-details/ps-details.page.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>ViewWillEnter</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>pst-ps-details</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>IonContent</code>
+                            <code>IonHeader</code>
+                            <code>IonTitle</code>
+                            <code>IonToolbar</code>
+                            <code>CommonModule</code>
+                            <code>FormsModule</code>
+                                <code><a href="../components/LinkButtonComponent.html" target="_self" >LinkButtonComponent</a></code>
+                            <code>RouterLink</code>
+                            <code>IonChip</code>
+                            <code>IonIcon</code>
+                            <code>IonLabel</code>
+                            <code>ExtractPSPipe</code>
+                            <code>IonCard</code>
+                            <code>IonCardHeader</code>
+                            <code>IonCardTitle</code>
+                            <code>IonCardContent</code>
+                                <code><a href="../components/WaitingBoxComponent.html" target="_self" >WaitingBoxComponent</a></code>
+                            <code>IonBackButton</code>
+                            <code>IonButton</code>
+                            <code>IonButtons</code>
+                            <code>TranslatePipe</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./ps-details.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./ps-details.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                    <span class="modifier">Private</span>
+                                <a href="##router" >#router</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                    <span class="modifier">Private</span>
+                                <a href="##statoPsService" >#statoPsService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#favoritesService" >favoritesService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#favUtils" >favUtils</a>
+                            </li>
+                            <li>
+                                <a href="#prontoSoccorsoComp" >prontoSoccorsoComp</a>
+                            </li>
+                            <li>
+                                <a href="#routeParam" >routeParam</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ionViewWillEnter" >ionViewWillEnter</a>
+                            </li>
+                            <li>
+                                <a href="#openTabViaLink" >openTabViaLink</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/feature/ps-details/ps-details.page.ts:84</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ionViewWillEnter"></a>
+                    <span class="name">
+                        <span ><b>ionViewWillEnter</b></span>
+                        <a href="#ionViewWillEnter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ionViewWillEnter()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="90"
+                                    class="link-to-prism">src/app/feature/ps-details/ps-details.page.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openTabViaLink"></a>
+                    <span class="name">
+                        <span ><b>openTabViaLink</b></span>
+                        <a href="#openTabViaLink"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openTabViaLink(event: Event, url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">src/app/feature/ps-details/ps-details.page.ts:94</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="#router"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                            <span class="modifier">Private</span>
+                        <span ><b>#router</b></span>
+                        <a href="##router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ActivatedRoute)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/feature/ps-details/ps-details.page.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="#statoPsService"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                            <span class="modifier">Private</span>
+                        <span ><b>#statoPsService</b></span>
+                        <a href="##statoPsService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(StatoPSService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/feature/ps-details/ps-details.page.ts:77</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="favoritesService"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>favoritesService</b></span>
+                        <a href="#favoritesService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(FavoritesService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/feature/ps-details/ps-details.page.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="favUtils"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>favUtils</b></span>
+                        <a href="#favUtils"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FavoriteUtils()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/feature/ps-details/ps-details.page.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prontoSoccorsoComp"></a>
+                    <span class="name">
+                        <span ><b>prontoSoccorsoComp</b></span>
+                        <a href="#prontoSoccorsoComp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed&lt;ProntoSoccorso | false&gt;(() &#x3D;&gt; {
+    return this.#statoPsService.findPS(this.routeParam()?.get(&#x27;id&#x27;) || &#x27;&#x27;);
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/feature/ps-details/ps-details.page.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="routeParam"></a>
+                    <span class="name">
+                        <span ><b>routeParam</b></span>
+                        <a href="#routeParam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>toSignal(this.#router.paramMap)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/feature/ps-details/ps-details.page.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, computed, inject } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import {
+  IonBackButton,
+  IonButton,
+  IonButtons,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
+  IonChip,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonLabel,
+  IonTitle,
+  IonToolbar,
+  ViewWillEnter,
+} from &#x27;@ionic/angular/standalone&#x27;;
+import { ActivatedRoute, RouterLink } from &#x27;@angular/router&#x27;;
+import { LinkButtonComponent } from &#x27;@ui/link-button/link-button.component&#x27;;
+import { StatoPSService } from &#x27;@core/services/StatoPS/stato-ps.service&#x27;;
+import { ProntoSoccorso } from &#x27;@core/models/statoProntoSoccorso&#x27;;
+import { toSignal } from &#x27;@angular/core/rxjs-interop&#x27;;
+import { ExtractPSPipe } from &#x27;@core/pipe/extract-ps.pipe&#x27;;
+import { addIcons } from &#x27;ionicons&#x27;;
+import {
+  arrowBack,
+  arrowBackOutline,
+  at,
+  call,
+  globe,
+  location,
+  mail,
+  medical,
+  navigate,
+  star,
+  starOutline,
+} from &#x27;ionicons/icons&#x27;;
+import { WaitingBoxComponent } from &#x27;@ui/standard/waiting-box/waiting-box.component&#x27;;
+import { FavoritesService } from &#x27;@core/services/favorites/favorites.service&#x27;;
+import { FavoriteUtils } from &#x27;@core/services/favorites/favoriteUtils.class&#x27;;
+import { TranslatePipe } from &#x27;@codeandweb/ngx-translate&#x27;;
+
+@Component({
+  selector: &#x27;pst-ps-details&#x27;,
+  templateUrl: &#x27;./ps-details.page.html&#x27;,
+  styleUrls: [&#x27;./ps-details.page.scss&#x27;],
+  standalone: true,
+  imports: [
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    CommonModule,
+    FormsModule,
+    LinkButtonComponent,
+    RouterLink,
+    IonChip,
+    IonIcon,
+    IonLabel,
+    ExtractPSPipe,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardContent,
+    WaitingBoxComponent,
+    IonBackButton,
+    IonButton,
+    IonButtons,
+    TranslatePipe,
+  ],
+})
+export class PsDetailsPage implements ViewWillEnter {
+  readonly #router &#x3D; inject(ActivatedRoute);
+  readonly #statoPsService &#x3D; inject(StatoPSService);
+  readonly favoritesService &#x3D; inject(FavoritesService);
+  routeParam &#x3D; toSignal(this.#router.paramMap);
+  readonly favUtils &#x3D; new FavoriteUtils();
+
+  prontoSoccorsoComp &#x3D; computed&lt;ProntoSoccorso | false&gt;(() &#x3D;&gt; {
+    return this.#statoPsService.findPS(this.routeParam()?.get(&#x27;id&#x27;) || &#x27;&#x27;);
+  });
+
+  constructor() {
+    addIcons({ location, medical, navigate, call, globe, mail, at, arrowBack, star, starOutline, arrowBackOutline });
+  }
+
+  ionViewWillEnter(): void {
+    if (this.#statoPsService.prontoSoccorso().length &#x3D;&#x3D;&#x3D; 0) this.#statoPsService.loadFavPS();
+  }
+
+  openTabViaLink(event: Event, url: string) {
+    event.preventDefault();
+    window.open(url, &#x27;_blank&#x27;);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@let ps &#x3D; prontoSoccorsoComp();
+
+@if(ps){
+  &lt;ion-content [fullscreen]&#x3D;&quot;true&quot; class&#x3D;&quot;ion-padding&quot;&gt;
+
+    &lt;div class&#x3D;&quot;info-container&quot;&gt;
+      &lt;div class&#x3D;&quot;info-back&quot;&gt;
+        &lt;ion-back-button defaultHref&#x3D;&quot;/homeStatoPS&quot; icon&#x3D;&quot;arrow-back-outline&quot;/&gt;
+        @if(favoritesService.isFavorite(ps.codPsOd)){
+          &lt;ion-icon name&#x3D;&quot;star&quot; color&#x3D;&quot;warning&quot; size&#x3D;&quot;large&quot; (click)&#x3D;&quot;favUtils.removeFavorite($event, ps)&quot;/&gt;
+        }
+        @else {
+          &lt;ion-icon name&#x3D;&quot;star-outline&quot; color&#x3D;&quot;warning&quot; size&#x3D;&quot;large&quot; (click)&#x3D;&quot;favUtils.addFavorite($event, ps)&quot;/&gt;
+        }
+      &lt;/div&gt;
+      &lt;h1 class&#x3D;&quot;info-header&quot;&gt;
+        {{ ps.codOspOd }}
+      &lt;/h1&gt;
+      &lt;h1 class&#x3D;&quot;info-subheader&quot;&gt;{{ ps.unitaOperativa	}}&lt;/h1&gt;
+
+      &lt;div class&#x3D;&quot;info-chips&quot;&gt;
+        &lt;!--    INDIRIZZO e PERCORSO   --&gt;
+        &lt;ion-chip color&#x3D;&quot;primary&quot;&gt;
+          @let loc &#x3D; ps.ps.replaceAll(&#x27; &#x27;, &#x27;+&#x27;);
+          &lt;ion-icon name&#x3D;&quot;navigate&quot; color&#x3D;&quot;primary&quot;/&gt;
+          &lt;ion-label&gt;
+            &lt;a href&#x3D;&quot;https://www.google.com/maps/dir//{{loc}}&quot; target&#x3D;&quot;_blank&quot;&gt;
+              {{&#x27;psDetails.label.vai_a&#x27; | translate}} {{ ps.localita | titlecase}}
+            &lt;/a&gt;
+          &lt;/ion-label&gt;
+        &lt;/ion-chip&gt;
+
+        &lt;!--    SITO    --&gt;
+        &lt;ion-chip color&#x3D;&quot;warning&quot; (click)&#x3D;&quot;openTabViaLink($event, ps.dettagli.link)&quot;&gt;
+          &lt;ion-icon name&#x3D;&quot;globe&quot; color&#x3D;&quot;danger&quot;/&gt;
+          &lt;ion-label&gt;
+            APSS: {{ ps.localita | titlecase}}
+          &lt;/ion-label&gt;
+        &lt;/ion-chip&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;info-content&quot;&gt;
+
+        &lt;h2&gt;{{&#x27;psDetails.label.waiting&#x27; | translate}}&lt;/h2&gt;
+        &lt;div class&#x3D;&quot;info-waiting-box&quot;&gt;
+          &lt;pst-waiting-box [waitVal]&#x3D;&quot;ps.attesa.bianco&quot; [color]&#x3D;&quot;&#x27;bianco&#x27;&quot;/&gt;
+          &lt;pst-waiting-box [waitVal]&#x3D;&quot;ps.attesa.verde&quot; [color]&#x3D;&quot;&#x27;verde&#x27;&quot;/&gt;
+          &lt;pst-waiting-box [waitVal]&#x3D;&quot;ps.attesa.azzurro&quot; [color]&#x3D;&quot;&#x27;azzurro&#x27;&quot;/&gt;
+          &lt;pst-waiting-box [waitVal]&#x3D;&quot;ps.attesa.arancio&quot; [color]&#x3D;&quot;&#x27;arancio&#x27;&quot;/&gt;
+          &lt;pst-waiting-box [waitVal]&#x3D;&quot;ps.attesa.rosso&quot; [color]&#x3D;&quot;&#x27;rosso&#x27;&quot;/&gt;
+        &lt;/div&gt;
+
+        &lt;h3&gt;{{&#x27;psDetails.label.ambulatory&#x27; | translate}}&lt;/h3&gt;
+        &lt;div class&#x3D;&quot;info-waiting-box&quot;&gt;
+          &lt;pst-waiting-box [waitVal]&#x3D;&quot;ps.ambulatorio.bianco&quot; [color]&#x3D;&quot;&#x27;bianco&#x27;&quot;/&gt;
+          &lt;pst-waiting-box [waitVal]&#x3D;&quot;ps.ambulatorio.verde&quot; [color]&#x3D;&quot;&#x27;verde&#x27;&quot;/&gt;
+          &lt;pst-waiting-box [waitVal]&#x3D;&quot;ps.ambulatorio.azzurro&quot; [color]&#x3D;&quot;&#x27;azzurro&#x27;&quot;/&gt;
+          &lt;pst-waiting-box [waitVal]&#x3D;&quot;ps.ambulatorio.arancio&quot; [color]&#x3D;&quot;&#x27;arancio&#x27;&quot;/&gt;
+          &lt;pst-waiting-box [waitVal]&#x3D;&quot;ps.ambulatorio.rosso&quot; [color]&#x3D;&quot;&#x27;rosso&#x27;&quot;/&gt;
+        &lt;/div&gt;
+
+        &lt;h3&gt;{{&#x27;psDetails.label.observation&#x27; | translate}}&lt;/h3&gt;
+        &lt;div class&#x3D;&quot;info-waiting-box&quot;&gt;
+          &lt;pst-waiting-box [waitVal]&#x3D;&quot;ps.osservazione.bianco&quot; [color]&#x3D;&quot;&#x27;bianco&#x27;&quot;/&gt;
+          &lt;pst-waiting-box [waitVal]&#x3D;&quot;ps.osservazione.verde&quot; [color]&#x3D;&quot;&#x27;verde&#x27;&quot;/&gt;
+          &lt;pst-waiting-box [waitVal]&#x3D;&quot;ps.osservazione.azzurro&quot; [color]&#x3D;&quot;&#x27;azzurro&#x27;&quot;/&gt;
+          &lt;pst-waiting-box [waitVal]&#x3D;&quot;ps.osservazione.arancio&quot; [color]&#x3D;&quot;&#x27;arancio&#x27;&quot;/&gt;
+          &lt;pst-waiting-box [waitVal]&#x3D;&quot;ps.osservazione.rosso&quot; [color]&#x3D;&quot;&#x27;rosso&#x27;&quot;/&gt;
+        &lt;/div&gt;
+
+          &lt;h3&gt;{{&#x27;psDetails.label.waiting_time_avg&#x27; | translate}}&lt;/h3&gt;
+        &lt;div class&#x3D;&quot;info-waiting-box&quot;&gt;
+          &lt;pst-waiting-box [small]&#x3D;&quot;true&quot; [waitVal]&#x3D;&quot;ps.attesaMedia.bianco&quot; [color]&#x3D;&quot;&#x27;bianco&#x27;&quot;/&gt;
+          &lt;pst-waiting-box [small]&#x3D;&quot;true&quot; [waitVal]&#x3D;&quot;ps.attesaMedia.verde&quot; [color]&#x3D;&quot;&#x27;verde&#x27;&quot;/&gt;
+          &lt;pst-waiting-box [small]&#x3D;&quot;true&quot; [waitVal]&#x3D;&quot;ps.attesaMedia.azzurro&quot; [color]&#x3D;&quot;&#x27;azzurro&#x27;&quot;/&gt;
+          &lt;pst-waiting-box [small]&#x3D;&quot;true&quot; [waitVal]&#x3D;&quot;ps.attesaMedia.arancio&quot; [color]&#x3D;&quot;&#x27;arancio&#x27;&quot;/&gt;
+          &lt;pst-waiting-box [small]&#x3D;&quot;true&quot; [waitVal]&#x3D;&quot;ps.attesaMedia.rosso&quot; [color]&#x3D;&quot;&#x27;rosso&#x27;&quot;/&gt;
+        &lt;/div&gt;
+
+        &lt;h3&gt;{{&#x27;psDetails.label.contact&#x27; | translate}}&lt;/h3&gt;
+        &lt;div class&#x3D;&quot;info-chips&quot;&gt;
+          &lt;!--    TELEFONI    --&gt;
+          @for(tel of ps.dettagli.contatti.telefono; track tel){
+            &lt;ion-chip color&#x3D;&quot;success&quot;&gt;
+              &lt;ion-icon name&#x3D;&quot;call&quot; color&#x3D;&quot;success&quot;/&gt;
+              &lt;ion-label&gt;
+                &lt;a href&#x3D;&quot;tel:{{tel}}&quot; target&#x3D;&quot;_blank&quot;&gt;
+                  {{ tel }}
+                &lt;/a&gt;
+              &lt;/ion-label&gt;
+            &lt;/ion-chip&gt;
+          }
+          &lt;!--    EMAIL    --&gt;
+          @for(mail of ps.dettagli.contatti.email; track mail){
+            &lt;ion-chip color&#x3D;&quot;medium&quot;&gt;
+              &lt;ion-icon name&#x3D;&quot;mail&quot; color&#x3D;&quot;medium&quot;/&gt;
+              &lt;ion-label&gt;
+                &lt;a href&#x3D;&quot;mailto:{{mail}}&quot; target&#x3D;&quot;_blank&quot;&gt;
+                  {{ mail }}
+                &lt;/a&gt;
+              &lt;/ion-label&gt;
+            &lt;/ion-chip&gt;
+          }
+
+          &lt;!--    PEC    --&gt;
+          &lt;ion-chip color&#x3D;&quot;medium&quot;&gt;
+            &lt;ion-icon name&#x3D;&quot;at&quot; color&#x3D;&quot;medium&quot;/&gt;
+            &lt;ion-label&gt;
+              &lt;a href&#x3D;&quot;mailto:{{ps.dettagli.contatti.pec}}&quot; target&#x3D;&quot;_blank&quot;&gt;
+                {{ ps.dettagli.contatti.pec }}
+              &lt;/a&gt;
+            &lt;/ion-label&gt;
+          &lt;/ion-chip&gt;
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/ion-content&gt;
+} @else {
+  &lt;ion-content [fullscreen]&#x3D;&quot;true&quot; class&#x3D;&quot;ion-padding&quot;&gt;
+    &lt;h2&gt;{{&#x27;psDetails.label.loading&#x27; | translate}}&lt;/h2&gt;
+  &lt;/ion-content&gt;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./ps-details.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.info-container {
+  max-width: 700px;
+  padding: 1.25rem;
+  margin: 2.5rem auto;
+}
+
+.info-back{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info-header{
+  font-weight: 600;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.info-subheader{
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.info-chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.info-content{
+  margin: 2rem 0;
+}
+
+.info-waiting-box{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  //justify-content: center;
+  //align-items: center;
+  gap: .5rem;
+  padding-top: 0.3rem;
+}
+
+.info-line{
+  width: 100%;
+  height: 1px;
+  background-color: #ccc; /* Adjust color as needed */
+  border: none; /* Remove default border */
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+} /* Make sure links are not underlined and are the correct color */
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@let ps = prontoSoccorsoComp();@if(ps){  <ion-content [fullscreen]="true" class="ion-padding">    <div class="info-container">      <div class="info-back">        <ion-back-button defaultHref="/homeStatoPS" icon="arrow-back-outline"/>        @if(favoritesService.isFavorite(ps.codPsOd)){          <ion-icon name="star" color="warning" size="large" (click)="favUtils.removeFavorite($event, ps)"/>        }        @else {          <ion-icon name="star-outline" color="warning" size="large" (click)="favUtils.addFavorite($event, ps)"/>        }      </div>      <h1 class="info-header">        {{ ps.codOspOd }}      </h1>      <h1 class="info-subheader">{{ ps.unitaOperativa	}}</h1>      <div class="info-chips">        <!--    INDIRIZZO e PERCORSO   -->        <ion-chip color="primary">          @let loc = ps.ps.replaceAll(\' \', \'+\');          <ion-icon name="navigate" color="primary"/>          <ion-label>            <a href="https://www.google.com/maps/dir//{{loc}}" target="_blank">              {{\'psDetails.label.vai_a\' | translate}} {{ ps.localita | titlecase}}            </a>          </ion-label>        </ion-chip>        <!--    SITO    -->        <ion-chip color="warning" (click)="openTabViaLink($event, ps.dettagli.link)">          <ion-icon name="globe" color="danger"/>          <ion-label>            APSS: {{ ps.localita | titlecase}}          </ion-label>        </ion-chip>      </div>      <div class="info-content">        <h2>{{\'psDetails.label.waiting\' | translate}}</h2>        <div class="info-waiting-box">          <pst-waiting-box [waitVal]="ps.attesa.bianco" [color]="\'bianco\'"/>          <pst-waiting-box [waitVal]="ps.attesa.verde" [color]="\'verde\'"/>          <pst-waiting-box [waitVal]="ps.attesa.azzurro" [color]="\'azzurro\'"/>          <pst-waiting-box [waitVal]="ps.attesa.arancio" [color]="\'arancio\'"/>          <pst-waiting-box [waitVal]="ps.attesa.rosso" [color]="\'rosso\'"/>        </div>        <h3>{{\'psDetails.label.ambulatory\' | translate}}</h3>        <div class="info-waiting-box">          <pst-waiting-box [waitVal]="ps.ambulatorio.bianco" [color]="\'bianco\'"/>          <pst-waiting-box [waitVal]="ps.ambulatorio.verde" [color]="\'verde\'"/>          <pst-waiting-box [waitVal]="ps.ambulatorio.azzurro" [color]="\'azzurro\'"/>          <pst-waiting-box [waitVal]="ps.ambulatorio.arancio" [color]="\'arancio\'"/>          <pst-waiting-box [waitVal]="ps.ambulatorio.rosso" [color]="\'rosso\'"/>        </div>        <h3>{{\'psDetails.label.observation\' | translate}}</h3>        <div class="info-waiting-box">          <pst-waiting-box [waitVal]="ps.osservazione.bianco" [color]="\'bianco\'"/>          <pst-waiting-box [waitVal]="ps.osservazione.verde" [color]="\'verde\'"/>          <pst-waiting-box [waitVal]="ps.osservazione.azzurro" [color]="\'azzurro\'"/>          <pst-waiting-box [waitVal]="ps.osservazione.arancio" [color]="\'arancio\'"/>          <pst-waiting-box [waitVal]="ps.osservazione.rosso" [color]="\'rosso\'"/>        </div>          <h3>{{\'psDetails.label.waiting_time_avg\' | translate}}</h3>        <div class="info-waiting-box">          <pst-waiting-box [small]="true" [waitVal]="ps.attesaMedia.bianco" [color]="\'bianco\'"/>          <pst-waiting-box [small]="true" [waitVal]="ps.attesaMedia.verde" [color]="\'verde\'"/>          <pst-waiting-box [small]="true" [waitVal]="ps.attesaMedia.azzurro" [color]="\'azzurro\'"/>          <pst-waiting-box [small]="true" [waitVal]="ps.attesaMedia.arancio" [color]="\'arancio\'"/>          <pst-waiting-box [small]="true" [waitVal]="ps.attesaMedia.rosso" [color]="\'rosso\'"/>        </div>        <h3>{{\'psDetails.label.contact\' | translate}}</h3>        <div class="info-chips">          <!--    TELEFONI    -->          @for(tel of ps.dettagli.contatti.telefono; track tel){            <ion-chip color="success">              <ion-icon name="call" color="success"/>              <ion-label>                <a href="tel:{{tel}}" target="_blank">                  {{ tel }}                </a>              </ion-label>            </ion-chip>          }          <!--    EMAIL    -->          @for(mail of ps.dettagli.contatti.email; track mail){            <ion-chip color="medium">              <ion-icon name="mail" color="medium"/>              <ion-label>                <a href="mailto:{{mail}}" target="_blank">                  {{ mail }}                </a>              </ion-label>            </ion-chip>          }          <!--    PEC    -->          <ion-chip color="medium">            <ion-icon name="at" color="medium"/>            <ion-label>              <a href="mailto:{{ps.dettagli.contatti.pec}}" target="_blank">                {{ ps.dettagli.contatti.pec }}              </a>            </ion-label>          </ion-chip>        </div>      </div>    </div>  </ion-content>} @else {  <ion-content [fullscreen]="true" class="ion-padding">    <h2>{{\'psDetails.label.loading\' | translate}}</h2>  </ion-content>}</div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'pst-app-root'},{'name': 'CardPSComponent', 'selector': 'pst-card-ps'},{'name': 'CardpsLoaderComponent', 'selector': 'pst-cardps-loader'},{'name': 'ErrorCardComponent', 'selector': 'pst-error-card'},{'name': 'FavoritesPage', 'selector': 'pst-favorites'},{'name': 'HomeStatoPSPage', 'selector': 'pst-home-statops'},{'name': 'InfoPage', 'selector': 'pst-info'},{'name': 'LinkButtonComponent', 'selector': 'pst-link-button'},{'name': 'NotFoundPage', 'selector': 'pst-not-found'},{'name': 'PsDetailsPage', 'selector': 'pst-ps-details'},{'name': 'WaitingBoxComponent', 'selector': 'pst-waiting-box'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'PsDetailsPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'PsDetailsPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
