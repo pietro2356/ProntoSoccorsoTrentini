@@ -14,7 +14,8 @@
     "lint": "ng lint",
     "build-android": "ionic capacitor build android",
     "prepare": "husky",
-    "release": "release-it"
+    "release": "release-it",
+    "compodoc": "npx compodoc -p tsconfig.doc.json"
   },
   "private": true,
   "dependencies": {
@@ -61,6 +62,7 @@
     "@commitlint/config-angular": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@ionic/angular-toolkit": "^11.0.1",
+    "@tauri-apps/cli": "^2.0.4",
     "@types/jasmine": "~5.1.4",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
     "@typescript-eslint/parser": "^7.16.1",
