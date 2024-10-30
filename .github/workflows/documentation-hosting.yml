@@ -9,14 +9,8 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Use Node.js 22 🚀
-        uses: actions/setup-node@v3
-        with:
-          node-version: 22
-
       - name: Install and Build Doc 🔧
         run: |
-          npm i
           npm run compodoc
 
       - name: Deploy Doc 🚀
