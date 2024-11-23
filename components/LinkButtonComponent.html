@@ -157,8 +157,6 @@
             <tr>
                 <td class="col-md-3">imports</td>
                 <td class="col-md-9">
-                            <code>RouterLink</code>
-                            <code>RouterLinkActive</code>
                             <code>IonicModule</code>
                             <code>ButtonModule</code>
                 </td>
@@ -260,7 +258,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/ui/link-button/link-button.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/ui/link-button/link-button.component.ts:25</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -275,7 +273,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/ui/link-button/link-button.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/ui/link-button/link-button.component.ts:27</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -290,7 +288,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/ui/link-button/link-button.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/ui/link-button/link-button.component.ts:28</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -310,7 +308,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/ui/link-button/link-button.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/ui/link-button/link-button.component.ts:26</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -338,7 +336,7 @@
             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/ui/link-button/link-button.component.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/ui/link-button/link-button.component.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -358,7 +356,7 @@
             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/ui/link-button/link-button.component.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/ui/link-button/link-button.component.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -378,7 +376,7 @@
             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/ui/link-button/link-button.component.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/ui/link-button/link-button.component.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -398,7 +396,7 @@
             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/ui/link-button/link-button.component.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/ui/link-button/link-button.component.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -412,7 +410,6 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, input } from &#x27;@angular/core&#x27;;
-import { RouterLink, RouterLinkActive } from &#x27;@angular/router&#x27;;
 import { IonicModule } from &#x27;@ionic/angular&#x27;;
 import { ButtonModule } from &#x27;primeng/button&#x27;;
 
@@ -432,8 +429,8 @@ type Severity &#x3D;
   selector: &#x27;pst-link-button&#x27;,
   templateUrl: &#x27;./link-button.component.html&#x27;,
   styleUrls: [&#x27;./link-button.component.scss&#x27;],
+  imports: [IonicModule, ButtonModule],
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, IonicModule, ButtonModule],
 })
 export class LinkButtonComponent {
   icon &#x3D; input&lt;string&gt;();

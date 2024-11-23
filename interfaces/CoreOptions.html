@@ -208,12 +208,12 @@
 import { provideIonicAngular } from &#x27;@ionic/angular/standalone&#x27;;
 import { HttpClient, provideHttpClient, withFetch, withInterceptors } from &#x27;@angular/common/http&#x27;;
 import { loadingInterceptor } from &#x27;@core/services/interceptor/loading-interceptor.interceptor&#x27;;
-import { APP_INITIALIZER, ErrorHandler, provideExperimentalZonelessChangeDetection } from &#x27;@angular/core&#x27;;
+import { ErrorHandler, provideExperimentalZonelessChangeDetection, inject, provideAppInitializer } from &#x27;@angular/core&#x27;;
 import { provideAnimations } from &#x27;@angular/platform-browser/animations&#x27;;
 import { GlobalErrorHandler } from &#x27;@core/services/errors/global-error-handler.handler&#x27;;
 import { LocalStoreService } from &#x27;@core/services/favorites/localStore/local-store.service&#x27;;
 import { FavoritesService } from &#x27;@core/services/favorites/favorites.service&#x27;;
-import { provideTranslateService, TranslateLoader, TranslateService } from &#x27;@codeandweb/ngx-translate&#x27;;
+import { provideTranslateService, TranslateLoader } from &#x27;@codeandweb/ngx-translate&#x27;;
 import { TranslateHttpLoader } from &#x27;@codeandweb/http-loader&#x27;;
 import { InternationalizationService } from &#x27;@core/services/Internationalization/internationalization.service&#x27;;
 
@@ -252,19 +252,15 @@ export function provideCore({ routes }: CoreOptions) {
       provide: ErrorHandler,
       useClass: GlobalErrorHandler,
     },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: (localStoreService: LocalStoreService, favService: FavoritesService) &#x3D;&gt; () &#x3D;&gt;
-        localStoreService.init().then(() &#x3D;&gt; favService.loadFavorites()),
-      deps: [LocalStoreService, FavoritesService],
-      multi: true,
-    },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: (i18n: InternationalizationService) &#x3D;&gt; () &#x3D;&gt; i18n.initCurrentLangFromDefaultLang(),
-      deps: [InternationalizationService, TranslateService],
-      multi: true,
-    },
+    provideAppInitializer(() &#x3D;&gt; {
+      const favService &#x3D; inject(FavoritesService);
+      inject(LocalStoreService)
+        .init()
+        .then(() &#x3D;&gt; favService.loadFavorites());
+    }),
+    provideAppInitializer(() &#x3D;&gt; {
+      inject(InternationalizationService).initCurrentLangFromDefaultLang();
+    }),
   ];
 }
 </code></pre>

@@ -153,10 +153,6 @@
                 <td class="col-md-9"><code>pst-info</code></td>
             </tr>
 
-            <tr>
-                <td class="col-md-3">standalone</td>
-                <td class="col-md-9"><code>true</code></td>
-            </tr>
 
             <tr>
                 <td class="col-md-3">imports</td>
@@ -164,9 +160,6 @@
                                 <code><a href="../components/LinkButtonComponent.html" target="_self" >LinkButtonComponent</a></code>
                             <code>RouterLink</code>
                             <code>IonContent</code>
-                            <code>IonHeader</code>
-                            <code>IonTitle</code>
-                            <code>IonToolbar</code>
                             <code>TranslatePipe</code>
                 </td>
             </tr>
@@ -209,15 +202,14 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component } from &#x27;@angular/core&#x27;;
 import { LinkButtonComponent } from &#x27;@ui/link-button/link-button.component&#x27;;
 import { RouterLink } from &#x27;@angular/router&#x27;;
-import { IonContent, IonHeader, IonTitle, IonToolbar } from &#x27;@ionic/angular/standalone&#x27;;
+import { IonContent } from &#x27;@ionic/angular/standalone&#x27;;
 import { TranslatePipe } from &#x27;@codeandweb/ngx-translate&#x27;;
 
 @Component({
   selector: &#x27;pst-info&#x27;,
   templateUrl: &#x27;./info.page.html&#x27;,
   styleUrls: [&#x27;./info.page.scss&#x27;],
-  standalone: true,
-  imports: [LinkButtonComponent, RouterLink, IonContent, IonHeader, IonTitle, IonToolbar, TranslatePipe],
+  imports: [LinkButtonComponent, RouterLink, IonContent, TranslatePipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InfoPage {}

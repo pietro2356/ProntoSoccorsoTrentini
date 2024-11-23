@@ -155,29 +155,14 @@
                 <td class="col-md-9"><code>pst-favorites</code></td>
             </tr>
 
-            <tr>
-                <td class="col-md-3">standalone</td>
-                <td class="col-md-9"><code>true</code></td>
-            </tr>
 
             <tr>
                 <td class="col-md-3">imports</td>
                 <td class="col-md-9">
                             <code>IonContent</code>
-                            <code>IonHeader</code>
-                            <code>IonTitle</code>
-                            <code>IonToolbar</code>
                             <code>CommonModule</code>
                             <code>FormsModule</code>
                             <code>InputTextModule</code>
-                            <code>IonCard</code>
-                            <code>IonCardHeader</code>
-                            <code>IonCard</code>
-                            <code>IonContent</code>
-                            <code>IonCardTitle</code>
-                            <code>IonCardContent</code>
-                            <code>IonButton</code>
-                            <code>IonIcon</code>
                                 <code><a href="../components/CardPSComponent.html" target="_self" >CardPSComponent</a></code>
                             <code>DropdownModule</code>
                                 <code><a href="../components/LinkButtonComponent.html" target="_self" >LinkButtonComponent</a></code>
@@ -291,8 +276,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="62"
-                                    class="link-to-prism">src/app/feature/favorites/favorites.page.ts:62</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/app/feature/favorites/favorites.page.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -328,8 +313,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="66"
-                                    class="link-to-prism">src/app/feature/favorites/favorites.page.ts:66</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">src/app/feature/favorites/favorites.page.ts:40</a></div>
                         </td>
                     </tr>
 
@@ -400,7 +385,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/feature/favorites/favorites.page.ts:59</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/feature/favorites/favorites.page.ts:33</a></div>
                         </td>
                     </tr>
 
@@ -425,7 +410,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/feature/favorites/favorites.page.ts:60</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/feature/favorites/favorites.page.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -441,21 +426,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject } from &#x27;@angular/core&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { FormsModule } from &#x27;@angular/forms&#x27;;
-import {
-  IonButton,
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardTitle,
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonRefresher,
-  IonRefresherContent,
-  IonTitle,
-  IonToolbar,
-  ViewWillEnter,
-} from &#x27;@ionic/angular/standalone&#x27;;
+import { IonContent, IonRefresher, IonRefresherContent, ViewWillEnter } from &#x27;@ionic/angular/standalone&#x27;;
 import { InputTextModule } from &#x27;primeng/inputtext&#x27;;
 import { StatoPSService } from &#x27;@core/services/StatoPS/stato-ps.service&#x27;;
 import { CardPSComponent } from &#x27;@ui/standard/card-ps/card-ps.component&#x27;;
@@ -468,23 +439,11 @@ import { TranslatePipe } from &#x27;@codeandweb/ngx-translate&#x27;;
   selector: &#x27;pst-favorites&#x27;,
   templateUrl: &#x27;./favorites.page.html&#x27;,
   styleUrls: [&#x27;./favorites.page.scss&#x27;],
-  standalone: true,
   imports: [
     IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
     CommonModule,
     FormsModule,
     InputTextModule,
-    IonCard,
-    IonCardHeader,
-    IonCard,
-    IonContent,
-    IonCardTitle,
-    IonCardContent,
-    IonButton,
-    IonIcon,
     CardPSComponent,
     DropdownModule,
     LinkButtonComponent,
