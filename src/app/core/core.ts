@@ -19,6 +19,11 @@ import { FavoritesService } from '@core/services/favorites/favorites.service';
 import { provideTranslateService, TranslateLoader } from '@codeandweb/ngx-translate';
 import { TranslateHttpLoader } from '@codeandweb/http-loader';
 import { InternationalizationService } from '@core/services/Internationalization/internationalization.service';
+import { environment } from '@env/environment';
+import { API_URL } from '@core/token/api-url.token';
+import { SUPPORTED_LANGUAGES } from '@core/token/lang-i18n.token';
+import { LOCAL_STORAGE } from '@core/token/local-storage.token';
+import { LOCAL_STORAGE_SERVICE } from '@core/token/local-storage-service.token';
 
 export interface CoreOptions {
   routes: Routes;
@@ -51,10 +56,6 @@ export function provideCore({ routes }: CoreOptions) {
         deps: [HttpClient],
       },
     }),
-    {
-      provide: ErrorHandler,
-      useClass: GlobalErrorHandler,
-    },
     provideAppInitializer(() => {
       const favService = inject(FavoritesService);
       inject(LocalStoreService)
@@ -64,5 +65,24 @@ export function provideCore({ routes }: CoreOptions) {
     provideAppInitializer(() => {
       inject(InternationalizationService).initCurrentLangFromDefaultLang();
     }),
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler,
+    },
+    {
+      provide: API_URL,
+      useValue: environment.apiTrentinoAA,
+    },
+    {
+      provide: SUPPORTED_LANGUAGES,
+      useValue: environment.supportedLanguages,
+    },
+    {
+      provide: LOCAL_STORAGE,
+    },
+    {
+      provide: LOCAL_STORAGE_SERVICE,
+      useClass: LocalStoreService,
+    },
   ];
 }
