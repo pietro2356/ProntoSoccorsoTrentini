@@ -11,12 +11,12 @@ import {
 import { provideIonicAngular } from '@ionic/angular/standalone';
 import { HttpClient, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { loadingInterceptor } from '@core/services/interceptor/loading-interceptor.interceptor';
-import { APP_INITIALIZER, ErrorHandler, provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { ErrorHandler, provideExperimentalZonelessChangeDetection, inject, provideAppInitializer } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { GlobalErrorHandler } from '@core/services/errors/global-error-handler.handler';
 import { LocalStoreService } from '@core/services/favorites/localStore/local-store.service';
 import { FavoritesService } from '@core/services/favorites/favorites.service';
-import { provideTranslateService, TranslateLoader, TranslateService } from '@codeandweb/ngx-translate';
+import { provideTranslateService, TranslateLoader } from '@codeandweb/ngx-translate';
 import { TranslateHttpLoader } from '@codeandweb/http-loader';
 import { InternationalizationService } from '@core/services/Internationalization/internationalization.service';
 
@@ -55,18 +55,14 @@ export function provideCore({ routes }: CoreOptions) {
       provide: ErrorHandler,
       useClass: GlobalErrorHandler,
     },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: (localStoreService: LocalStoreService, favService: FavoritesService) => () =>
-        localStoreService.init().then(() => favService.loadFavorites()),
-      deps: [LocalStoreService, FavoritesService],
-      multi: true,
-    },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: (i18n: InternationalizationService) => () => i18n.initCurrentLangFromDefaultLang(),
-      deps: [InternationalizationService, TranslateService],
-      multi: true,
-    },
+    provideAppInitializer(() => {
+      const favService = inject(FavoritesService);
+      inject(LocalStoreService)
+        .init()
+        .then(() => favService.loadFavorites());
+    }),
+    provideAppInitializer(() => {
+      inject(InternationalizationService).initCurrentLangFromDefaultLang();
+    }),
   ];
 }
