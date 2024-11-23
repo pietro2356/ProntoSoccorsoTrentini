@@ -2,20 +2,10 @@ import { ChangeDetectionStrategy, Component, inject, model, signal } from '@angu
 import { StatoPSService } from '@core/services/StatoPS/stato-ps.service';
 import { CardPSComponent } from '@ui/standard/card-ps/card-ps.component';
 import {
-  IonAlert,
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardTitle,
   IonContent,
   IonFooter,
-  IonHeader,
-  IonInput,
-  IonItem,
-  IonProgressBar,
   IonRefresher,
   IonRefresherContent,
-  IonTitle,
   IonToolbar,
   ViewDidEnter,
   ViewDidLeave,
@@ -28,44 +18,30 @@ import { ErrorCardComponent } from '@ui/error/error-card/error-card.component';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { DropdownChangeEvent, DropdownModule } from 'primeng/dropdown';
-import { UpperCasePipe } from '@angular/common';
 import { LinkButtonComponent } from '@ui/link-button/link-button.component';
 import { FavoritesService } from '@core/services/favorites/favorites.service';
-import { TranslateDirective, TranslatePipe } from '@codeandweb/ngx-translate';
+import { TranslatePipe } from '@codeandweb/ngx-translate';
 import { InternationalizationService } from '@core/services/Internationalization/internationalization.service';
 
 @Component({
   selector: 'pst-home-statops',
   templateUrl: 'home-statops-page.component.html',
   styleUrls: ['home-statops-page.component.scss'],
-  standalone: true,
   imports: [
     CardPSComponent,
     IonContent,
-    IonHeader,
-    IonTitle,
     IonToolbar,
     IonFooter,
-    IonProgressBar,
-    IonAlert,
     SkeletonModule,
-    IonCard,
-    IonCardHeader,
-    IonCardContent,
-    IonCardTitle,
     IonRefresher,
     IonRefresherContent,
     CardpsLoaderComponent,
     ErrorCardComponent,
     RouterLink,
     FormsModule,
-    IonItem,
-    IonInput,
     DropdownModule,
-    UpperCasePipe,
     LinkButtonComponent,
     TranslatePipe,
-    TranslateDirective,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

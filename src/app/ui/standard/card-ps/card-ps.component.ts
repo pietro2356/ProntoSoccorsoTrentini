@@ -20,7 +20,6 @@ import { TranslatePipe } from '@codeandweb/ngx-translate';
 
 @Component({
   selector: 'pst-card-ps',
-  standalone: true,
   templateUrl: './card-ps.component.html',
   styleUrls: ['./card-ps.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

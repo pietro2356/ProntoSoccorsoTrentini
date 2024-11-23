@@ -5,7 +5,6 @@ import { IonicModule } from '@ionic/angular';
   selector: 'pst-error-card',
   templateUrl: './error-card.component.html',
   styleUrls: ['./error-card.component.scss'],
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [IonicModule],
 })

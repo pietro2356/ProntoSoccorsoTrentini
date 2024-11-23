@@ -6,7 +6,6 @@ import { SkeletonModule } from 'primeng/skeleton';
   selector: 'pst-cardps-loader',
   templateUrl: './cardps-loader.component.html',
   styleUrls: ['./cardps-loader.component.scss'],
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [IonicModule, SkeletonModule],
 })

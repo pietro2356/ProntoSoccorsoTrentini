@@ -5,7 +5,6 @@ import { App as CapacitorApp } from '@capacitor/app';
 @Component({
   selector: 'pst-app-root',
   template: '<ion-app><ion-router-outlet/></ion-app>',
-  standalone: true,
   imports: [IonApp, IonRouterOutlet],
 })
 export class AppComponent implements OnInit {

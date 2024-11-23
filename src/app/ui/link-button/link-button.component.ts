@@ -1,5 +1,4 @@
 import { Component, input } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { ButtonModule } from 'primeng/button';
 
@@ -19,8 +18,8 @@ type Severity =
   selector: 'pst-link-button',
   templateUrl: './link-button.component.html',
   styleUrls: ['./link-button.component.scss'],
+  imports: [IonicModule, ButtonModule],
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, IonicModule, ButtonModule],
 })
 export class LinkButtonComponent {
   icon = input<string>();

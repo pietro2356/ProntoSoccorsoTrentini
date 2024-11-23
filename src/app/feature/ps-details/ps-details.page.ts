@@ -1,29 +1,11 @@
 import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {
-  IonBackButton,
-  IonButton,
-  IonButtons,
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardTitle,
-  IonChip,
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonLabel,
-  IonTitle,
-  IonToolbar,
-  ViewWillEnter,
-} from '@ionic/angular/standalone';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { LinkButtonComponent } from '@ui/link-button/link-button.component';
+import { IonBackButton, IonChip, IonContent, IonIcon, IonLabel, ViewWillEnter } from '@ionic/angular/standalone';
+import { ActivatedRoute } from '@angular/router';
 import { StatoPSService } from '@core/services/StatoPS/stato-ps.service';
 import { ProntoSoccorso } from '@core/models/statoProntoSoccorso';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ExtractPSPipe } from '@core/pipe/extract-ps.pipe';
 import { addIcons } from 'ionicons';
 import {
   arrowBack,
@@ -47,28 +29,15 @@ import { TranslatePipe } from '@codeandweb/ngx-translate';
   selector: 'pst-ps-details',
   templateUrl: './ps-details.page.html',
   styleUrls: ['./ps-details.page.scss'],
-  standalone: true,
   imports: [
     IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
     CommonModule,
     FormsModule,
-    LinkButtonComponent,
-    RouterLink,
     IonChip,
     IonIcon,
     IonLabel,
-    ExtractPSPipe,
-    IonCard,
-    IonCardHeader,
-    IonCardTitle,
-    IonCardContent,
     WaitingBoxComponent,
     IonBackButton,
-    IonButton,
-    IonButtons,
     TranslatePipe,
   ],
 })

@@ -5,7 +5,6 @@ import { LinkButtonComponent } from '@ui/link-button/link-button.component';
 
 @Component({
   selector: 'pst-not-found',
-  standalone: true,
   imports: [RouterLink, IonContent, IonHeader, IonTitle, IonToolbar, LinkButtonComponent],
   templateUrl: './not-found-page.component.html',
   styleUrl: './not-found-page.component.css',
