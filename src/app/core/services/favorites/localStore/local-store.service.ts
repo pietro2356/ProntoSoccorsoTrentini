@@ -1,15 +1,12 @@
-import { computed, Injectable, signal } from '@angular/core';
-import { Storage } from '@ionic/storage-angular';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import { CodiceIdPS } from '@core/models/statoProntoSoccorso';
+import { LOCAL_STORAGE } from '@core/token/local-storage.token';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocalStoreService {
-  readonly #storage = new Storage({
-    name: 'ls_favourites_ps',
-    storeName: 'ls_favourites_ps',
-  });
+  readonly #storage = inject(LOCAL_STORAGE);
   readonly #storageCreated = signal<boolean>(false);
   public storageCreated = computed(() => this.#storageCreated());
 

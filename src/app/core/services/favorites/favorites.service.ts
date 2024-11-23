@@ -1,13 +1,13 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
-import { LocalStoreService } from '@core/services/favorites/localStore/local-store.service';
 import { CodiceIdPS } from '@core/models/statoProntoSoccorso';
 import { autoCatchPromiseFn } from '@core/services/errors/functions/autocatchpromise.decorator';
+import { LOCAL_STORAGE_SERVICE } from '@core/token/local-storage-service.token';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FavoritesService {
-  readonly #locStoreService = inject(LocalStoreService);
+  readonly #locStoreService = inject(LOCAL_STORAGE_SERVICE);
   readonly #favorites = signal<CodiceIdPS[]>([]);
   public favorites = computed<CodiceIdPS[]>(() => this.#favorites());
 

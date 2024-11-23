@@ -1,11 +1,11 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { HttpCoreService } from '@core/services/http/http-core.service';
 import { catchError, finalize } from 'rxjs';
-import { environment } from '@env/environment';
 import { CodiceIdPS, ProntoSoccorso, StatoProntoSoccorso } from '@core/models/statoProntoSoccorso';
 import { AppStateService } from '@core/services/appState/app-state.service';
 import { FavoritesService } from '@core/services/favorites/favorites.service';
 import { PSDetail, psDetails } from '@core/data/ps-details';
+import { API_URL } from '@core/token/api-url.token';
 
 /**
  * # StatoPS Service
@@ -22,6 +22,7 @@ export class StatoPSService {
   readonly #httpCore = inject(HttpCoreService);
   readonly #appStateService = inject(AppStateService);
   readonly #favoritesService = inject(FavoritesService);
+  readonly #API_URL = inject(API_URL);
 
   /* ---- SIGNAL INTERNI PER LA GESTIONE DEI PRONTO SOCCORSO ---- */
   /**
@@ -115,7 +116,7 @@ export class StatoPSService {
   public loadStatoPS() {
     this.#appStateService.setLoading();
     this.#httpCore
-      .get<StatoProntoSoccorso>(environment.apiTrentinoAA)
+      .get<StatoProntoSoccorso>(this.#API_URL)
       .pipe(
         catchError(err => {
           this.#appStateService.setError(err.message);

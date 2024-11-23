@@ -1,7 +1,7 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { TranslateService } from '@codeandweb/ngx-translate';
 import { TLang } from '@core/models/TLang';
-import { environment } from '@env/environment';
+import { SUPPORTED_LANGUAGES } from '@core/token/lang-i18n.token';
 
 /**
  * @description Servizio per la gestione dell'internazionalizzazione dell'applicazione
@@ -20,7 +20,7 @@ export class InternationalizationService {
    * @description Signal contenente la lista delle lingue `TLang` supportate dall'applicazione lette dall'environment
    * @private
    */
-  readonly #supportedLanguages = signal<TLang[]>(environment.supportedLanguages);
+  readonly #supportedLanguages = signal<TLang[]>(inject(SUPPORTED_LANGUAGES));
 
   /**
    * @description Signal contenente le bamdere delle lingue supportate dall'applicazione
