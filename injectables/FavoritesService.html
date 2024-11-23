@@ -567,7 +567,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>inject(LocalStoreService)</code>
+                        <i>Default value : </i><code>inject(LOCAL_STORAGE_SERVICE)</code>
                     </td>
                 </tr>
                     <tr>
@@ -612,15 +612,15 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { computed, inject, Injectable, signal } from &#x27;@angular/core&#x27;;
-import { LocalStoreService } from &#x27;@core/services/favorites/localStore/local-store.service&#x27;;
 import { CodiceIdPS } from &#x27;@core/models/statoProntoSoccorso&#x27;;
 import { autoCatchPromiseFn } from &#x27;@core/services/errors/functions/autocatchpromise.decorator&#x27;;
+import { LOCAL_STORAGE_SERVICE } from &#x27;@core/token/local-storage-service.token&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class FavoritesService {
-  readonly #locStoreService &#x3D; inject(LocalStoreService);
+  readonly #locStoreService &#x3D; inject(LOCAL_STORAGE_SERVICE);
   readonly #favorites &#x3D; signal&lt;CodiceIdPS[]&gt;([]);
   public favorites &#x3D; computed&lt;CodiceIdPS[]&gt;(() &#x3D;&gt; this.#favorites());
 

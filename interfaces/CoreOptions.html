@@ -216,6 +216,11 @@ import { FavoritesService } from &#x27;@core/services/favorites/favorites.servic
 import { provideTranslateService, TranslateLoader } from &#x27;@codeandweb/ngx-translate&#x27;;
 import { TranslateHttpLoader } from &#x27;@codeandweb/http-loader&#x27;;
 import { InternationalizationService } from &#x27;@core/services/Internationalization/internationalization.service&#x27;;
+import { environment } from &#x27;@env/environment&#x27;;
+import { API_URL } from &#x27;@core/token/api-url.token&#x27;;
+import { SUPPORTED_LANGUAGES } from &#x27;@core/token/lang-i18n.token&#x27;;
+import { LOCAL_STORAGE } from &#x27;@core/token/local-storage.token&#x27;;
+import { LOCAL_STORAGE_SERVICE } from &#x27;@core/token/local-storage-service.token&#x27;;
 
 export interface CoreOptions {
   routes: Routes;
@@ -248,10 +253,6 @@ export function provideCore({ routes }: CoreOptions) {
         deps: [HttpClient],
       },
     }),
-    {
-      provide: ErrorHandler,
-      useClass: GlobalErrorHandler,
-    },
     provideAppInitializer(() &#x3D;&gt; {
       const favService &#x3D; inject(FavoritesService);
       inject(LocalStoreService)
@@ -261,6 +262,25 @@ export function provideCore({ routes }: CoreOptions) {
     provideAppInitializer(() &#x3D;&gt; {
       inject(InternationalizationService).initCurrentLangFromDefaultLang();
     }),
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler,
+    },
+    {
+      provide: API_URL,
+      useValue: environment.apiTrentinoAA,
+    },
+    {
+      provide: SUPPORTED_LANGUAGES,
+      useValue: environment.supportedLanguages,
+    },
+    {
+      provide: LOCAL_STORAGE,
+    },
+    {
+      provide: LOCAL_STORAGE_SERVICE,
+      useClass: LocalStoreService,
+    },
   ];
 }
 </code></pre>

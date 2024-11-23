@@ -213,7 +213,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -249,8 +249,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="63"
-                                    class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:63</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:60</a></div>
                         </td>
                     </tr>
 
@@ -291,8 +291,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="48"
-                                    class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:48</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -376,8 +376,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="30"
-                                    class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:30</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="27"
+                                    class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -418,8 +418,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="23"
-                                    class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:23</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="20"
+                                    class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -460,8 +460,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="56"
-                                    class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:56</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:53</a></div>
                         </td>
                     </tr>
 
@@ -540,8 +540,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="40"
-                                    class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:40</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -640,10 +640,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new Storage({
-    name: &#x27;ls_favourites_ps&#x27;,
-    storeName: &#x27;ls_favourites_ps&#x27;,
-  })</code>
+                        <i>Default value : </i><code>inject(LOCAL_STORAGE)</code>
                     </td>
                 </tr>
                     <tr>
@@ -675,7 +672,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -701,7 +698,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/core/services/favorites/localStore/local-store.service.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -714,18 +711,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { computed, Injectable, signal } from &#x27;@angular/core&#x27;;
-import { Storage } from &#x27;@ionic/storage-angular&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { computed, inject, Injectable, signal } from &#x27;@angular/core&#x27;;
 import { CodiceIdPS } from &#x27;@core/models/statoProntoSoccorso&#x27;;
+import { LOCAL_STORAGE } from &#x27;@core/token/local-storage.token&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class LocalStoreService {
-  readonly #storage &#x3D; new Storage({
-    name: &#x27;ls_favourites_ps&#x27;,
-    storeName: &#x27;ls_favourites_ps&#x27;,
-  });
+  readonly #storage &#x3D; inject(LOCAL_STORAGE);
   readonly #storageCreated &#x3D; signal&lt;boolean&gt;(false);
   public storageCreated &#x3D; computed(() &#x3D;&gt; this.#storageCreated());
 

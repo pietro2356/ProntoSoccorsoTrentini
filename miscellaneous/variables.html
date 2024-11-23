@@ -112,6 +112,9 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#API_URL" title="src/app/core/token/api-url.token.ts" ><b>API_URL</b>&nbsp;&nbsp;&nbsp;(src/.../api-url.token.ts)</a>
+                        </li>
+                        <li>
                             <a href="#appConfig" title="src/app/app.config.ts" ><b>appConfig</b>&nbsp;&nbsp;&nbsp;(src/.../app.config.ts)</a>
                         </li>
                         <li>
@@ -131,6 +134,12 @@
                         </li>
                         <li>
                             <a href="#loadingInterceptor" title="src/app/core/services/interceptor/loading-interceptor.interceptor.ts" ><b>loadingInterceptor</b>&nbsp;&nbsp;&nbsp;(src/.../loading-interceptor.interceptor.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LOCAL_STORAGE" title="src/app/core/token/local-storage.token.ts" ><b>LOCAL_STORAGE</b>&nbsp;&nbsp;&nbsp;(src/.../local-storage.token.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LOCAL_STORAGE_SERVICE" title="src/app/core/token/local-storage-service.token.ts" ><b>LOCAL_STORAGE_SERVICE</b>&nbsp;&nbsp;&nbsp;(src/.../local-storage-service.token.ts)</a>
                         </li>
                         <li>
                             <a href="#psArco" title="src/app/core/data/ps-details.ts" ><b>psArco</b>&nbsp;&nbsp;&nbsp;(src/.../ps-details.ts)</a>
@@ -177,6 +186,9 @@
                         <li>
                             <a href="#sedeTrento" title="src/app/core/data/ps-details.ts" ><b>sedeTrento</b>&nbsp;&nbsp;&nbsp;(src/.../ps-details.ts)</a>
                         </li>
+                        <li>
+                            <a href="#SUPPORTED_LANGUAGES" title="src/app/core/token/lang-i18n.token.ts" ><b>SUPPORTED_LANGUAGES</b>&nbsp;&nbsp;&nbsp;(src/.../lang-i18n.token.ts)</a>
+                        </li>
                     </ul>
                 </td>
             </tr>
@@ -184,6 +196,29 @@
     </table>
 </section>
 
+    <h3>src/app/core/token/api-url.token.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="API_URL"></a>
+                    <span class="name">
+                        <span ><b>API_URL</b></span>
+                        <a href="#API_URL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;API_URL&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>src/app/app.config.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -949,6 +984,82 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/token/local-storage.token.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LOCAL_STORAGE"></a>
+                    <span class="name">
+                        <span ><b>LOCAL_STORAGE</b></span>
+                        <a href="#LOCAL_STORAGE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;Storage&gt;(&#x27;LOCAL_STORAGE&#x27;, {
+  providedIn: &#x27;root&#x27;,
+  factory: () &#x3D;&gt;
+    new Storage({
+      name: &#x27;ls_favourites_ps&#x27;,
+      storeName: &#x27;ls_favourites_ps&#x27;,
+    }),
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/token/local-storage-service.token.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LOCAL_STORAGE_SERVICE"></a>
+                    <span class="name">
+                        <span ><b>LOCAL_STORAGE_SERVICE</b></span>
+                        <a href="#LOCAL_STORAGE_SERVICE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;LocalStoreService&gt;(&#x27;LOCAL_STORAGE_SERVICE&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/token/lang-i18n.token.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SUPPORTED_LANGUAGES"></a>
+                    <span class="name">
+                        <span ><b>SUPPORTED_LANGUAGES</b></span>
+                        <a href="#SUPPORTED_LANGUAGES"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;TLang[]&gt;(&#x27;SUPPORTED_LANGUAGES&#x27;)</code>
                     </td>
                 </tr>
 

@@ -421,7 +421,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>signal&lt;TLang[]&gt;(environment.supportedLanguages)</code>
+                        <i>Default value : </i><code>signal&lt;TLang[]&gt;(inject(SUPPORTED_LANGUAGES))</code>
                     </td>
                 </tr>
                     <tr>
@@ -524,7 +524,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { computed, inject, Injectable, signal } from &#x27;@angular/core&#x27;;
 import { TranslateService } from &#x27;@codeandweb/ngx-translate&#x27;;
 import { TLang } from &#x27;@core/models/TLang&#x27;;
-import { environment } from &#x27;@env/environment&#x27;;
+import { SUPPORTED_LANGUAGES } from &#x27;@core/token/lang-i18n.token&#x27;;
 
 /**
  * @description Servizio per la gestione dell&#x27;internazionalizzazione dell&#x27;applicazione
@@ -543,7 +543,7 @@ export class InternationalizationService {
    * @description Signal contenente la lista delle lingue &#x60;TLang&#x60; supportate dall&#x27;applicazione lette dall&#x27;environment
    * @private
    */
-  readonly #supportedLanguages &#x3D; signal&lt;TLang[]&gt;(environment.supportedLanguages);
+  readonly #supportedLanguages &#x3D; signal&lt;TLang[]&gt;(inject(SUPPORTED_LANGUAGES));
 
   /**
    * @description Signal contenente le bamdere delle lingue supportate dall&#x27;applicazione
