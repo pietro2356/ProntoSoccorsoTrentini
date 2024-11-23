@@ -1,14 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LocalStoreService } from './local-store.service';
-import { provideHttpClient } from '@angular/common/http';
+import { provideCore } from '@core/core';
+import { routes } from '../../../../app.routes';
 
 describe('LocalStoreService', () => {
   let service: LocalStoreService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient()],
+      providers: [provideCore({ routes })],
     });
     service = TestBed.inject(LocalStoreService);
   });
