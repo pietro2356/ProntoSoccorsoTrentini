@@ -1,7 +1,6 @@
 {
   "git": {
-    "commitMessage": "chore: :bookmark: release v${version}",
-    "changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/main/templates/changelog-compact.hbs"
+    "commitMessage": "chore: :bookmark: release v${version}"
   },
   "hooks": {
     "after:bump": "npx auto-changelog -p"
@@ -11,5 +10,13 @@
   },
   "npm": {
     "publish": false
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": {
+        "name": "angular"
+      },
+      "infile": "CHANGELOG.md"
+    }
   }
 }
