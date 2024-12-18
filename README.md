@@ -26,7 +26,7 @@ Questa app è stata realizzata per consentire un facile accesso al numero di per
 
 Raggiungi l'app da qui: [Pronto Socorso Trentini](https://prontosoccorsotrentini.web.app/)
 
-### What the colors mean
+### Significato del colori
 - **⚪ Bianco**: _Non urgenza:_ problema non urgente o di minima rilevanza clinica.
 - **🟢 Verde**: _Urgenza minore:_ condizione stabile senza rischio evolutivo che solitamente richiede prestazioni diagnostico terapeutiche semplici mono-specialistiche.
 - **🔵 Azzurro**: _Urgenza differibile:_ condizione stabile senza rischio evolutivo con sofferenza e ricaduta sullo stato generale che solitamente richiede prestazioni complesse.
