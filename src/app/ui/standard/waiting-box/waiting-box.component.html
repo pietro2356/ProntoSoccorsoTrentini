@@ -4,5 +4,5 @@
     <div #waitbox__val class="waitbox__container_val">{{waitVal() | minutesToTime}}</div>
   </div>
 } @else {
-  <div #waitbox class="waitbox__value">{{waitVal()}}</div>
+  <div #waitbox class="waitbox__value">{{waitVal() ?? '?'}}</div>
 }
