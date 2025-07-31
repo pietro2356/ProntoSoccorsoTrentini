@@ -60,6 +60,8 @@ export class HomeStatoPSPage implements ViewWillEnter, ViewDidEnter, ViewDidLeav
   isSearchEnabled = signal<boolean>(false);
   ricercaPS = model<string>();
 
+  readonly currentYear = new Date().getFullYear();
+
   ionViewWillEnter(): void {
     this.#statoPSService.loadFavPS();
   }
@@ -95,4 +97,6 @@ export class HomeStatoPSPage implements ViewWillEnter, ViewDidEnter, ViewDidLeav
   changeLang(event: DropdownChangeEvent) {
     this.i18nService.changeLanguageWithFlag(event.value);
   }
+
+  protected readonly Date = Date;
 }
