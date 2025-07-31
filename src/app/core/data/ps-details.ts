@@ -177,3 +177,21 @@ export const psDetails: PSDetail[] = [
   psTrentoOculistico,
   psNoData,
 ] as const;
+
+export const codPSLoc = new Map<string, string>([
+  ['005-PS-PS', 'Cles'],
+  ['014-PS-PS', 'Cavalese'],
+  ['004-PS-PS', 'Borgo Valsugana'],
+  ['010-PS-PS', 'Arco'],
+  ['007-PS-PS', 'Tione'],
+  ['006-PS-PS', 'Rovereto'],
+  ['001-PS-PS', 'Trento'],
+  ['001-PS-PSP', 'Trento'],
+  ['001-PS-PSO', 'Trento'],
+  ['001-PS-PSG', 'Trento'],
+  ['001-PS-PSC', 'Trento'],
+]);
+
+export function getPSLocalitaBycodPsOd(codPsOd: string): string {
+  return codPSLoc.get(codPsOd) || 'Nessuna località disponibile';
+}

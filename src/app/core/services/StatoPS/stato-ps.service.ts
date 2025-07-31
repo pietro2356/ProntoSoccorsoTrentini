@@ -1,10 +1,10 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { HttpCoreService } from '@core/services/http/http-core.service';
-import { catchError, finalize } from 'rxjs';
+import { catchError, finalize, map } from 'rxjs';
 import { CodiceIdPS, ProntoSoccorso, StatoProntoSoccorso } from '@core/models/statoProntoSoccorso';
 import { AppStateService } from '@core/services/appState/app-state.service';
 import { FavoritesService } from '@core/services/favorites/favorites.service';
-import { PSDetail, psDetails } from '@core/data/ps-details';
+import { getPSLocalitaBycodPsOd, PSDetail, psDetails } from '@core/data/ps-details';
 import { API_URL } from '@core/token/api-url.token';
 
 /**
@@ -121,6 +121,10 @@ export class StatoPSService {
         catchError(err => {
           this.#appStateService.setError(err.message);
           throw err;
+        }),
+        map((data: StatoProntoSoccorso) => {
+          data.prontoSoccorso.map(ps => (ps.localita = getPSLocalitaBycodPsOd(ps.codPsOd)));
+          return data;
         }),
         finalize(() => {
           this.#appStateService.setReady();

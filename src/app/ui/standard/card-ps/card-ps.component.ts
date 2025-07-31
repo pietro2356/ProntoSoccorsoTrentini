@@ -17,6 +17,7 @@ import { star, starOutline } from 'ionicons/icons';
 import { Router } from '@angular/router';
 import { FavoriteUtils } from '@core/services/favorites/favoriteUtils.class';
 import { TranslatePipe } from '@codeandweb/ngx-translate';
+import { getPSLocalitaBycodPsOd } from '@core/data/ps-details';
 
 @Component({
   selector: 'pst-card-ps',
@@ -54,4 +55,6 @@ export class CardPSComponent {
     });
     event.preventDefault();
   }
+
+  protected readonly getPSLocalitaBycodPsOd = getPSLocalitaBycodPsOd;
 }
