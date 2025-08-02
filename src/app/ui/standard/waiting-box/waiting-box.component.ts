@@ -19,4 +19,6 @@ export class WaitingBoxComponent implements AfterViewChecked {
   ngAfterViewChecked() {
     this.waitBox().nativeElement.style.setProperty('background-color', getHexColor(this.color()));
   }
+
+  protected readonly isNaN = isNaN;
 }

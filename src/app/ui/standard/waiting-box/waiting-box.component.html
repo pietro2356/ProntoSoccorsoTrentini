@@ -4,5 +4,6 @@
     <div #waitbox__val class="waitbox__container_val">{{waitVal() | minutesToTime}}</div>
   </div>
 } @else {
-  <div #waitbox class="waitbox__value">{{waitVal() ?? '?'}}</div>
+  @let num = isNaN(waitVal()) ? '?' : waitVal();
+  <div #waitbox class="waitbox__value">{{num}}</div>
 }
