@@ -24,6 +24,9 @@ import { API_URL } from '@core/token/api-url.token';
 import { SUPPORTED_LANGUAGES } from '@core/token/lang-i18n.token';
 import { LOCAL_STORAGE } from '@core/token/local-storage.token';
 import { LOCAL_STORAGE_SERVICE } from '@core/token/local-storage-service.token';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+import Lara from '@primeng/themes/lara';
 
 export interface CoreOptions {
   routes: Routes;
@@ -48,6 +51,12 @@ export function provideCore({ routes }: CoreOptions) {
       })
     ),
     provideAnimations(),
+    provideAnimationsAsync(),
+    providePrimeNG({
+      theme: {
+        preset: Lara,
+      },
+    }),
     provideTranslateService({
       defaultLanguage: 'en',
       loader: {
