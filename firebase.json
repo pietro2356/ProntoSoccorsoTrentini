@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "ProntoSoccorsoTrentini/www",
+    "public": "www/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
