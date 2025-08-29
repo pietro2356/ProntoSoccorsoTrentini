@@ -22,6 +22,7 @@ import { LinkButtonComponent } from '@ui/link-button/link-button.component';
 import { FavoritesService } from '@core/services/favorites/favorites.service';
 import { TranslatePipe } from '@codeandweb/ngx-translate';
 import { InternationalizationService } from '@core/services/Internationalization/internationalization.service';
+import { Select } from 'primeng/select';
 
 @Component({
   selector: 'pst-home-statops',
@@ -40,6 +41,7 @@ import { InternationalizationService } from '@core/services/Internationalization
     RouterLink,
     FormsModule,
     DropdownModule,
+    Select,
     LinkButtonComponent,
     TranslatePipe,
   ],

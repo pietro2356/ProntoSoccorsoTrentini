@@ -55,6 +55,9 @@ export function provideCore({ routes }: CoreOptions) {
     providePrimeNG({
       theme: {
         preset: Lara,
+        options: {
+          darkModeSelector: false,
+        },
       },
     }),
     provideTranslateService({

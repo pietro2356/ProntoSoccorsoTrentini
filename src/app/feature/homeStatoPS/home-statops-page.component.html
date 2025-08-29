@@ -26,7 +26,7 @@
       />
 
       @if(isSearchEnabled()){
-        <p-dropdown
+        <p-select
           [options]="listaLocalita()"
           [(ngModel)]="ricercaPS"
           [checkmark]="true"
@@ -36,7 +36,7 @@
           placeholder="{{ 'homeStatoPS.button.select_loc' | translate }}"
         />
       }
-      <p-dropdown
+      <p-select
         [options]="i18nService.availLangFlag()"
         [(ngModel)]="selectedLang"
         (onChange)="changeLang($event)"
