@@ -9,15 +9,16 @@ import {
   IonCardHeader,
   IonCardSubtitle,
   IonCardTitle,
+  IonChip,
   IonIcon,
+  IonLabel,
 } from '@ionic/angular/standalone';
 import { FavoritesService } from '@core/services/favorites/favorites.service';
 import { addIcons } from 'ionicons';
-import { star, starOutline } from 'ionicons/icons';
+import { star, starOutline, alertCircleOutline } from 'ionicons/icons';
 import { Router } from '@angular/router';
 import { FavoriteUtils } from '@core/services/favorites/favoriteUtils.class';
 import { TranslatePipe } from '@codeandweb/ngx-translate';
-import { getPSLocalitaBycodPsOd } from '@core/data/ps-details';
 
 @Component({
   selector: 'pst-card-ps',
@@ -35,6 +36,8 @@ import { getPSLocalitaBycodPsOd } from '@core/data/ps-details';
     IonCardSubtitle,
     IonIcon,
     TranslatePipe,
+    IonChip,
+    IonLabel,
   ],
 })
 export class CardPSComponent {
@@ -45,7 +48,7 @@ export class CardPSComponent {
   prontoSoccorso = model.required<ProntoSoccorso>();
 
   constructor() {
-    addIcons({ star, starOutline });
+    addIcons({ star, starOutline, alertCircleOutline });
   }
 
   redirectToDetails(event: Event) {
@@ -55,6 +58,4 @@ export class CardPSComponent {
     });
     event.preventDefault();
   }
-
-  protected readonly getPSLocalitaBycodPsOd = getPSLocalitaBycodPsOd;
 }
