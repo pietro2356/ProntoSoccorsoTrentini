@@ -13,6 +13,7 @@ describe(CardPSComponent.name, () => {
     ps: 'Ospedale di Cles - Pronto Soccorso',
     unitaOperativa: 'Servizio di Pronto Soccorso',
     localita: 'CLES',
+    accuratezzaDati: 'OK',
     attesa: {
       bianco: 0,
       verde: 3,
