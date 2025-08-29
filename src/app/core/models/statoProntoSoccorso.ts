@@ -53,6 +53,7 @@ export type ProntoSoccorso = {
   direttore: string;
   messaggio: string;
   dettagli: PSDetail;
+  accuratezzaDati: 'OK' | 'KO';
 };
 
 export type StatoProntoSoccorso = {

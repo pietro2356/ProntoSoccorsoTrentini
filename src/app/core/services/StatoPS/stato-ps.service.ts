@@ -124,6 +124,7 @@ export class StatoPSService {
         }),
         map((data: StatoProntoSoccorso) => {
           data.prontoSoccorso.map(ps => (ps.localita = getPSLocalitaBycodPsOd(ps.codPsOd)));
+          data.prontoSoccorso.map(ps => (ps.accuratezzaDati = this.validaDati(ps) ? 'OK' : 'KO'));
           return data;
         }),
         finalize(() => {
@@ -131,11 +132,37 @@ export class StatoPSService {
         })
       )
       .subscribe((data: StatoProntoSoccorso) => {
+        data.prontoSoccorso.map(ps => this.validaDati(ps));
         this.#prontoSoccorso.set(data.prontoSoccorso);
         this.#dataAggiornamento.set(data.dataAggiornamento);
         this.loadFavPS();
         this.updatePSInfo();
       });
+  }
+
+  /**
+   * Valida i dati di un pronto soccorso verificando che tutti i campi numerici siano effettivamente numerici
+   * @param ps ProntoSoccorso da validare
+   * @private
+   */
+  private validaDati(ps: ProntoSoccorso): boolean {
+    const tipologiaStanze = ['attesa', 'ambulatorio', 'osservazione', 'attesaMedia'] as const;
+
+    for (const s of tipologiaStanze) {
+      // Deriva il tipo della stanza in base alla chiave
+      const stanza = ps[s];
+      if (typeof stanza === 'object' && stanza !== null) {
+        for (const key in stanza) {
+          if (Object.prototype.hasOwnProperty.call(stanza, key)) {
+            const valore = stanza[key as keyof typeof stanza];
+            if (isNaN(valore)) {
+              return false;
+            }
+          }
+        }
+      }
+    }
+    return true;
   }
 
   /**
