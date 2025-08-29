@@ -19,6 +19,7 @@ import {
   navigate,
   star,
   starOutline,
+  alertCircleOutline,
 } from 'ionicons/icons';
 import { WaitingBoxComponent } from '@ui/standard/waiting-box/waiting-box.component';
 import { FavoritesService } from '@core/services/favorites/favorites.service';
@@ -53,7 +54,20 @@ export class PsDetailsPage implements ViewWillEnter {
   });
 
   constructor() {
-    addIcons({ location, medical, navigate, call, globe, mail, at, arrowBack, star, starOutline, arrowBackOutline });
+    addIcons({
+      location,
+      medical,
+      navigate,
+      call,
+      globe,
+      mail,
+      at,
+      arrowBack,
+      star,
+      starOutline,
+      arrowBackOutline,
+      alertCircleOutline,
+    });
   }
 
   ionViewWillEnter(): void {
