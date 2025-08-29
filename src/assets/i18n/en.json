@@ -16,7 +16,8 @@
       "ps_oculistic": "Ophthalmology Emergency Room"
     },
     "last_update": "Last update",
-    "last_update_not": "Last update not available"
+    "last_update_not": "Last update not available",
+    "invalid_data": "Invalid data"
   },
   "psDetails": {
     "label": {
