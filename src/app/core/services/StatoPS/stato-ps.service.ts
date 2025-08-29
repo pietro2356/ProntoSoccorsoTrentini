@@ -146,11 +146,19 @@ export class StatoPSService {
    * @private
    */
   private validaDati(ps: ProntoSoccorso): boolean {
-    const tipologiaStanze = ['attesa', 'ambulatorio', 'osservazione', 'attesaMedia'];
+    const tipologiaStanze = ['attesa', 'ambulatorio', 'osservazione', 'attesaMedia'] as const;
+
     for (const s of tipologiaStanze) {
-      for (const key of Object.keys(ps[s as keyof ProntoSoccorso] as object)) {
-        if (isNaN((ps[s as keyof ProntoSoccorso] as keyof typeof ps)[key])) {
-          return false;
+      // Deriva il tipo della stanza in base alla chiave
+      const stanza = ps[s];
+      if (typeof stanza === 'object' && stanza !== null) {
+        for (const key in stanza) {
+          if (Object.prototype.hasOwnProperty.call(stanza, key)) {
+            const valore = stanza[key as keyof typeof stanza];
+            if (isNaN(valore)) {
+              return false;
+            }
+          }
         }
       }
     }
