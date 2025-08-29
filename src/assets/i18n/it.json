@@ -16,7 +16,8 @@
       "ps_oculistic": "Pronto Soccorso Oculistico"
     },
     "last_update": "Ultimo aggiornamento",
-    "last_update_not": "Ultimo aggiornamento non disponibile"
+    "last_update_not": "Ultimo aggiornamento non disponibile",
+    "invalid_data": "Dati non accurati"
   },
   "psDetails": {
     "label": {

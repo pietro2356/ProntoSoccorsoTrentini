@@ -16,7 +16,8 @@
       "ps_oculistic": "Augenärztliche Notaufnahme"
     },
     "last_update": "Letzte Aktualisierung",
-    "last_update_not": "Letzte Aktualisierung nicht verfügbar"
+    "last_update_not": "Letzte Aktualisierung nicht verfügbar",
+    "invalid_data": "Ungültige Daten"
   },
   "psDetails": {
     "label": {
